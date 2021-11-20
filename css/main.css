@@ -141,10 +141,56 @@
 .navbar-light .navbar-toggler-icon {
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%2833, 37, 31, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
+
+/* fin navbar */
+
+/* header */
+
+.enunciado {
+    margin-top: 25vh;
+    font-size: var(--fontSizeTitulo);
+    text-align: center;
+}
+
+.pass-span {
+    padding: 0 5px;
+    font-size: var(--fontSizeTitulo);
+    background: linear-gradient(
+      to bottom,
+      transparent 50%,
+      var(--amarilloBase) 50%
+    );
+    font-weight: 700;
+    font-style: italic;
+    transition: 1s;
+  }
+  .pass-span:hover {
+    background: linear-gradient(to bottom, transparent 50%, var(--verdeBase) 50%);
+  }
+
+  .boton-destinos {
+    margin-top: 2rem;
+    font-weight: 700;
+    font-size: 1.25rem;
+    background-color: var(--amarilloBase);
+    color: var(--verdeBase);
+    border: none;
+    height: 2.5rem;
+    width: 7rem;
+    border-radius: var(--redondeado2);
+    box-shadow: 3px 5px 0px 1.5px var(--verdeBase);
+    transition: all 0.8s;
+  }
+  .boton-destinos:hover {
+    color: var(--amarilloBase);
+    background-color: var(--verdeBase);
+    box-shadow: 3px 5px 0px 1.5px var(--amarilloBase);
+    height: 2.7rem;
+    transform: translateY(2px);
+  }
+
+/* fin Header */
    
-   
-   
-  
   section {
     height: 100vh;
     scroll-snap-align: start;
