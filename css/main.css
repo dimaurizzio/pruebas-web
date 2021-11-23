@@ -24,9 +24,13 @@
     --redondeado2: 0.5rem;
     --border-radius-size: 14px;
   }
+  .container-fluid {
+    padding: 0;
+  }
 .contenedor {
     padding: 0;
-    scroll-snap-type: y mandatory;
+    margin: 0;
+    scroll-snap-type: y proximity;
     overflow-y: scroll;
     height: 100vh;
   }
@@ -190,12 +194,13 @@
   }
 
 /* fin Header */
-   
+  
+/* zonas scroll snap */
   section {
     height: 100vh;
     scroll-snap-align: start;
   }
-  
+  /*  fin zonas scroll snap */
   .header {
    
   }
