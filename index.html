@@ -18,6 +18,8 @@
     <!-- Css -->
     <link rel="stylesheet" href="css\main.css" />
 
+    <!-- Required Core Stylesheet -->
+<link rel="stylesheet" href="node_modules/@glidejs/glide/dist/css/glide.core.min.css">
     <!-- Js Bootstrap -->
 
     <script
@@ -26,6 +28,9 @@
       integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
       crossorigin="anonymous"
     ></script>
+
+    <!-- Glide js-->
+
 
   </head>
   
@@ -72,30 +77,54 @@
           <div class="container-md">
 
           <div class="row justify-content-center">
-              <div class="col-10 enunciado ">
-                    <h1>
+              <div class="col-10 enunciado">
+                    <h1 >
                       Planeá tus salidas con <span class="pass-span">PASS</span>
                     </h1>
-                    <a class="btn boton-destinos">destinos</a>
+                    <a class="btn boton-destinos" href="#Destinos">destinos</a>
+                    <div class="shrek-img">
+                      <img  class="img" src="img\shrek-bg.png" >
+                    </div>
               </div>
-              
-          </div>
-          
+          </div>   
         </div>
           
         </div>
       </section>
 
       <section class="catalogo">
+        <div class="container-fluid">
+          <div class="row justify-content-center">
+            <div class="col-10 titulo">
+            <h2 id="Destinos" >
+              nuestros <span class="pass-span">destinos</span>
+            </h2>
+            </div>
+          </div>
+        </div>
       </section>
 
       <section class="lista">
-        <p>hola</p>
+        <div class="container-fluid">
+          <div class="row justify-content-center">
+            <div class="col-10 titulo">
+            <h3>
+              en muy <b>muy lejano</b>...
+            </h3>
+            <h4 class="subtitulo">Tenemos destinos personalizados para tí</h4>
+            <a class="btn boton-quiero">Quiero!</a>
+          </div>
+        </div>
+        </div>
       </section>
-    
-
+      
+      
     </div>
-    <footer></footer>
+    <footer>
+      <div class="container-fluid">
+        <div class="footer"></div>
+      </div>
+    </footer>
   </div>
   </body>
 </html>
