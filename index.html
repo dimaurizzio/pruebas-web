@@ -18,8 +18,6 @@
     <!-- Css -->
     <link rel="stylesheet" href="css\main.css" />
 
-    <!-- Required Core Stylesheet -->
-<link rel="stylesheet" href="node_modules/@glidejs/glide/dist/css/glide.core.min.css">
     <!-- Js Bootstrap -->
 
     <script
@@ -29,9 +27,6 @@
       crossorigin="anonymous"
     ></script>
 
-    <!-- Glide js-->
-
-
   </head>
   
   <body>
@@ -39,7 +34,7 @@
 
     <div class="contenedor">
       <section class="header">
-          <div class="container">
+          <div class="container viewport">
         <nav class="navbar navbar-expand-lg navbar-light ">
             <div class="container-fluid">
               <a class="logo" href="#">muy lejano <span class="logo-span" >PASS</span> </a>
@@ -48,7 +43,7 @@
                 <span class="navbar-toggler-icon">
                 </span>
               </button>
-              <div class="collapse navbar-collapse" id="navbarScroll">
+                    <div class="collapse navbar-collapse" id="navbarScroll">
                 <ul class="navbar-nav ms-auto my-5 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 200px;">
                   <li class="nav-item">
                     <a class=" iniciar-sesion" aria-current="page" href="#">Iniciar Sesion</a>
@@ -76,20 +71,20 @@
           <!-- titular y bg -->
           <div class="container-md">
 
-          <div class="row justify-content-center">
-              <div class="col-10 enunciado">
-                    <h1 >
-                      Planeá tus salidas con <span class="pass-span">PASS</span>
-                    </h1>
-                    <a class="btn boton-destinos" href="#Destinos">destinos</a>
-                    <div class="shrek-img">
-                      <img  class="img" src="img\shrek-bg.png" >
-                    </div>
-              </div>
-          </div>   
+          <div class="row justify-content-center viewport-no-nav">
+            <div class="col-10 enunciado viewport-no-nav">
+              <h1 >
+                Planeá tus salidas con <span class="pass-span">PASS</span>
+              </h1>
+              <a class="btn boton-destinos" href="#Destinos">destinos</a>
+          </div>
+          <div class="shrek-img">
+            <img  class="img" src="img\shrek-bg.png" >
+          </div>
+        </div>   
         </div>
           
-        </div>
+        
       </section>
 
       <section class="catalogo">
@@ -117,14 +112,8 @@
         </div>
         </div>
       </section>
-      
-      
     </div>
-    <footer>
-      <div class="container-fluid">
-        <div class="footer"></div>
-      </div>
-    </footer>
+    <footer></footer>
   </div>
   </body>
 </html>
