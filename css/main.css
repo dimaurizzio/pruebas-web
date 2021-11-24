@@ -214,7 +214,10 @@ transform: translateX(-50%);
 /* fin Header */
 
 /* catalogo */
-
+.nuestros-destinos {
+  justify-content: center;
+  height: 15vh;
+}
 .titulo {
   text-align: center;
   font-size: calc(1.375rem + 1.5vw);
@@ -231,6 +234,98 @@ transform: translateX(-50%);
     font-size: 1.3rem;
   }
 }
+.glider-contenedor {
+  display: flex;
+  align-items: center;
+  margin-top: 2em;
+  height: 60vh;
+
+}
+
+/* carta */ 
+
+.card-contenedor {
+  position: relative;
+  height: 18em;
+  width: 12em;
+  background-color: white;
+  border-radius: 30px;
+  border: 1px solid grey;
+  box-shadow: 5px 5px 0px 0px rgba(0, 0, 0, 1);
+}
+.img-contenedor {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  top: -2em;
+  height: 12.5em;
+  width: 12em;
+}
+.titulo-contenedor {
+  display: flex;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  top: 10.5em;
+  height: 1.7em;
+  width: 12em;
+}
+.titulo-carta {
+  
+  font-size: 1.1em;
+  font-weight: 700;
+  text-transform: uppercase;
+  align-items: center;
+}
+
+.valores-contenedor {
+  display: flex;
+  position: absolute;
+  align-items: center;
+  top: 12em;
+  height: 3em;
+  width: 12em;
+}
+.valor-i {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 1em;
+  background-color: black;
+  height: 2.5em;
+  width: 2.5em;
+  margin: 0.1em;
+  padding: 0.4em;
+  border-radius: 50%;
+  color: white;
+}
+.valor {
+  position: absolute;
+  left: 4em;
+  font-size: 1.2em;
+  font-weight: 700;
+}
+#tiempo {
+  top: 14.7em;
+}
+.categoria-i {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 10.5em;
+  top: 16em;
+  background-color: red;
+  height: 2.5em;
+  width: 2.5em;
+  margin: 0.1em;
+  padding: 0.4em;
+  border-radius: 50%;
+  color: white;
+}
+
+/* fin carta */
 /* fin catalogo */
 
 /* lista */
