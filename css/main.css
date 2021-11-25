@@ -379,8 +379,16 @@ height: 100vh;
   .lista {
     background-color: white;
   }
- 
-  
-
-
- 
+ .itinerario{
+   margin: 10vw;
+   width: 80vw;
+ }
+ .itinerario h3{
+   text-align: center;
+ }
+ .accordion-item{
+   color:var(--amarilloBase);
+ }
+.itinerario :nth-child(even){
+  background-color: var(--verdeBase);
+}
