@@ -207,14 +207,12 @@ height: 15em;
 transform: translateX(-50%);
   }
 
-  
-  
 
 
 /* fin Header */
 
 /* catalogo */
-.nuestros-destinos {
+.titular {
   justify-content: center;
   height: 15vh;
 }
@@ -250,15 +248,15 @@ transform: translateX(-50%);
   width: 12em;
   background-color: white;
   border-radius: 30px;
-  border: 1px solid grey;
-  box-shadow: 5px 5px 0px 0px rgba(0, 0, 0, 1);
+  border: 2px solid var(--amarilloBase);
+  box-shadow: 5px 5px 0px 0px rgba(3, 203, 175, 1);
 }
 .img-contenedor {
   display: flex;
   justify-content: center;
   position: absolute;
   top: -2em;
-  height: 12.5em;
+  height: 12em;
   width: 12em;
 }
 .titulo-contenedor {
@@ -292,13 +290,15 @@ transform: translateX(-50%);
   align-items: center;
   position: absolute;
   left: 1em;
-  background-color: black;
   height: 2.5em;
   width: 2.5em;
   margin: 0.1em;
-  padding: 0.4em;
-  border-radius: 50%;
-  color: white;
+}
+.coin {
+  height: 2em;
+}
+.clock {
+  height: 2em;
 }
 .valor {
   position: absolute;
@@ -316,16 +316,28 @@ transform: translateX(-50%);
   position: absolute;
   left: 10.5em;
   top: 16em;
-  background-color: red;
   height: 2.5em;
   width: 2.5em;
   margin: 0.1em;
-  padding: 0.4em;
-  border-radius: 50%;
-  color: white;
 }
 
+
 /* fin carta */
+
+.summer {
+  padding: 0 5px;
+    font-size: calc(1.375rem + 1.5vw);
+    font-weight: 700;
+    font-style: italic;
+    transition: 1s;
+    color: var(--negroBase);
+   
+  }
+
+  .summer-img {
+    height: 1.5em; 
+    padding-right: 0.5em;
+  }
 /* fin catalogo */
 
 /* lista */
@@ -350,7 +362,34 @@ transform: translateX(-50%);
   box-shadow: 0px 5px 0px 1.5px var(--verdeBase);
   transform: translateY(2px);
 }
+.tabla-contenedor {
+  margin-top: 8em;
+  height: 55vh;
+  overflow-y: scroll;
+}
+.politicas {
+  font-size: 0.8em ;
+  margin-bottom: 0;
+  margin-top: 1.5em;
+}
 
+.boton-quiero-tabla {
+  font-weight: 700;
+  font-size: 1em;
+  padding:0;
+  
+  color: var(--verdeBase);
+  border: 2px solid var(--verdeBase);
+  height: 2rem;
+  width: 5rem;
+  border-radius: var(--redondeado2);
+  transition: all 0.8s;
+  z-index: 100;
+}
+.boton-quiero-tabla:hover {
+  color: var(--verdeBase);
+  transform: translateY(2px);
+}
 /* fin lista */
 
 /* footer */
