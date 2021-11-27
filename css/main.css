@@ -513,15 +513,20 @@ section {
   background-color: white;
 }
 .itinerario {
-  margin: 10vw;
+  margin: 5vw;
   width: 80vw;
-}
-.itinerario h3 {
-  text-align: center;
 }
 .accordion-item {
   color: var(--amarilloBase);
-}
-.itinerario :nth-child(even) {
   background-color: var(--verdeBase);
+}
+.accordion-button {
+  display: block;
+}
+.accordion-body {
+  font-size: calc(0.5vw + 0.5em);
+  text-align: center;
+}
+.accordion-data div{
+  text-align: center;
 }
