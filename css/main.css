@@ -488,35 +488,39 @@ transform: scale(1.1);
 }
 .info {
   
-  background: #09c999;
+  background: rgb(255, 94, 94);
   padding: 1em;
   border-radius: 10px;
   width: 14em;
-  clip-path: circle(10% at 88.2% 22%);
+  clip-path: circle(10% at 88.2% 18%);
   transition: all 0.5s ease-in-out;
   cursor: pointer;
 }
 .info:hover {
   clip-path: circle(75%);
-  background: #00b6ff;
+  background:var(--amarilloBase);
 }
 /*hooa */
-.info h1 {
-  color: white;
+.info .h1 {
+  color: rgb(255, 94, 94);
   margin: 0;
+  font-size: 1.5em;
+
 }
 .info p {
-  color: white;
-  font-size: 0.8rem;
+  margin-top: 0.1em;
+  color: rgb(255, 94, 94);
+  font-size: .9rem;
+  font-weight: 600;
 }
 .info span {
   float: right;
-  color: white;
+  color: var(--amarilloBase);
   font-weight: bold;
   transition: color 0.5s;
   position: relative;
   margin-right: 4%;
-  margin-top: 2%;
+  margin-top: 1%;
 }
 .inner:hover span {
   color: rgba(255, 255, 255, 0);
