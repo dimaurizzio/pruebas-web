@@ -499,11 +499,23 @@ section {
 }
 /*  fin zonas scroll snap */
 .header {
-  background-color: white !important;
+  background-color: white ;
   position: relative;
   top: 0;
   width: 100%;
+  z-index: 3000;
+  clip-path: polygon(0 0, 100% 0, 100% 94%, 0% 100%);
+}
+
+.clip-verde {
+  background-color: var(--verdeBase);
+  clip-path: polygon(0 0%, 100% 0, 100% 94%, 0% 100%);
   z-index: 2000;
+}
+.contenedor .clip-verde {
+  top: -6%;
+  position: relative;
+  height: 10vh;
 }
 
 .catalogo {

@@ -1,7 +1,10 @@
+// loader
+
 $(window).on("load", () => {
   $(".loader-wrapper").fadeOut("slow");
 });
 
+// glider 
 
 window.addEventListener('load', function(){
     new Glider(document.querySelector('.glider'), {
@@ -38,3 +41,7 @@ window.addEventListener('load', function(){
           ]
       });
   });
+
+  // scroll AOS
+
+  AOS.init();

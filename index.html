@@ -1,13 +1,10 @@
 <!--
 Cosas por hacer:
-
--smooth scroll hacia id's -- hecho !
 -hundir boton al presionarse
 -boton scroll to top
 -info clip path
 -billetera clip path
 -clip path bubble con info de politicas de ofertas
-
 -->
 
 
@@ -40,6 +37,14 @@ Cosas por hacer:
   <!-- Glider Css-->
 
   <link rel="stylesheet" type="text/css" href="css\GlideCss\glider.css" />
+
+  <!-- AOS scroll  -->
+
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <!-- AOS scroll Js-->
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
   <!-- Glider Js-->
 
@@ -121,20 +126,20 @@ Cosas por hacer:
           <!-- titular y bg -->
           <div class="container">
             <div class="row justify-content-center viewport-no-nav">
-              <div class="col-10 enunciado">
-                <h1>
+              <div  class="col-10 enunciado">
+                <h1 data-aos="fade-up" data-aos-duration="2000" >
                   Planeá tus salidas con <span class="pass-span">PASS</span>
                 </h1>
-                <a class="btn boton-destinos" href="#Destinos">destinos</a>
+                <a data-aos="fade-down" data-aos-duration="1000" class="btn boton-destinos" href="#Destinos">destinos</a>
               </div>
-              <div class="shrek-img">
+              <div class="shrek-img" data-aos="fade-up" data-aos-duration="1500">
                 <img class="img" src="img\shrek-bg.png" />
               </div>
             </div>
           </div>
         </div>
       </section>
-
+      <div class="clip-verde"></div>
       <section class="catalogo" id="Destinos">
         <div class="container viewport">
           <div class="row titular">
@@ -529,8 +534,7 @@ Cosas por hacer:
           </div>
           <article>
             <p class="politicas">
-              *Promociones validas del 25/08 al 30/12 de 2021.<br />
-              Cupos limitados, SOLO CON RESERVA, comunicarse al 0800-000-000
+              *Promociones validas del 25/08 al 30/12 de 2021.  Cupos limitados, SOLO CON RESERVA, comunicarse al 0800-000-000
               lunes a sábados de 8hs a 20hs.
             </p>
           </article>
