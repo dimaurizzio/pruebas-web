@@ -457,6 +457,7 @@ transform: scale(1.1);
   height: 55vh;
   overflow-y: scroll;
 }
+
 .politicas {
   font-size: 0.8em;
   margin-bottom: 0;
@@ -480,6 +481,46 @@ transform: scale(1.1);
   color: var(--verdeBase);
   transform: translateY(2px);
 }
+.info-container {
+  width: 100%;
+  display: flex;
+  justify-content: right;
+}
+.info {
+  
+  background: #09c999;
+  padding: 1em;
+  border-radius: 10px;
+  width: 14em;
+  clip-path: circle(10% at 88.2% 22%);
+  transition: all 0.5s ease-in-out;
+  cursor: pointer;
+}
+.info:hover {
+  clip-path: circle(75%);
+  background: #00b6ff;
+}
+.info h1 {
+  color: white;
+  margin: 0;
+}
+.info p {
+  color: white;
+  font-size: 0.8rem;
+}
+.info span {
+  float: right;
+  color: white;
+  font-weight: bold;
+  transition: color 0.5s;
+  position: relative;
+  margin-right: 4%;
+  margin-top: 2%;
+}
+.inner:hover span {
+  color: rgba(255, 255, 255, 0);
+}
+
 /* fin lista */
 
 /* footer */
