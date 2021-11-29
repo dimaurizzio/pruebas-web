@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="es">
   <head>
@@ -67,7 +69,7 @@
                       Más
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                      <li><a class="dropdown-item" href="itinerario.html">Itinerario</a></li>
+                      <li><a class="dropdown-item" href="itinerario.jsp">Itinerario</a></li>
                       <li><a class="dropdown-item" href="#">algo</a></li>
                       <li><hr class="dropdown-divider"></li>
                       <li><a class="dropdown-item disabled" href="#">Alta y baja</a></li>
