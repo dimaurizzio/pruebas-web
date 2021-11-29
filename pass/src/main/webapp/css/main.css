@@ -25,6 +25,24 @@
   --redondeado2: 0.5rem;
   --border-radius-size: 14px;
 }
+.cursor {
+    width: 20px;
+    height: 20px;
+    border: 1px solid var(--verdeBase);
+    border-radius: 50%;
+    position: absolute;
+    background:var(--verdeBase);
+    transition-timing-function: ease-out;
+    pointer-events: none;
+    z-index: 10000;
+    mix-blend-mode: hard-light;
+    
+}
+.c-oculto {
+	opacity: 0;
+}
+
+
 .container-fluid {
   padding: 0;
 }
@@ -162,7 +180,7 @@ transform: scale(1.1);
   background-color: var(--verdeBase);
   width: 85%;
 }
-.nav-a:hover {
+.nav-a:hover ~ .cursor{
   color: var(--negroBase);
   transform: translateY(2px);
 }
