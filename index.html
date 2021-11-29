@@ -74,6 +74,36 @@ Cosas por hacer:
     <span class="loader"><span class="loader-inner"></span></span>
   </div>
 
+   <div class="modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog  modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <p class="modal-title pe-1" id="exampleModalLabel">Hola Visitante! </p><span><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+            <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+          </svg></span>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="ps-3 pe-3 mb-4">
+              <label for="exampleInputEmail1" class="form-label">Usuario</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+              <div id="emailHelp" class="form-text">ejemplo: LeonardoLinux</div>
+            </div>
+            <div class="ps-3 pe-3 mb-1">
+              <label for="exampleInputPassword1" class="form-label">Contraseña</label>
+              <input type="password" class="form-control" id="exampleInputPassword1">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer pe-4">
+          <button type="button" class="btn boton-iniciarS">Iniciar Sesión</button>
+        </div>
+      </div>
+    </div>
+  </div> 
+
+
   <div class="container-fluid">
     <a href="#home" class="scroll-to-top">
       <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16">
@@ -97,7 +127,9 @@ Cosas por hacer:
               <div class="collapse navbar-collapse" id="navbarScroll">
                 <ul class="navbar-nav ms-auto my-5 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 200px">
                   <li class="nav-item">
-                    <a class="iniciar-sesion" aria-current="page" href="#">Iniciar Sesion</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="iniciar-sesion" aria-current="page" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">Iniciar Sesion</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link nav-a" href="#">Nosotros</a>
@@ -455,7 +487,7 @@ Cosas por hacer:
               <h4 class="subtitulo">
                 Tenemos destinos personalizados para tí
               </h4>
-              <a class="btn boton-quiero">Quiero!</a>
+              <a class="btn boton-quiero" data-bs-toggle="modal" data-bs-target="#exampleModal">Quiero!</a>
             </div>
             <div class="info-container">
               <div class="info">
