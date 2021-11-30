@@ -25,24 +25,23 @@
   --redondeado2: 0.5rem;
   --border-radius-size: 14px;
 }
+
 .cursor {
-    width: 20px;
-    height: 20px;
-    border: 1px solid var(--verdeBase);
-    border-radius: 50%;
-    position: absolute;
-    background:var(--verdeBase);
-    transition-timing-function: ease-out;
-    pointer-events: none;
-    z-index: 10000;
-    mix-blend-mode: hard-light;
-    
+  width: 20px;
+  height: 20px;
+  border: 1px solid var(--verdeBase);
+  border-radius: 50%;
+  position: absolute;
+  background:var(--verdeBase);
+  transition-timing-function: ease-out;
+  pointer-events: none;
+  z-index: 10000;
+  mix-blend-mode: hard-light;
+  
 }
 .c-oculto {
-	opacity: 0;
+opacity: 0;
 }
-
-
 .container-fluid {
   padding: 0;
 }
@@ -143,14 +142,62 @@ transform: scale(1.1);
 .scroll-to-top:focus {
   background-color: var(--amarilloBase);
 }
+.modal-content {
+  border-radius: 15px;
+  box-shadow: 0px 12px 0px 0.1px var(--verdeBase);
+}
+.modal-header {
+  margin-top: 0.3em;
+  border-bottom: 0;
+}
+.modal-footer {
+  border-top: 0;
+}
 
+.modal {
+  z-index: 5000;
+}
+.modal-title {
+  font-size: 1.2em;
+}
+.form-label {
+  margin-bottom: .1em;
+  font-size: 1em;
+}
+.form-text {
+  font-size: .8em;
+}
+.form-control {
+  border: 2px solid #77838d;
+  border-radius: 6px;
+}
+
+.boton-iniciarS {
+  font-weight: 500;
+  font-size: 0.9rem;
+  background-color: var(--amarilloBase);
+  color: var(--verdeBase);
+  border: none;
+  height: 2rem;
+  width: 8rem;
+  border-radius: var(--redondeado2);
+  box-shadow: 3px 5px 0px 1.5px var(--verdeBase);
+  transition: all 0.8s;
+
+}
+.boton-iniciarS:hover {
+  color: var(--amarilloBase);
+  background-color: var(--verdeBase);
+  box-shadow: 3px 5px 0px 1.5px var(--amarilloBase);
+  transform: translateY(2px);
+}
 /* navbar */
 
 .nav-sticky-hijo {
   background-color: white;
   position: sticky;
   top: 0;
-  z-index: 9000;
+  z-index: 4000;
 }
 .nav-a {
   font-weight: 500;
@@ -180,7 +227,7 @@ transform: scale(1.1);
   background-color: var(--verdeBase);
   width: 85%;
 }
-.nav-a:hover ~ .cursor{
+.nav-a:hover {
   color: var(--negroBase);
   transform: translateY(2px);
 }
@@ -340,7 +387,14 @@ transform: scale(1.1);
   .subtitulo {
     font-size: 1.3rem;
   }
+  .contenedor {
+    scroll-snap-type: y mandatory;
+  }
+  .modal-sm {
+    max-width: 21em;
+  }
 }
+
 .glider-contenedor {
   display: flex;
   align-items: center;

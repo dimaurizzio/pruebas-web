@@ -47,6 +47,7 @@ window.addEventListener('load', function(){
   AOS.init();
 
   /*  */
+
    const cursor = document.querySelector('.cursor');
 
 	
@@ -56,6 +57,7 @@ window.addEventListener('load', function(){
 		document.addEventListener( 'mouseover', () => {
 	cursor.setAttribute("style", "opacity: 0;");
 		})
+
 
 
 
