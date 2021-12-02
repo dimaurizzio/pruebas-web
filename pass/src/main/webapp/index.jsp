@@ -90,13 +90,13 @@ Cosas por hacer:
               <div id="emailHelp" class="form-text">ejemplo: LeonardoLinux</div>
             </div>
             <div class="ps-3 pe-3 mb-1">
-              <label for="exampleInputPassword1" class="form-label">ContraseÃ±a</label>
+              <label for="exampleInputPassword1" class="form-label">Contraseña</label>
               <input type="password" class="form-control" id="exampleInputPassword1">
             </div>
           </form>
         </div>
         <div class="modal-footer pe-4">
-          <button type="button" class="btn boton-iniciarS">Iniciar SesiÃ³n</button>
+          <button type="button" class="btn boton-iniciarS">Iniciar Sesión</button>
         </div>
       </div>
     </div>
@@ -137,7 +137,7 @@ Cosas por hacer:
                   <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle nav-a" href="#" id="navbarScrollingDropdown" role="button"
                       data-bs-toggle="dropdown" aria-expanded="false">
-                      MÃ¡s
+                      Más
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
                       <li>
@@ -163,7 +163,7 @@ Cosas por hacer:
             <div class="row justify-content-center viewport-no-nav">
               <div class="col-10 enunciado">
                 <h1 data-aos="fade-up" data-aos-duration="2000">
-                  PlaneÃ¡ tus salidas con <span class="pass-span">PASS</span>
+                  Planeá tus salidas con <span class="pass-span">PASS</span>
                 </h1>
                 <a data-aos="fade-down" data-aos-duration="1000" class="btn boton-destinos"
                   href="#Destinos">destinos</a>
@@ -465,16 +465,16 @@ Cosas por hacer:
                 </div>
               </div>
 
-              <button aria-label="Previous" class="glider-prev">Â«</button>
-              <button aria-label="Next" class="glider-next">Â»</button>
+              <button aria-label="Previous" class="glider-prev">«</button>
+              <button aria-label="Next" class="glider-next">»</button>
               <div role="tablist" class="dots"></div>
             </div>
           </div>
           <article>
-            <p class="titulo summer verde">
-              temporada verano 2021
+            <p class="titulo summer verde"> agregar contador de ventas
+              <!-- temporada verano 2021
               <img class="summer-img" src="img\sun.png" /><img class="summer-img" src="img\flamingo.png" />
-            </p>
+              --> </p> 
           </article>
         </div>
       </section>
@@ -505,7 +505,7 @@ Cosas por hacer:
                   <th scope="col"></th>
                   <th scope="col">Nombre</th>
                   <th scope="col">Costo</th>
-                  <th scope="col">DuraciÃ³n</th>
+                  <th scope="col">Duración</th>
                   <td></td>
                 </tr>
               </thead>
@@ -578,9 +578,9 @@ Cosas por hacer:
           </div>
           <article>
             <p class="politicas">
-              *Promociones validas del 25/08 al 30/12 de 2021. Cupos limitados, SOLO CON RESERVA, comunicarse al
+              *Promociones válidas del 25/08 al 30/12 de 2021. Cupos limitados, SOLO CON RESERVA, comunicarse al
               0800-000-000
-              lunes a sÃ¡bados de 8hs a 20hs.
+              lunes a sábados de 8hs a 20hs.
             </p>
           </article>
         </div>
