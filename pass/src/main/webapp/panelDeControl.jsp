@@ -88,7 +88,7 @@
              class="mCSB_scrollTools mCSB_1_scrollbar mCS-minimal mCSB_scrollTools_vertical" style="display: none;">
             <div class="mCSB_draggerContainer">
                 <div id="mCSB_1_dragger_vertical" class="mCSB_dragger"
-                     style="position: absolute; min-height: 50px; height: 0px; top: 0px;">
+                     style="position: absolute; min-height: 50px; height: 0; top: 0;">
                     <div class="mCSB_dragger_bar" style="line-height: 50px;"></div>
                 </div>
                 <div class="mCSB_draggerRail"></div>
@@ -115,122 +115,119 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <form>
+                        <form action="login" method="post">
                             <div class="ps-3 pe-3 mb-4">
-                                <label for="exampleInputEmail1" class="form-label">Usuario</label>
-                                <input type="email" class="form-control" id="exampleInputEmail1"
+                                <label for="username" class="form-label">Usuario</label>
+                                <input type="text" class="form-control" id="validationCustom01"
                                        aria-describedby="emailHelp">
                                 <div id="emailHelp" class="form-text">ejemplo: LeonardoLinux</div>
                             </div>
                             <div class="ps-3 pe-3 mb-1">
-                                <label for="exampleInputPassword1" class="form-label">Contraseña</label>
+                                <label for="password" class="form-label">Contraseña</label>
                                 <input type="password" class="form-control" id="exampleInputPassword1">
                             </div>
+                            <div class="modal-footer pe-4">
+                                <button type="submit" class="btn boton-iniciarS">Iniciar Sesión</button>
+                            </div>
                         </form>
-                    </div>
-                    <div class="modal-footer pe-4">
-                        <button type="button" class="btn boton-iniciarS">Iniciar Sesión</button>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
 
-        <div class="container-fluid">
-            <div class="contenedor">
-                <div class="cursor"></div>
-                <section class="header" id="home">
-                    <div class="container">
-                        <nav class="navbar navbar-expand-lg navbar-light nav-sticky-hijo">
-                            <div class="container-fluid">
-                                <a class="logo" href="#home">muy lejano <span class="logo-span">PASS</span>
-                                </a>
+    <div class="container-fluid">
+        <div class="contenedor">
+            <div class="cursor"></div>
+            <section class="header" id="home">
+                <div class="container">
+                    <nav class="navbar navbar-expand-lg navbar-light nav-sticky-hijo">
+                        <div class="container-fluid">
+                            �Bienvenido, <c:out value="${user.nombre}" />!
+                            <a class="logo" href="#home">muy lejano <span class="logo-span">PASS</span>
+                            </a>
 
-                                <button class="navbar-toggler nav-button" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#navbarScroll" aria-controls="navbarScroll"
-                                        aria-expanded="false"
-                                        aria-label="Toggle navigation">
-                                    <span class="navbar-toggler-icon"> </span>
-                                </button>
-                                <div class="collapse navbar-collapse" id="navbarScroll">
-                                    <ul class="navbar-nav ms-auto my-5 my-lg-0 navbar-nav-scroll"
-                                        style="--bs-scroll-height: 200px">
-                                        <li class="nav-item">
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="iniciar-sesion" aria-current="page" href="#"
-                                               data-bs-toggle="modal" data-bs-target="#exampleModal">Iniciar Sesion</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link nav-a" href="#">Nosotros</a>
-                                        </li>
-                                        <li class="nav-item dropdown">
-                                            <a class="nav-link dropdown-toggle nav-a" href="#"
-                                               id="navbarScrollingDropdown" role="button"
-                                               data-bs-toggle="dropdown" aria-expanded="false">
-                                                Más
-                                            </a>
-                                            <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                                                <li>
-                                                    <a class="dropdown-item" href="itinerario.html">Itinerario</a>
-                                                </li>
-                                                <li><a class="dropdown-item" href="#">algo</a></li>
-                                                <li>
-                                                    <hr class="dropdown-divider"/>
-                                                </li>
-                                                <li>
-                                                    <a class="dropdown-item disabled" href="#">Alta y baja</a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </div>
+                            <button class="navbar-toggler nav-button" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#navbarScroll" aria-controls="navbarScroll"
+                                    aria-expanded="false"
+                                    aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"> </span>
+                            </button>
+                            <div class="collapse navbar-collapse" id="navbarScroll">
+                                <ul class="navbar-nav ms-auto my-5 my-lg-0 navbar-nav-scroll"
+                                    style="--bs-scroll-height: 200px">
+                                    <li class="nav-item">
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="iniciar-sesion" aria-current="page" href="#"
+                                           data-bs-toggle="modal" data-bs-target="#exampleModal">Iniciar Sesion</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link nav-a" href="#">Nosotros</a>
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle nav-a" href="#"
+                                           id="navbarScrollingDropdown" role="button"
+                                           data-bs-toggle="dropdown" aria-expanded="false">
+                                            Más
+                                        </a>
+                                        <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                                            <li>
+                                                <a class="dropdown-item" href="itinerario.jsp">Itinerario</a>
+                                            </li>
+                                            <li><a class="dropdown-item" href="#">algo</a></li>
+                                            <li>
+                                                <hr class="dropdown-divider"/>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item disabled" href="#">Alta y baja</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
                             </div>
-                        </nav>
+                        </div>
+                    </nav>
 
-                        <h2>Lorem ipsum dolor</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                            voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                            voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <h2>Atracciones</h2>
 
-                        <div class="line"></div>
+                    <table class="table table-stripped table-hover">
+                        <thead>
+                        <tr>
+                            <th>Atracci&oacute;n</th>
+                            <th>Costo</th>
+                            <th>Duraci&oacute;n</th>
+                            <th>Cupo</th>
+                            <th>Acciones</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <c:out value="${attractions.nombre}"></c:out>
+                        <c:forEach items="${attractions}" var="attraction">
+                            <tr>
+                                <td><strong>${attraction.nombre}</strong>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                        Cras pretium eros urna. Sed quis erat congue, bibendum tortor
+                                        malesuada, iaculis diam. Ut ut imperdiet sapien.</p></td>
+                                <td><c:out value="${attraction.costo}"></c:out></td>
+                                <td><c:out value="${attraction.duration}"></c:out></td>
+                                <td><c:out value="${attraction.capacity}"></c:out></td>
 
-                        <h2>Lorem Ipsum Dolor</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                            voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                            </tr>
+                        </c:forEach>
+                        </tbody>
+                    </table>
 
-                        <div class="line"></div>
+                    <c:out value="${test}"></c:out>
+                    <c:out value="test3"></c:out>
 
-                        <h2>Lorem Ipsum Dolor</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                            voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
-                        <div class="line"></div>
-
-                        <h3>Lorem Ipsum Dolor</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                            voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                    </div>
-                </section>
-            </div>
+                </div>
+            </section>
         </div>
     </div>
+</div>
 </div>
 </body>
 
