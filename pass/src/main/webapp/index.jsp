@@ -83,21 +83,21 @@ Cosas por hacer:
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <form>
+          <form action="login" method="post">
             <div class="ps-3 pe-3 mb-4">
-              <label for="exampleInputEmail1" class="form-label">Usuario</label>
-              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+              <label for="username" class="form-label">Usuario</label>
+              <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
               <div id="emailHelp" class="form-text">ejemplo: LeonardoLinux</div>
             </div>
             <div class="ps-3 pe-3 mb-1">
-              <label for="exampleInputPassword1" class="form-label">Contraseña</label>
+              <label for="password" class="form-label">Contraseña</label>
               <input type="password" class="form-control" id="exampleInputPassword1">
             </div>
-          </form>
         </div>
         <div class="modal-footer pe-4">
-          <button type="button" class="btn boton-iniciarS">Iniciar Sesión</button>
+          <button type="submit" class="btn boton-iniciarS">Iniciar Sesión</button>
         </div>
+          </form>
       </div>
     </div>
   </div> 
