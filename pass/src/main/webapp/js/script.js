@@ -46,7 +46,7 @@ window.addEventListener('load', function(){
 
   AOS.init();
 
-  /*  */
+  
 
    const cursor = document.querySelector('.cursor');
 

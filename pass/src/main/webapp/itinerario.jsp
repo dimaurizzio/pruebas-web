@@ -6,8 +6,15 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pruebas</title>
+    <title>Itinerario</title>
 
+<!-- favicon -->
+
+  <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png" />
+  <link rel="manifest" href="img/favicon/site.webmanifest" />
+  
     <!-- Bootstrap -->
 
     <link
@@ -36,8 +43,11 @@
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script defer src="js\script.js"></script>
     
-    <script type="text/javascript" src="js/html2pdf.bundle.min.js"></script>
-	<script type="text/javascript" src="js/descargarPDF.js"></script>
+    <script type="text/javascript" defer src="js\HTML2PDF\html2pdf.bundle.min.js"></script>
+	<script type="text/javascript" defer src="js\descargarPDF.js"></script>
+  
+  	<script type="text/javascript" defer src="js\scriptMostrarAccordion.js"></script>
+  	<script type="text/javascript" defer src="js\scriptMostrarLista.js"></script>
   
   </head>
   
@@ -49,7 +59,7 @@
     <div class="container-fluid">
 
     <div class="contenedor">
-      <section class="header">
+      <section class="header"> 
           <div class="container viewport">
         <nav class="navbar navbar-expand-lg navbar-light ">
             <div class="container-fluid">
@@ -107,23 +117,18 @@
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
                       <div class="accordion-data row">
                         <div class="col-6 nombre-atraccion"><p>Nombre de la actividad que compró el usuario (Por ej: El Calabozo)</p></div>
-                        <div class="col-3 clock-in-accordion"><img class="clock" src="img\clock.svg" /></div>
-                        <div class="col-3 coin-in-accordion"><img class="coin" src="img\coin.svg" /></div>
+                        <div class="col-3 clock-in-accordion"><img class="clock" src="img\clock.svg" /> Duración</div>
+                        <div class="col-3 coin-in-accordion"><img class="coin" src="img\coin.svg" /> Costo</div>
                        </div>
                     </button>
                   </h2>
                   <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
                     <div class="container">
                         <div class="row">
-                          <div class="col-6">
+                          <div class="col-12">
                               <div class="accordion-body descripcion-accordion">Descripción de la atracción</div>
                           </div>
-                          <div class="col-3">
-                              <div class="accordion-body tiempo-accordion">Duración</div>
-                          </div>
-                          <div class="col-3">
-                            <div class="accordion-body costo-accordion">Costo</div>
-                          </div>
+                          
                         </div>
                     </div>
                   </div>
@@ -133,23 +138,18 @@
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
                       <div class="accordion-data row">
                         <div class="col-6 nombre-atraccion"><p>Duloc</p></div>
-                        <div class="col-3 clock-in-accordion"><img class="clock" src="img\clock.svg" /></div>
-                        <div class="col-3 coin-in-accordion"><img class="coin" src="img\coin.svg" /></div>
+                        <div class="col-3 clock-in-accordion"><img class="clock" src="img\clock.svg" /> 1:30 horas</div>
+                        <div class="col-3 coin-in-accordion"><img class="coin" src="img\coin.svg" /> 25 monedas</div>
                        </div>
                     </button>
                   </h2>
                   <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
                     <div class="container">
                         <div class="row">
-                          <div class="col-6">
+                          <div class="col-12">
                               <div class="accordion-body descripcion-accordion">Por qué elegiste esto?</div>
                           </div>
-                          <div class="col-3">
-                              <div class="accordion-body tiempo-accordion">1:30 horas</div>
-                          </div>
-                          <div class="col-3">
-                            <div class="accordion-body costo-accordion">20 monedas de oro </div>
-                          </div>
+                          
                         </div>
                     </div>
                   </div>
@@ -159,23 +159,18 @@
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
                       <div class="accordion-data row">
                         <div class="col-6 nombre-atraccion"><p>Banquete en el Pantano</p></div>
-                        <div class="col-3 clock-in-accordion"><img class="clock" src="img\clock.svg" /></div>
-                        <div class="col-3 coin-in-accordion"><img class="coin" src="img\coin.svg" /></div>
+                        <div class="col-3 clock-in-accordion"><img class="clock" src="img\clock.svg" /> 1 hora</div>
+                        <div class="col-3 coin-in-accordion"><img class="coin" src="img\coin.svg" /> 5 monedas</div>
                        </div>
                     </button>
                   </h2>
                   <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
                     <div class="container">
                         <div class="row">
-                          <div class="col-6">
+                          <div class="col-12">
                               <div class="accordion-body descripcion-accordion">Buena relación costo/calidad</div>
                           </div>
-                          <div class="col-3">
-                              <div class="accordion-body tiempo-accordion">1 hora</div>
-                          </div>
-                          <div class="col-3">
-                            <div class="accordion-body costo-accordion">5 monedas de oro </div>
-                          </div>
+                          
                         </div>
                     </div>
                   </div>
