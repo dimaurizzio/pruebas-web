@@ -35,7 +35,10 @@
     <script defer src="https://code.jquery.com/jquery-3.6.0.min.js"
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script defer src="js\script.js"></script>
-
+    
+    <script type="text/javascript" src="js/html2pdf.bundle.min.js"></script>
+	<script type="text/javascript" src="js/descargarPDF.js"></script>
+  
   </head>
   
   <body>
@@ -78,8 +81,26 @@
               </div>
             </div>
           </nav>
+          
           <div class="itinerario">
             <h3 class="titulo">Su itinerario</h3>
+            
+            <div class="container col-4 botones-mostrar-tipo-itinerario" id="">
+            
+            	<div class="btn">
+            		<a data-aos="fade-down" data-aos-duration="1000" class="btn boton-destinos"
+            		id="btn-mostrar-accordion" href="#Destinos">Mostrar Accordion</a>
+            	</div>
+            
+            	<div class="btn">
+            		<a data-aos="fade-down" data-aos-duration="1000" class="btn boton-destinos"
+           			id="btn-mostrar-lista" href="#Destinos">Mostrar Lista</a>
+            	</div>
+                  
+            </div>
+            <!-- La idea es que presione un boton para mostrar las atracciones compradas en forma de accordion o de lista -->
+            <br>
+            
             <div class="accordion accordion-flush" id="accordionFlushExample">
                 <div class="accordion-item">
                   <h2 class="accordion-header" id="flush-headingOne">
@@ -160,6 +181,122 @@
                   </div>
                 </div>
               </div>
+            
+            
+            <br>
+            <button class="btn boton-destinos"
+            id="btnCrearPdf">Descargar PDF</button>
+            <br>
+            </section>
+            
+            <section class="lista">
+        <div class="container viewport">
+          <div class="row titular">
+            <div class="col-10 titulo"> 
+              <h3>en muy <b>muy lejano</b>...</h3>
+              <h4 class="subtitulo">
+                Tenemos destinos personalizados para tí­
+              </h4>
+              <a class="btn boton-quiero" data-bs-toggle="modal" data-bs-target="#exampleModal">Quiero!</a>
+            </div>
+            <div class="info-container">
+              <div class="info">
+                <span>i</span>
+                <p class="h1">Hey!</p>
+                <p>Piensa con detenimiento tu compra!, una vez realizada esta no tendra reembolso.</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="row tabla-contenedor">
+            <table class="col-8 table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col"></th>
+                  <th scope="col">Nombre</th>
+                  <th scope="col">Costo</th>
+                  <th scope="col">Duración</th>
+                  <td></td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">1</th>
+                  <td>PACK LOCURA</td>
+                  <td>50u</td>
+                  <td>1.5hs</td>
+                  <td><a class="btn boton-quiero-tabla">Quiero!</a></td>
+                </tr>
+                <tr>
+                  <th scope="row">2</th>
+                  <td>PACK LOCURA</td>
+                  <td>50u</td>
+                  <td>1.5hs</td>
+                  <td><a class="btn boton-quiero-tabla">Quiero!</a></td>
+                </tr>
+                <tr>
+                  <th scope="row">3</th>
+                  <td>PACK LOCURA</td>
+                  <td>50u</td>
+                  <td>1.5hs</td>
+                  <td><a class="btn boton-quiero-tabla">Quiero!</a></td>
+                </tr>
+                <tr>
+                  <th scope="row">4</th>
+                  <td>PACK LOCURA</td>
+                  <td>50u</td>
+                  <td>1.5hs</td>
+                  <td><a class="btn boton-quiero-tabla">Quiero!</a></td>
+                </tr>
+                <tr>
+                  <th scope="row">5</th>
+                  <td>PACK LOCURA</td>
+                  <td>50u</td>
+                  <td>1.5hs</td>
+                  <td><a class="btn boton-quiero-tabla">Quiero!</a></td>
+                </tr>
+                <tr>
+                  <th scope="row">6</th>
+                  <td>PACK LOCURA</td>
+                  <td>50u</td>
+                  <td>1.5hs</td>
+                  <td><a class="btn boton-quiero-tabla">Quiero!</a></td>
+                </tr>
+                <tr>
+                  <th scope="row">7</th>
+                  <td>PACK LOCURA</td>
+                  <td>50u</td>
+                  <td>1.5hs</td>
+                  <td><a class="btn boton-quiero-tabla">Quiero!</a></td>
+                </tr>
+                <tr>
+                  <th scope="row">8</th>
+                  <td>PACK LOCURA</td>
+                  <td>50u</td>
+                  <td>1.5hs</td>
+                  <td><a class="btn boton-quiero-tabla">Quiero!</a></td>
+                </tr>
+                <tr>
+                  <th scope="row">9</th>
+                  <td>PACK LOCURA</td>
+                  <td>50u</td>
+                  <td>1.5hs</td>
+                  <td><a class="btn boton-quiero-tabla">Quiero!</a></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <article>
+            <p class="politicas">
+              *Promociones válidas del 25/08 al 30/12 de 2021. Cupos limitados, SOLO CON RESERVA, comunicarse al
+              0800-000-000
+              lunes a sábados de 8hs a 20hs.
+            </p>
+          </article>
+        </div>
+      </section>
+            
+            
         </div>
           <!-- end navbar -->
 
@@ -167,9 +304,7 @@
         </div>        
       </section>
 
-    <section>
-
-    </section>
+    
 
     </div>
     </div>

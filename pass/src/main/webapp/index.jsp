@@ -484,7 +484,7 @@ Cosas por hacer:
             <div class="col-10 titulo"> 
               <h3>en muy <b>muy lejano</b>...</h3>
               <h4 class="subtitulo">
-                Tenemos destinos personalizados para tÃ­
+                Tenemos destinos personalizados para tí­
               </h4>
               <a class="btn boton-quiero" data-bs-toggle="modal" data-bs-target="#exampleModal">Quiero!</a>
             </div>

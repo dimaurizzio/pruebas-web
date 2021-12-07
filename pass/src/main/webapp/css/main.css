@@ -660,3 +660,11 @@ section {
 .accordion-data div{
   text-align: center;
 }
+div .botones-mostrar-tipo-itinerario{
+	text-align: center;
+	display: block;
+}
+#btn-mostrar-itinerario, #btn-mostar-lista{
+	height: 4em !important;
+	width: 8em !important;
+}
