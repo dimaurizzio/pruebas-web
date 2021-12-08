@@ -7,8 +7,9 @@ Cosas por hacer:
 -clip path bubble con info de politicas de ofertas
 ...
 -->
-
-
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -84,23 +85,25 @@ Cosas por hacer:
         </div>
         <div class="modal-body">
           <form action="login" method="post">
-            <div class="ps-3 pe-3 mb-4">
-              <label for="username" class="form-label">Usuario</label>
-              <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-              <div id="emailHelp" class="form-text">ejemplo: LeonardoLinux</div>
+
+            <div class="mb-3">
+              <label for="username" class="form-label">Usuario</label> <input
+                    class="form-control" name="username">
             </div>
-            <div class="ps-3 pe-3 mb-1">
-              <label for="password" class="form-label">Contraseña</label>
-              <input type="password" class="form-control" id="exampleInputPassword1">
+
+            <div class="mb-3">
+              <label for="password" class="form-label">ContraseÃ±a</label> <input
+                    type="password" class="form-control" name="password">
             </div>
-        </div>
-        <div class="modal-footer pe-4">
-          <button type="submit" class="btn boton-iniciarS">Iniciar Sesión</button>
-        </div>
+
+            <div class="d-grid gap-2">
+              <button type="submit" class="btn btn-lg btn-primary">Ingresar</button>
+            </div>
           </form>
+        </div>
       </div>
     </div>
-  </div> 
+  </div>
 
 
   <div class="container-fluid">
@@ -137,7 +140,7 @@ Cosas por hacer:
                   <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle nav-a" href="#" id="navbarScrollingDropdown" role="button"
                       data-bs-toggle="dropdown" aria-expanded="false">
-                      Más
+                      Mï¿½s
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
                       <li>
@@ -147,7 +150,7 @@ Cosas por hacer:
                         <hr class="dropdown-divider" />
                       </li>
                       <li>
-                        <a class="dropdown-item" href="panelDeControl.jsp" >Alta y baja</a>
+                        <a class="dropdown-item" href="panelDeControl.do" >Alta y baja</a>
                       </li>
                     </ul>
                   </li>
@@ -156,13 +159,19 @@ Cosas por hacer:
             </div>
           </nav>
           <!-- end navbar -->
-
+          <c:if test="${flash != null}">
+            <div class="alert alert-danger">
+              <p>
+                <c:out value="${flash}" />
+              </p>
+            </div>
+          </c:if>
           <!-- titular y bg -->
           <div class="container">
             <div class="row justify-content-center viewport-no-nav">
               <div class="col-10 enunciado">
                 <h1 data-aos="fade-up" data-aos-duration="2000">
-                  Planeá tus salidas con <span class="pass-span">PASS</span>
+                  Planeï¿½ tus salidas con <span class="pass-span">PASS</span>
                 </h1>
                 <a data-aos="fade-down" data-aos-duration="1000" class="btn boton-destinos"
                   href="#Destinos">destinos</a>
@@ -464,8 +473,8 @@ Cosas por hacer:
                 </div>
               </div>
 
-              <button aria-label="Previous" class="glider-prev">«</button>
-              <button aria-label="Next" class="glider-next">»</button>
+              <button aria-label="Previous" class="glider-prev">ï¿½</button>
+              <button aria-label="Next" class="glider-next">ï¿½</button>
               <div role="tablist" class="dots"></div>
             </div>
           </div>
@@ -484,7 +493,7 @@ Cosas por hacer:
             <div class="col-10 titulo"> 
               <h3>en muy <b>muy lejano</b>...</h3>
               <h4 class="subtitulo">
-                Tenemos destinos personalizados para tí­
+                Tenemos destinos personalizados para tï¿½
               </h4>
               <a class="btn boton-quiero" data-bs-toggle="modal" data-bs-target="#exampleModal">Quiero!</a>
             </div>
@@ -504,7 +513,7 @@ Cosas por hacer:
                   <th scope="col"></th>
                   <th scope="col">Nombre</th>
                   <th scope="col">Costo</th>
-                  <th scope="col">Duración</th>
+                  <th scope="col">Duraciï¿½n</th>
                   <td></td>
                 </tr>
               </thead>
@@ -577,9 +586,9 @@ Cosas por hacer:
           </div>
           <article>
             <p class="politicas">
-              *Promociones válidas del 25/08 al 30/12 de 2021. Cupos limitados, SOLO CON RESERVA, comunicarse al
+              *Promociones vï¿½lidas del 25/08 al 30/12 de 2021. Cupos limitados, SOLO CON RESERVA, comunicarse al
               0800-000-000
-              lunes a sábados de 8hs a 20hs.
+              lunes a sï¿½bados de 8hs a 20hs.
             </p>
           </article>
         </div>

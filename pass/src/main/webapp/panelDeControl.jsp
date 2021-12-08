@@ -1,5 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+		 pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
 <html lang="es">
 
 <head>
@@ -127,13 +128,13 @@
 										LeonardoLinux</div>
 								</div>
 								<div class="ps-3 pe-3 mb-1">
-									<label for="password" class="form-label">Contraseña</label> <input
+									<label for="password" class="form-label">Contraseï¿½a</label> <input
 										type="password" class="form-control"
 										id="exampleInputPassword1">
 								</div>
 								<div class="modal-footer pe-4">
 									<button type="submit" class="btn boton-iniciarS">Iniciar
-										Sesión</button>
+										Sesiï¿½n</button>
 								</div>
 							</form>
 						</div>
@@ -148,7 +149,7 @@
 							<nav class="navbar navbar-expand-lg navbar-light nav-sticky-hijo">
 								<div class="container-fluid">
 									<p class="logo">
-										¡Bienvenido,
+										ï¿½Bienvenido,
 										<c:out value="${user.nombre}" />
 										!
 									</p>
@@ -164,7 +165,7 @@
 											<li class="nav-item"></li>
 											<li class="nav-item dropdown"><a class="nav-link nav-a"
 												href="#" id="navbarScrollingDropdown" role="button"
-												data-bs-toggle="dropdown" aria-expanded="false"> Más </a>
+												data-bs-toggle="dropdown" aria-expanded="false"> Mï¿½s </a>
 												<ul class="dropdown-menu dropdown-menu-end"
 													aria-labelledby="navbarScrollingDropdown">
 													<li><a class="dropdown-item" href="index.jsp">Home</a>
@@ -175,7 +176,7 @@
 														<hr class="dropdown-divider" />
 													</li>
 													<li><a type="button" href="index.jsp"
-														class="dropdown-item">Cerrar Sesión</a></li>
+														class="dropdown-item">Cerrar Sesiï¿½n</a></li>
 												</ul></li>
 										</ul>
 									</div>
@@ -195,7 +196,6 @@
 									</tr>
 								</thead>
 								<tbody>
-									<c:out value="${attractions.nombre}"></c:out>
 									<c:forEach items="${attractions}" var="attraction">
 										<tr>
 											<td><strong>${attraction.nombre}</strong>
@@ -204,17 +204,13 @@
 													bibendum tortor malesuada, iaculis diam. Ut ut imperdiet
 													sapien.</p></td>
 											<td><c:out value="${attraction.costo}"></c:out></td>
-											<td><c:out value="${attraction.duration}"></c:out></td>
-											<td><c:out value="${attraction.capacity}"></c:out></td>
+											<td><c:out value="${attraction.duracion}"></c:out></td>
+											<td><c:out value="${attraction.cupoMaximo}"></c:out></td>
 
 										</tr>
 									</c:forEach>
 								</tbody>
 							</table>
-
-							<c:out value="${test}"></c:out>
-							<c:out value="test3"></c:out>
-
 
 						</div>
 					</section>
