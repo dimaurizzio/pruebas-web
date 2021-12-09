@@ -26,9 +26,18 @@ public class Atraccion implements Ofertable {
 	private Integer lugaresDisponibles;
 	private String breveDescripcion;
 	private Map<String, String> errors;
+	private boolean deleted;
 
 
-	public Atraccion(Integer id, String nombre, Tipo tipo ,Integer costo, Double duracion, Integer cupo, String breveDescripcion) {
+	public boolean isDeleted() {
+		return deleted;
+	}
+
+	public void setDeleted(boolean deleted) {
+		this.deleted = deleted;
+	}
+
+	public Atraccion(Integer id, String nombre, Tipo tipo , Integer costo, Double duracion, Integer cupo, String breveDescripcion, boolean deleted) {
 		this.id = id;
 		this.nombre = nombre;
 		this.tipo = tipo;
@@ -37,6 +46,7 @@ public class Atraccion implements Ofertable {
 		this.cupoMaximo = cupo;
 		this.breveDescripcion = breveDescripcion;
 		this.lugaresDisponibles = this.cupoMaximo;
+		this.deleted = deleted;
 	}
 
 

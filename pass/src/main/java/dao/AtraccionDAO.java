@@ -76,28 +76,20 @@ public class AtraccionDAO{
 		}
 	}
 
-	public int delete(Atraccion atraccion) throws SQLException {
+	public void delete(Atraccion atraccion) throws SQLException {
 		try {
-			String sql = "DELETE FROM atracciones WHERE id = ?";
+			String sql = "UPDATE atracciones SET deleted = '1' WHERE nombre = ?";
 			conn = ConnectionProvider.getConnection();
 
 			PreparedStatement statement = conn.prepareStatement(sql);
-			statement.setInt(1, atraccion.getId());
-			int rows = statement.executeUpdate();
+			statement.setString(1, atraccion.getNombre());
+			statement.executeUpdate();
 
-			return rows;
 		} catch (Exception e) {
 			throw new MissingDataException(e);
-		} finally {
-			if (conn != null) {
-				try {
-					conn.close();
-				} catch (SQLException e) {
-				e.printStackTrace();
-				}
-			}
 		}
-	}
+
+		}
 
 	public Atraccion findByAtraccionName(String atraccionName) throws SQLException {
 		try {
@@ -116,14 +108,6 @@ public class AtraccionDAO{
 			return atraccion;
 		} catch (Exception e) {
 			throw new MissingDataException(e);
-		} finally {
-			if (conn != null) {
-				try {
-					conn.close();
-				} catch (SQLException e) {
-				e.printStackTrace();
-				}
-			}
 		}
 	}
 
@@ -198,7 +182,7 @@ public class AtraccionDAO{
 	}
 
 	public Atraccion toAtraccion(ResultSet resultados) throws SQLException {
-		return new Atraccion(resultados.getInt("id"), resultados.getString("nombre"), Tipo.valueOf(resultados.getString("tipo")), resultados.getInt("costo"), resultados.getDouble("duracion"), resultados.getInt("cupo"), resultados.getString(6));
+		return new Atraccion(resultados.getInt("id"), resultados.getString("nombre"), Tipo.valueOf(resultados.getString("tipo")), resultados.getInt("costo"), resultados.getDouble("duracion"), resultados.getInt("cupo"), resultados.getString(7), resultados.getBoolean("deleted"));
 	}
 
 	public void createArray() {
@@ -216,7 +200,7 @@ public class AtraccionDAO{
 				int cupo = rs.getInt("cupo");
 				String descripcion = rs.getString("descripcion");
 
-				listaAtracciones.add(new Atraccion(id, nombre, tipo, costo, duracion, cupo, descripcion));
+				listaAtracciones.add(new Atraccion(id, nombre, tipo, costo, duracion, cupo, descripcion, false));
 			}
 		} catch (Exception e) {
 			throw new MissingDataException(e);
@@ -245,6 +229,20 @@ public class AtraccionDAO{
 			throw new MissingDataException(e);
 		}
 	}
+
+	public void restore(Atraccion attraction) {
+		try {
+			String sql = "UPDATE atracciones SET deleted = '0' WHERE nombre = ?";
+			conn = ConnectionProvider.getConnection();
+
+			PreparedStatement statement = conn.prepareStatement(sql);
+			statement.setString(1, attraction.getNombre());
+			statement.executeUpdate();
+
+		} catch (Exception e) {
+			throw new MissingDataException(e);
+		}
 	}
+}
 
 

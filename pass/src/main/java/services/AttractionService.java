@@ -16,7 +16,7 @@ public class AttractionService {
 
 	public Atraccion create(String name, Integer cost, Tipo tipo, Double duration, Integer capacity, String descripcion) throws SQLException {
 
-		Atraccion attraction = new Atraccion(-1, name, tipo, cost, duration, capacity, descripcion);
+		Atraccion attraction = new Atraccion(-1, name, tipo, cost, duration, capacity, descripcion, false);
 
 		if (attraction.isValid()) {
 			AtraccionDAO attractionDAO = DAOFactory.getAtraccionDAO();
@@ -43,10 +43,9 @@ public class AttractionService {
 		return attraction;
 	}
 
-	public void delete(Integer id) throws SQLException {
-		Atraccion attraction = new Atraccion(id, null, null, null, null, null, null);
-
+	public void delete(String nombre) throws SQLException {
 		AtraccionDAO attractionDAO = DAOFactory.getAtraccionDAO();
+		Atraccion attraction = attractionDAO.findByAtraccionName(nombre);
 		attractionDAO.delete(attraction);
 	}
 
@@ -55,4 +54,9 @@ public class AttractionService {
 		return attractionDAO.findByAtraccionId(id);
 	}
 
+	public void restore(String nombre) throws SQLException{
+		AtraccionDAO atraccionDAO = DAOFactory.getAtraccionDAO();
+		Atraccion attraction = atraccionDAO.findByAtraccionName(nombre);
+		atraccionDAO.restore(attraction);
+	}
 }

@@ -19,13 +19,34 @@
 
     --fontSizeTitulo1: 4rem;
     --fontSizeTitulo2: 3.2rem;
-    --fontSizeTitutlo3: 2rem;
+    --fontSizeTitulo3: 2rem;
     --fontSizeTitulo4: 1.1rem;
 
     --redondeado1: 1rem;
     --redondeado2: 0.5rem;
     --border-radius-size: 14px;
 }
+
+
+.boton-quiero-tabla {
+    font-weight: 700;
+    font-size: 1em;
+    padding: 0;
+
+    color: var(--verdeBase);
+    border: 2px solid var(--verdeBase);
+    height: 2rem;
+    width: 5rem;
+    border-radius: var(--redondeado2);
+    transition: all 0.8s;
+    z-index: 10;
+}
+
+.boton-quiero-tabla:hover {
+    color: var(--verdeBase);
+    transform: translateY(2px);
+}
+
 .cursor {
   width: 20px;
   height: 20px;
