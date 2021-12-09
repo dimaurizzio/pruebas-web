@@ -159,14 +159,14 @@ Cosas por hacer:
 									<li class="nav-item"></li>
 									<li class="nav-item"><a class="iniciar-sesion"
 										aria-current="page" href="#" data-bs-toggle="modal"
-										data-bs-target="#exampleModal">Iniciar Sesion</a></li>
-									<li class="nav-item"><a class="nav-link nav-a" href="#">Nosotros</a>
+										data-bs-target="#exampleModal">Iniciar Sesión</a></li>
+									<li class="nav-item"><a class="nav-link nav-a" href="nosotros.jsp">Nosotros</a>
 									</li>
 									<li class="nav-item dropdown"><a
 										class="nav-link dropdown-toggle nav-a" href="#"
 										id="navbarScrollingDropdown" role="button"
-										data-bs-toggle="dropdown" aria-expanded="false"> M�s </a>
-										<ul class="dropdown-menu"
+										data-bs-toggle="dropdown" aria-expanded="false"> Más </a>
+										<ul class="dropdown-menu dropdown-menu-end"
 											aria-labelledby="navbarScrollingDropdown">
 											<li><a class="dropdown-item" href="itinerario.jsp">Itinerario</a>
 											</li>
@@ -187,7 +187,7 @@ Cosas por hacer:
 						<div class="row justify-content-center viewport-no-nav">
 							<div class="col-10 enunciado">
 								<h1 data-aos="fade-up" data-aos-duration="2000">
-									Plane� tus salidas con <span class="pass-span">PASS</span>
+									Planeá tus salidas con <span class="pass-span">PASS</span>
 								</h1>
 								<a data-aos="fade-down" data-aos-duration="1000"
 									class="btn boton-destinos" href="#Destinos">destinos</a>
@@ -535,12 +535,39 @@ Cosas por hacer:
 									<th scope="col"></th>
 									<th scope="col">Nombre</th>
 									<th scope="col">Costo</th>
-									<th scope="col">Duraci�n</th>
+									<th scope="col">Duración</th>
 									<td></td>
 								</tr>
 							</thead>
 							<tbody>
-								<tr>
+								
+								<c:forEach items="${attractions}" var="attraction">
+                                <tr>
+                                    <td><strong>${attraction.nombre}</strong>
+                                        <p><c:out value="${attraction.breveDescripcion}"></c:out></p></td>
+                                    <td><c:out value="${attraction.costo}"></c:out></td>
+                                    <td><c:out value="${attraction.duracion}"></c:out></td>
+                                    <td><c:out value="${attraction.cupoMaximo}"></c:out></td>
+                                    <td>
+                                        <c:choose>
+                                            <c:when test="${attraction.deleted}">
+                                            <a href="restore?nombre=${attraction.nombre}"
+                                               class="btn boton-quiero-tabla" role="button"><i
+                                                    class="bi bi-x-circle-fill">Alta</i></a>
+                                            </c:when>
+                                            <c:otherwise>
+                                                <a href="delete?nombre=${attraction.nombre}"
+                                                   class="btn boton-quiero-tabla" role="button"><i
+                                                        class="bi bi-x-circle-fill">Baja</i></a>
+                                            </c:otherwise>
+                                        </c:choose>
+                                    </td>
+                                </tr>
+                            </c:forEach>
+								
+								
+								
+								<!--  <tr>
 									<th scope="row">1</th>
 									<td>PACK LOCURA</td>
 									<td>50u</td>
@@ -602,14 +629,14 @@ Cosas por hacer:
 									<td>50u</td>
 									<td>1.5hs</td>
 									<td><a class="btn boton-quiero-tabla">Quiero!</a></td>
-								</tr>
+								</tr>  -->
 							</tbody>
 						</table>
 					</div>
 					<article>
-						<p class="politicas">*Promociones v�lidas del 25/08 al 30/12
+						<p class="politicas">*Promociones válidas del 25/08 al 30/12
 							de 2021. Cupos limitados, SOLO CON RESERVA, comunicarse al
-							0800-000-000 lunes a s�bados de 8hs a 20hs.</p>
+							0800-000-000 lunes a sábados de 8hs a 20hs.</p>
 					</article>
 				</div>
 			</section>
