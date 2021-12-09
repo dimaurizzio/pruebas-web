@@ -58,7 +58,7 @@
                  class="mCSB_container mCS_y_hidden mCS_no_scrollbar_y"
                  style="position: relative; top: 0; left: 0;" dir="ltr">
                 <div class="sidebar-header">
-                    <a class="logo" href="index.jsp">muy lejano <span
+                    <a class="logo" href="index.do">muy lejano <span
                             class="logo-span">PASS</span>
                     </a>
                 </div>

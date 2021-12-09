@@ -149,9 +149,25 @@ transform: scale(1.1);
 .modal-header {
   margin-top: 0.3em;
   border-bottom: 0;
+  flex-wrap: wrap;
+  padding-bottom: 0;
+}
+
+.alert {
+	margin: 1rem 0 0 0;
+	padding: 0.5rem;
+	border-radius: 10px;
+	border: none;
+}
+.alert-danger {
+	color: #ff5e5e;
+	background: var(--amarilloBase);
 }
 .modal-footer {
   border-top: 0;
+}
+p {
+	margin: 0;
 }
 
 .modal {
@@ -159,6 +175,10 @@ transform: scale(1.1);
 }
 .modal-title {
   font-size: 1.2em;
+}
+
+.d-grid {
+	justify-content: end;
 }
 .form-label {
   margin-bottom: .1em;
