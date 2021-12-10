@@ -25,7 +25,7 @@ public class Atraccion implements Ofertable {
 	private Integer cupoMaximo;
 	private Integer lugaresDisponibles;
 	private String breveDescripcion;
-	private Map<String, String> errors;
+	public Map<String, String> errors;
 	private boolean deleted;
 
 
@@ -59,13 +59,13 @@ public class Atraccion implements Ofertable {
 		errors = new HashMap<String, String>();
 
 		if (costo <= 0) {
-			errors.put("cost", "Debe ser positivo");
+			errors.put("cost", "Costo debe ser positivo");
 		}
 		if (duracion <= 0) {
-			errors.put("duration", "Debe ser positivo");
+			errors.put("duration", "Duracion debe ser positivo");
 		}
 		if (cupoMaximo <= 0) {
-			errors.put("capacity", "Debe ser positivo");
+			errors.put("capacity", "Capacidad debe ser positivo");
 		}
 	}
 

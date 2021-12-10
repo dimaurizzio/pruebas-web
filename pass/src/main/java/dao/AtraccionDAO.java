@@ -49,30 +49,22 @@ public class AtraccionDAO{
 
 	public int update(Atraccion atraccion) throws SQLException {
 		try {
-			String sql = "UPDATE atracciones SET nombre = ?, tipo = ?, costo = ?, duracion = ?, cupo = ?, descripcion = ?  WHERE id = ?";
+			String sql = "UPDATE atracciones SET nombre = ?, costo = ?, duracion = ?, cupo = ?, descripcion = ?  WHERE id = ?";
 			conn = ConnectionProvider.getConnection();
 
 			PreparedStatement statement = conn.prepareStatement(sql);
 			statement.setString(1, atraccion.getNombre());
-			statement.setString(2, atraccion.getTipo().toString());
-			statement.setInt(3, atraccion.getCosto());
-			statement.setDouble(4, atraccion.getDuracion());
-			statement.setInt(5, atraccion.getCupoMaximo());
-			statement.setString(6, atraccion.getBreveDescripcion());
-			statement.setInt(7, atraccion.getId());
+			statement.setInt(2, atraccion.getCosto());
+			statement.setDouble(3, atraccion.getDuracion());
+			statement.setInt(4, atraccion.getCupoMaximo());
+			statement.setString(5, atraccion.getBreveDescripcion());
+			statement.setInt(6, atraccion.getId());
 			int rows = statement.executeUpdate();
+
 
 			return rows;
 		} catch (Exception e) {
 			throw new MissingDataException(e);
-		} finally {
-			if (conn != null) {
-				try {
-					conn.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-			}
 		}
 	}
 
@@ -128,14 +120,6 @@ public class AtraccionDAO{
 			return atraccion;
 		} catch (Exception e) {
 			throw new MissingDataException(e);
-		} finally {
-			if (conn != null) {
-				try {
-					conn.close();
-				} catch (SQLException e) {
-				e.printStackTrace();
-				}
-			}
 		}
 	}
 

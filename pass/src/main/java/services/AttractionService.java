@@ -26,15 +26,16 @@ public class AttractionService {
 		return attraction;
 	}
 
-	public Atraccion update(Integer id, String name, Integer cost, Double duration, Integer capacity) throws SQLException {
+	public Atraccion update(Integer id, Integer cost, Double duration, Integer capacity, String description) throws SQLException {
 
 		AtraccionDAO attractionDAO = DAOFactory.getAtraccionDAO();
 		Atraccion attraction = attractionDAO.findByAtraccionId(id);
 
-		attraction.setNombre(name);
 		attraction.setCosto(cost);
 		attraction.setDuracion(duration);
 		attraction.setCupoMaximo(capacity);
+		attraction.setBreveDescripcion(description);
+
 
 		if (attraction.isValid()) {
 			attractionDAO.update(attraction);
