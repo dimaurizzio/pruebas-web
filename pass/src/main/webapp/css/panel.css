@@ -310,18 +310,38 @@ a.article:hover {
     box-shadow: 0px 12px 0px 0.1px var(--verdeBase);
 }
 .modal-header {
-    margin-top: 0.3em;
-    border-bottom: 0;
+  margin-top: 0.3em;
+  border-bottom: 0;
+  flex-wrap: wrap;
+  padding-bottom: 0;
+}
+
+.alert {
+	margin: 1rem 0 0 0;
+	padding: 0.5rem;
+	border-radius: 10px;
+	border: none;
+}
+.alert-danger {
+	color: #ff5e5e;
+	background: var(--amarilloBase);
 }
 .modal-footer {
-    border-top: 0;
+  border-top: 0;
+}
+p {
+	margin: 0;
 }
 
 .modal {
-    z-index: 5000;
+  z-index: 5000;
 }
 .modal-title {
-    font-size: 1.2em;
+  font-size: 1.2em;
+}
+
+.d-grid {
+	justify-content: end;
 }
 .form-label {
     margin-bottom: .1em;

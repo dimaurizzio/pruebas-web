@@ -4,8 +4,9 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+   <meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>Panel de Control</title>
 
@@ -115,13 +116,13 @@
                                 </div>
                             </div>
                             <div class="ps-3 pe-3 mb-1">
-                                <label for="password" class="form-label">Contrase�a</label> <input
+                                <label for="password" class="form-label">Contraseña</label> <input
                                     type="password" class="form-control"
                                     id="exampleInputPassword1">
                             </div>
                             <div class="modal-footer pe-4">
                                 <button type="submit" class="btn boton-iniciarS">Iniciar
-                                    Sesi�n
+                                    Sesión
                                 </button>
                             </div>
                         </form>
@@ -137,7 +138,7 @@
                         <nav class="navbar navbar-expand-lg navbar-light nav-sticky-hijo">
                             <div class="container-fluid">
                                 <p class="logo">
-                                    �Bienvenido,
+                                    ¡Bienvenido,
                                     <c:out value="${user.nombre}"/>
                                     !
                                 </p>
@@ -155,7 +156,7 @@
                                                                          href="#" id="navbarScrollingDropdown"
                                                                          role="button"
                                                                          data-bs-toggle="dropdown"
-                                                                         aria-expanded="false"> M�s </a>
+                                                                         aria-expanded="false"> Más </a>
                                             <ul class="dropdown-menu dropdown-menu-end"
                                                 aria-labelledby="navbarScrollingDropdown">
                                                 <li><a class="dropdown-item" href="index.jsp">Home</a>
@@ -166,7 +167,7 @@
                                                     <hr class="dropdown-divider"/>
                                                 </li>
                                                 <li><a type="button" href="logout"
-                                                       class="dropdown-item">Cerrar Sesi�n</a></li>
+                                                       class="dropdown-item">Cerrar Sesión</a></li>
                                             </ul>
                                         </li>
                                     </ul>
@@ -274,7 +275,6 @@
                             </c:forEach>
                             </tbody>
                         </table>
-
                     </div>
                 </section>
             </div>
