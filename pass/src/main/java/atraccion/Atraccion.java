@@ -67,6 +67,12 @@ public class Atraccion implements Ofertable {
 		if (cupoMaximo <= 0) {
 			errors.put("capacity", "Capacidad debe ser positivo");
 		}
+		if (nombre != null){
+			errors.put("name", "Debe completar el nombre");
+		}
+		if (breveDescripcion != null){
+			errors.put("description", "Debe completar la descripcion");
+		}
 	}
 
 	public Integer getId() {

@@ -4,9 +4,9 @@
 <html lang="es">
 
 <head>
-   <meta charset="UTF-8" />
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
     <title>Panel de Control</title>
 
@@ -64,6 +64,7 @@
                     </a>
                 </div>
 
+
                 <ul class="list-unstyled components">
                     <p>Panel de control</p>
                     <li class="active"><a href="panelDeControl.do"
@@ -109,7 +110,7 @@
                         <form action="login" method="post">
                             <div class="ps-3 pe-3 mb-4">
                                 <label for="username" class="form-label">Usuario</label> <input
-                                    type="text" class="form-control" id="validationCustom01"
+                                    type="text" class="form-control" id="username"
                                     aria-describedby="emailHelp">
                                 <div id="emailHelp" class="form-text">ejemplo:
                                     LeonardoLinux
@@ -118,7 +119,7 @@
                             <div class="ps-3 pe-3 mb-1">
                                 <label for="password" class="form-label">Contraseña</label> <input
                                     type="password" class="form-control"
-                                    id="exampleInputPassword1">
+                                    id="password">
                             </div>
                             <div class="modal-footer pe-4">
                                 <button type="submit" class="btn boton-iniciarS">Iniciar
@@ -178,13 +179,18 @@
                         <c:if test="${flash != null}">
                             <div class="alert alert-danger">
                                 <p>
-                                    <c:out value="${flash}" />
+                                    <c:out value="${flash}"/>
                                 </p>
                             </div>
                         </c:if>
 
                         <h2 class="titulo">Atracciones</h2>
-
+                        <br>
+                        <a data-bs-target="#modalCreate" data-bs-toggle="modal"
+                           class="btn boton-iniciarS" role="button"><i
+                                class="bi bi-x-circle-fill">Agregar</i></a>
+                        <br>
+                        <br>
                         <table class="table table-stripped table-hover">
                             <thead>
                             <tr>
@@ -213,12 +219,12 @@
                                             </c:when>
                                             <c:otherwise>
                                                 <a href="delete?nombre=${attraction.nombre}"
-                                                   class="btn boton-quiero-tabla" role="button"><i
+                                                   class="btn boton-iniciarS" role="button"><i
                                                         class="bi bi-x-circle-fill">Baja</i></a>
                                             </c:otherwise>
                                         </c:choose>
                                         <a data-bs-target="#modalEdit_${attraction.id}" data-bs-toggle="modal"
-                                           class="btn boton-quiero-tabla" role="button"><i
+                                           class="btn boton-iniciarS" role="button"><i
                                                 class="bi bi-x-circle-fill">Modificar</i></a>
                                     </td>
                                 </tr>
@@ -239,7 +245,8 @@
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="description" class="col-form-label">Costo:</label>
-                                                        <input class="form-control" type="text" id="description" name="description"
+                                                        <input class="form-control" type="text" id="description"
+                                                               name="description"
                                                                required value="${attraction.breveDescripcion}"></input>
                                                     </div>
                                                     <div class="mb-3">
@@ -260,11 +267,11 @@
                                                                required value="${attraction.cupoMaximo}"></input>
                                                     </div>
                                                     <div class="modal-footer">
-                                                        <button type="button" class="btn btn-secondary"
+                                                        <button type="button" class="btn boton-quiero-tabla"
                                                                 data-bs-dismiss="modal">
                                                             Cerrar
                                                         </button>
-                                                        <button type="submit" class="btn btn-primary">Guardar cambios
+                                                        <button type="submit" class="btn boton-iniciarS">Guardar
                                                         </button>
                                                     </div>
                                                 </form>
@@ -273,10 +280,70 @@
                                     </div>
                                 </div>
                             </c:forEach>
+
                             </tbody>
                         </table>
                     </div>
                 </section>
+
+                <div class="modal fade" id="modalCreate" tabindex="-1"
+                     aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="ModalC">Ingrese datos de la atraccion</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form action="create" method="get">
+                                    <div class="mb-3">
+                                        <label for="nameCreate" class="col-form-label">Nombre:</label>
+                                        <input class="form-control" type="text" id="nameCreate" name="nameCreate"
+                                               required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="typeCreate" class="col-form-label">Tipo: (Elija uno)</label>
+                                        <select class="form-control" id="typeCreate" name="typeCreate">
+                                            <option value="ACCION">Accion</option>
+                                            <option value="BANQUETES">Banquetes</option>
+                                            <option value="LOCURA">Locura</option>
+                                            <option value="TERROR">Terror</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="description" class="col-form-label">Descripcion:</label>
+                                        <input class="form-control" type="text" id="descriptionCreate"
+                                               name="descriptionCreate"
+                                               required></input>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="costCreate" class="col-form-label">Costo:</label>
+                                        <input class="form-control" type="number" id="costCreate" name="costCreate"
+                                               required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="durationCreate" class="col-form-label">Duracion:</label>
+                                        <input class="form-control" type="number" id="durationCreate"
+                                               name="durationCreate" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="capacityCreate" class="col-form-label">Cupo:</label>
+                                        <input class="form-control" type="number" id="capacityCreate"
+                                               name="capacityCreate" required>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn boton-quiero-tabla"
+                                                data-bs-dismiss="modal">Cerrar
+                                        </button>
+                                        <button type="submit" class="btn boton-iniciarS">Guardar
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
