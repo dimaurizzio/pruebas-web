@@ -67,11 +67,11 @@
 
                 <ul class="list-unstyled components">
                     <p>Panel de control</p>
-                    <li class="active"><a href="panelDeControl.do"
+                    <li><a href="panelDeControl.do"
                     >Atracciones</a></li>
                     <li><a href="#">Tipos</a></li>
                     <li><a href="#">Promociones</a></li>
-                    <li><a href="panelDeControl_usuarios.do">Usuarios</a></li>
+                    <li class="active"><a href="panelDeControl_usuarios.do">Usuarios</a></li>
                 </ul>
             </div>
         </div>
@@ -140,8 +140,7 @@
                             <div class="container-fluid">
                                 <p class="logo">
                                     ¡Bienvenido,
-                                    <c:out value="${user.nombre}"/>
-                                    !
+                                    <c:out value="${user.nombre}"/>!
                                 </p>
                                 <button class="navbar-toggler nav-button" type="button"
                                         data-bs-toggle="collapse" data-bs-target="#navbarScroll"
@@ -185,7 +184,7 @@
                         </c:if>
                         <br>
 
-                        <h2 class="titulo">Atracciones</h2>
+                        <h2 class="titulo">Usuarios</h2>
                         <br>
                         <a data-bs-target="#modalCreate" data-bs-toggle="modal"
                            class="btn boton-iniciarS" role="button"><i
@@ -195,41 +194,40 @@
                         <table class="table table-stripped table-hover">
                             <thead>
                             <tr>
-                                <th>Atracci&oacute;n</th>
-                                <th>Costo</th>
-                                <th>Duraci&oacute;n</th>
-                                <th>Cupo</th>
+                                <th>Nombre</th>
+                                <th>Dinero</th>
+                                <th>Tiempo</th>
+                                <th>Preferencia</th>
                                 <th>Acciones</th>
                             </tr>
                             </thead>
                             <tbody>
-                            <c:forEach items="${attractions}" var="attraction">
-                                <tr <c:if test="${attraction.deleted}"> style="background-color: orangered"</c:if>>
-                                    <td><strong>${attraction.nombre}</strong>
-                                        <p><c:out value="${attraction.breveDescripcion}"></c:out></p></td>
-                                    <td><c:out value="${attraction.costo}"></c:out>
+                            <c:forEach items="${users}" var="users">
+                                <tr <c:if test="${users.deleted}"> style="background-color: orangered"</c:if>>
+                                    <td><strong>${users.nombre}</strong></td>
+                                    <td><p><c:out value="${users.dineroDisponible}"></c:out></p></td>
+                                    <td><c:out value="${users.tiempo}"></c:out>
                                     </td>
-                                    <td><c:out value="${attraction.duracion}"></c:out></td>
-                                    <td><c:out value="${attraction.cupoMaximo}"></c:out></td>
+                                    <td><c:out value="${users.preferencia}"></c:out></td>
                                     <td>
                                         <c:choose>
-                                            <c:when test="${attraction.deleted}">
-                                                <a href="restore?nombre=${attraction.nombre}"
+                                            <c:when test="${users.deleted}">
+                                                <a href="restore?nombre=${users.nombre}"
                                                    class="btn boton-quiero-tabla" role="button"><i
                                                         class="bi bi-x-circle-fill">Alta</i></a>
                                             </c:when>
                                             <c:otherwise>
-                                                <a href="delete?nombre=${attraction.nombre}"
+                                                <a href="delete?nombre=${users.nombre}"
                                                    class="btn boton-iniciarS" role="button"><i
                                                         class="bi bi-x-circle-fill">Baja</i></a>
                                             </c:otherwise>
                                         </c:choose>
-                                        <a data-bs-target="#modalEdit_${attraction.id}" data-bs-toggle="modal"
+                                        <a data-bs-target="#modalEdit_${users.id}" data-bs-toggle="modal"
                                            class="btn boton-iniciarS" role="button"><i
                                                 class="bi bi-x-circle-fill">Modificar</i></a>
                                     </td>
                                 </tr>
-                                <div class="modal fade" id="modalEdit_${attraction.id}" tabindex="-1"
+                                <div class="modal fade" id="modalEdit_${users.id}" tabindex="-1"
                                      aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
@@ -239,33 +237,27 @@
                                                         aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">
-                                                <form action="edit" method="get">
-                                                    <input type="hidden" name="id" value="${attraction.id}">
+                                                <form action="editUser" method="get">
+                                                    <input type="hidden" name="id" value="${users.id}">
                                                     <div class="mb-3">
-                                                            ${attraction.nombre}
+                                                            ${users.nombre}
                                                     </div>
                                                     <div class="mb-3">
-                                                        <label for="description" class="col-form-label">Descripcion:</label>
-                                                        <input class="form-control" type="text" id="description"
-                                                               name="description"
-                                                               required value="${attraction.breveDescripcion}"></input>
+                                                        <label for="money" class="col-form-label">Dinero:</label>
+                                                        <input class="form-control" type="text" id="money"
+                                                               name="money"
+                                                               required value="${users.dineroDisponible}"></input>
                                                     </div>
                                                     <div class="mb-3">
-                                                        <label for="cost" class="col-form-label">Costo:</label>
-                                                        <input class="form-control" type="number" id="cost" name="cost"
-                                                               required value="${attraction.costo}"></input>
+                                                        <label for="time" class="col-form-label">Tiempo:</label>
+                                                        <input class="form-control" type="number" id="time" name="time"
+                                                               required value="${users.tiempo}"></input>
                                                     </div>
                                                     <div class="mb-3">
-                                                        <label for="duration" class="col-form-label">Duracion:</label>
-                                                        <input class="form-control" type="number" id="duration"
-                                                               name="duration"
-                                                               required value="${attraction.duracion}"></input>
-                                                    </div>
-                                                    <div class="mb-3">
-                                                        <label for="capacity" class="col-form-label">Cupo:</label>
-                                                        <input class="form-control" type="number" id="capacity"
-                                                               name="capacity"
-                                                               required value="${attraction.cupoMaximo}"></input>
+                                                        <label for="preference" class="col-form-label">Preferencia:</label>
+                                                        <input class="form-control" type="number" id="preference"
+                                                               name="preference"
+                                                               required value="${users.preferencia}"></input>
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn boton-quiero-tabla"
@@ -297,14 +289,14 @@
                                         aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                <form action="create" method="get">
+                                <form action="createUser" method="get">
                                     <div class="mb-3">
                                         <label for="nameCreate" class="col-form-label">Nombre:</label>
                                         <input class="form-control" type="text" id="nameCreate" name="nameCreate"
                                                required>
                                     </div>
                                     <div class="mb-3">
-                                        <label for="typeCreate" class="col-form-label">Tipo: (Elija uno)</label>
+                                        <label for="typeCreate" class="col-form-label">Preferencia: (Elija uno)</label>
                                         <select class="form-control" id="typeCreate" name="typeCreate">
                                             <option value="ACCION">Accion</option>
                                             <option value="BANQUETES">Banquetes</option>
@@ -313,25 +305,20 @@
                                         </select>
                                     </div>
                                     <div class="mb-3">
-                                        <label for="descriptionCreate" class="col-form-label">Descripcion:</label>
-                                        <input class="form-control" type="text" id="descriptionCreate"
+                                        <label for="moneyCreate" class="col-form-label">Descripcion:</label>
+                                        <input class="form-control" type="number" id="moneyCreate"
                                                name="descriptionCreate"
                                                required></input>
                                     </div>
                                     <div class="mb-3">
-                                        <label for="costCreate" class="col-form-label">Costo:</label>
-                                        <input class="form-control" type="number" id="costCreate" name="costCreate"
+                                        <label for="timeCreate" class="col-form-label">Costo:</label>
+                                        <input class="form-control" type="number" id="timeCreate" name="timeCreate"
                                                required>
                                     </div>
                                     <div class="mb-3">
-                                        <label for="durationCreate" class="col-form-label">Duracion:</label>
-                                        <input class="form-control" type="number" id="durationCreate"
-                                               name="durationCreate" required>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="capacityCreate" class="col-form-label">Cupo:</label>
-                                        <input class="form-control" type="number" id="capacityCreate"
-                                               name="capacityCreate" required>
+                                        <label for="passwordCreate" class="col-form-label">Duracion:</label>
+                                        <input class="form-control" type="text" id="passwordCreate"
+                                               name="passwordCreate" required>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn boton-quiero-tabla"

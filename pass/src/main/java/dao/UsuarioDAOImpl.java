@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 import jdbc.ConnectionProvider;
@@ -19,9 +20,22 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 
     @Override
     public List<Usuario> findAll() {
-        return null;
-    }
+        try {
+            String sql = "SELECT * FROM usuarios";
+            Connection conn = ConnectionProvider.getConnection();
+            PreparedStatement statement = conn.prepareStatement(sql);
+            ResultSet resultados = statement.executeQuery();
 
+            List<Usuario> usuarios = new LinkedList<Usuario>();
+            while (resultados.next()) {
+                usuarios.add(toUser(resultados));
+            }
+
+            return usuarios;
+        } catch (Exception e) {
+            throw new MissingDataException(e);
+        }
+    }
     @Override
     public int countAll() {
         return 0;
@@ -73,7 +87,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
                 String password = rs.getString("password");
                 boolean admin = rs.getBoolean("password");
 
-                listaUsuarios.add(new Usuario(nombre, dineroDisponible, preferencia, tiempo, id, password, admin));
+                listaUsuarios.add(new Usuario(nombre, dineroDisponible, preferencia, tiempo, id, password, admin, false));
             }
 
         } catch (Exception e) {
@@ -113,7 +127,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
                 String password = rs.getString("password");
                 boolean admin = rs.getBoolean("password");
 
-                user = new Usuario(nombre, dineroDisponible, preferencia, tiempo, id, password, admin);
+                user = new Usuario(nombre, dineroDisponible, preferencia, tiempo, id, password, admin, false);
             }
 
             return user;
@@ -123,7 +137,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
     }
 
     private Usuario toUser(ResultSet userRegister) throws SQLException {
-        return new Usuario(userRegister.getString("nombre"), userRegister.getInt("dinero"), Tipo.valueOf(userRegister.getString("preferencia")), userRegister.getDouble("tiempo"), userRegister.getInt("id"), userRegister.getString("password"), userRegister.getBoolean("admin"));
+        return new Usuario(userRegister.getString("nombre"), userRegister.getInt("dinero"), Tipo.valueOf(userRegister.getString("preferencia")), userRegister.getDouble("tiempo"), userRegister.getInt("id"), userRegister.getString("password"), userRegister.getBoolean("admin"), false);
     }
 
 }

@@ -3,6 +3,7 @@ package usuario;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import atraccion.Atraccion;
 import dao.AtraccionDAO;
@@ -28,8 +29,12 @@ public class Usuario {
     public final ArrayList<Atraccion> comprasDeUsuario = new ArrayList<Atraccion>();
     private String password;
     private boolean admin;
+    private HashMap<String, String> errors;
+    private boolean deleted;
 
-    public Usuario(String nombre, int dineroDisponible, Tipo preferencia, double tiempo, int id, String password, boolean admin) {
+
+
+    public Usuario(String nombre, int dineroDisponible, Tipo preferencia, double tiempo, int id, String password, boolean admin, boolean deleted) {
         this.id = id;
         this.nombre = nombre;
         this.dineroInicial = dineroDisponible;
@@ -39,6 +44,15 @@ public class Usuario {
         this.tiempo = tiempo;
         this.password = password;
         this.admin = admin;
+        this.deleted = deleted;
+    }
+
+    public boolean isDeleted() {
+        return deleted;
+    }
+
+    public void setDeleted(boolean deleted) {
+        this.deleted = deleted;
     }
 
     public boolean checkPassword(String password) {
@@ -172,4 +186,19 @@ public class Usuario {
                 + preferencia + ", tiempo=" + tiempo + '}';
     }
 
+    public boolean isValid() {
+        validate();
+        return errors.isEmpty();
+    }
+
+    public void validate() {
+        errors = new HashMap<String, String>();
+
+        if (dineroDisponible < 0) {
+            errors.put("coins", "No debe ser negativo");
+        }
+        if (tiempo < 0) {
+            errors.put("time", "No debe ser negativo");
+        }
+    }
 }

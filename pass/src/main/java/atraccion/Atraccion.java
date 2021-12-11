@@ -29,14 +29,6 @@ public class Atraccion implements Ofertable {
 	private boolean deleted;
 
 
-	public boolean isDeleted() {
-		return deleted;
-	}
-
-	public void setDeleted(boolean deleted) {
-		this.deleted = deleted;
-	}
-
 	public Atraccion(Integer id, String nombre, Tipo tipo , Integer costo, Double duracion, Integer cupo, String breveDescripcion, boolean deleted) {
 		this.id = id;
 		this.nombre = nombre;
@@ -49,6 +41,13 @@ public class Atraccion implements Ofertable {
 		this.deleted = deleted;
 	}
 
+	public boolean isDeleted() {
+		return deleted;
+	}
+
+	public void setDeleted(boolean deleted) {
+		this.deleted = deleted;
+	}
 
 	public boolean isValid() {
 		validate();
