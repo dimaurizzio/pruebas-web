@@ -183,6 +183,7 @@
                                 </p>
                             </div>
                         </c:if>
+                        <br>
 
                         <h2 class="titulo">Atracciones</h2>
                         <br>

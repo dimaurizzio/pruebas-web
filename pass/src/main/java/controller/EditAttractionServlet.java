@@ -23,6 +23,7 @@ public class EditAttractionServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        try {
         Integer id = Integer.parseInt(req.getParameter("id"));
         String description = req.getParameter("description");
         Integer capacity = Integer.parseInt(req.getParameter("capacity"));
@@ -31,11 +32,8 @@ public class EditAttractionServlet extends HttpServlet {
 
         Atraccion attraction = null;
 
-        try {
             attraction = attractionService.update(id, cost, duration, capacity, description);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+
 
         if (attraction.isValid()) {
             resp.sendRedirect("panelDeControl.do");
@@ -45,6 +43,15 @@ public class EditAttractionServlet extends HttpServlet {
             RequestDispatcher dispatcher = getServletContext()
                     .getRequestDispatcher("/panelDeControl.do");
             dispatcher.forward(req, resp);
+        }
+        } catch (NumberFormatException e) {
+            req.setAttribute("flash", "Ingrese correctamente todos los campos");
+
+            RequestDispatcher dispatcher = getServletContext()
+                    .getRequestDispatcher("/panelDeControl.do");
+            dispatcher.forward(req, resp);
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
 

@@ -27,31 +27,35 @@ public class CreateAttractionServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String name = req.getParameter("nameCreate");
-        Integer cost = Integer.parseInt(req.getParameter("costCreate"));
-        Double duration = Double.parseDouble(req.getParameter("durationCreate"));
-        Integer capacity = Integer.parseInt(req.getParameter("capacityCreate"));
-        String description = req.getParameter("descriptionCreate");
-        Tipo type = Tipo.valueOf(req.getParameter("typeCreate"));
-
-
-        Atraccion attraction = null;
 
         try {
-            attraction = attractionService.create(name, cost, type, duration, capacity, description);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+            String name = req.getParameter("nameCreate");
+            Integer cost = Integer.parseInt(req.getParameter("costCreate"));
+            Double duration = Double.parseDouble(req.getParameter("durationCreate"));
+            Integer capacity = Integer.parseInt(req.getParameter("capacityCreate"));
+            String description = req.getParameter("descriptionCreate");
+            Tipo type = Tipo.valueOf(req.getParameter("typeCreate"));
 
-        if (attraction.isValid()) {
-            resp.sendRedirect("panelDeControl.do");
-        } else {
-            req.setAttribute("flash", attraction.errors.values());
+            Atraccion attraction = null;
+            attraction = attractionService.create(name, cost, type, duration, capacity, description);
+
+            if (attraction.isValid()) {
+                resp.sendRedirect("panelDeControl.do");
+            } else {
+                req.setAttribute("flash", attraction.errors.values());
+
+                RequestDispatcher dispatcher = getServletContext()
+                        .getRequestDispatcher("/panelDeControl.do");
+                dispatcher.forward(req, resp);
+            }
+        } catch (NumberFormatException e) {
+            req.setAttribute("flash", "Ingrese correctamente todos los campos");
 
             RequestDispatcher dispatcher = getServletContext()
                     .getRequestDispatcher("/panelDeControl.do");
             dispatcher.forward(req, resp);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
         }
-
     }
 }
