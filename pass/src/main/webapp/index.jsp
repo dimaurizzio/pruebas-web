@@ -73,7 +73,7 @@ Cosas por hacer:
 
 <!-- Js -->
 
-<script defer src="js\script.js"></script>
+<script defer src="js\indexJs\script.js"></script>
 
 <script type="text/javascript" defer src="js\clima.js"></script>
 <script type="text/javascript" defer src="js\hora.js"></script>
@@ -186,36 +186,6 @@ Cosas por hacer:
 					<!-- end navbar -->
 
 					<!-- titular y bg -->
-					
-			<div style="height:10vh !important;" id="container" class="container">
-            	<div id="contenedor-clima" class="row">
-            
-					<div id="caja2" class="col-3">
-            			<h4 id="ubicacion"></h4>
-            			<img id="icono-animado" src='' alt="" height="128" width="128">
-        			</div>
-			 
-			
-					<div id="caja1" class="col-3">
-            			<h4 id="temperatura-valor"></h4>
-            			<h4 id="temperatura-descripcion"></h4>
-        			</div>
-			 
-			
-					<div id="caja3" class="col-3">
-            			<h4>Velocidad del viento</h4>
-            			<h4 id="viento-velocidad"></h4>
-        			</div>
-			    
-			
-					<div id="caja4" class="col-3">
-            			<h4>Hora</h4>
-           		 		<h4 id="hora"></h4>
-       		 	
-					</div>
-           		 </div>
-            </div>
-					
 					<div class="container">
 						<div class="row justify-content-center viewport-no-nav">
 							<div class="col-10 enunciado">

@@ -64,7 +64,7 @@
 
 <!-- Js -->
 
-<script defer src="js\script.js"></script>
+<script defer src="js\indexJs\script.js"></script>
 
 </head>
 

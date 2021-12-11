@@ -36,7 +36,7 @@
 
     <!-- Js -->
 
-    <script defer src="js/scriptPanel.js"></script>
+    <script defer src="js/panelDeControlJs/scriptPanel.js"></script>
 
 </head>
 
