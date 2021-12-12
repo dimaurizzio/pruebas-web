@@ -28,6 +28,8 @@ public class ListAttractionsServlet extends HttpServlet implements Servlet {
     @Override
     protected void doGet (HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<Atraccion> attractions = attractionService.list();
+        List<String> tipos = attractionService.types();
+        req.setAttribute("types", tipos);
         req.setAttribute("attractions", attractions);
 
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/panelDeControl.jsp");

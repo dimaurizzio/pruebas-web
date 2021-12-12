@@ -30,6 +30,8 @@ public class ListUsersServlet extends HttpServlet implements Servlet {
     @Override
     protected void doGet (HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<Usuario> users = userService.list();
+        List<String> tipos = userService.types();
+        req.setAttribute("types", tipos);
         req.setAttribute("users", users);
 
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/panelDeControl_usuarios.jsp");

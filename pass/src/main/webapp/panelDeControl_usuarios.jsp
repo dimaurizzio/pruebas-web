@@ -212,22 +212,22 @@
                                     <td>
                                         <c:choose>
                                             <c:when test="${users.deleted}">
-                                                <a href="restore?nombre=${users.nombre}"
+                                                <a href="restoreUser?nombre=${users.nombre}"
                                                    class="btn boton-quiero-tabla" role="button"><i
                                                         class="bi bi-x-circle-fill">Alta</i></a>
                                             </c:when>
                                             <c:otherwise>
-                                                <a href="delete?nombre=${users.nombre}"
+                                                <a href="deleteUser?nombre=${users.nombre}"
                                                    class="btn boton-iniciarS" role="button"><i
                                                         class="bi bi-x-circle-fill">Baja</i></a>
                                             </c:otherwise>
                                         </c:choose>
-                                        <a data-bs-target="#modalEdit_${users.id}" data-bs-toggle="modal"
+                                        <a data-bs-target="#modalEditUser_${users.id}" data-bs-toggle="modal"
                                            class="btn boton-iniciarS" role="button"><i
                                                 class="bi bi-x-circle-fill">Modificar</i></a>
                                     </td>
                                 </tr>
-                                <div class="modal fade" id="modalEdit_${users.id}" tabindex="-1"
+                                <div class="modal fade" id="modalEditUser_${users.id}" tabindex="-1"
                                      aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
@@ -254,10 +254,12 @@
                                                                required value="${users.tiempo}"></input>
                                                     </div>
                                                     <div class="mb-3">
-                                                        <label for="preference" class="col-form-label">Preferencia:</label>
-                                                        <input class="form-control" type="number" id="preference"
-                                                               name="preference"
-                                                               required value="${users.preferencia}"></input>
+                                                        <label for="preference" class="col-form-label">Tipo: (Elija uno)</label>
+                                                        <select class="form-control" id="preference" name="preference">
+                                                            <c:forEach items="${types}" var="type">
+                                                                <option value="${type}">${type}</option>
+                                                            </c:forEach>
+                                                        </select>
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn boton-quiero-tabla"
@@ -296,29 +298,28 @@
                                                required>
                                     </div>
                                     <div class="mb-3">
+                                        <label for="passwordCreate" class="col-form-label">Contraseña:</label>
+                                        <input class="form-control" type="text" id="passwordCreate" name="passwordCreate"
+                                               required>
+                                    </div>
+                                    <div class="mb-3">
                                         <label for="typeCreate" class="col-form-label">Preferencia: (Elija uno)</label>
                                         <select class="form-control" id="typeCreate" name="typeCreate">
-                                            <option value="ACCION">Accion</option>
-                                            <option value="BANQUETES">Banquetes</option>
-                                            <option value="LOCURA">Locura</option>
-                                            <option value="TERROR">Terror</option>
+                                            <c:forEach items="${types}" var="type">
+                                                <option value="${type}">${type}</option>
+                                            </c:forEach>
                                         </select>
                                     </div>
                                     <div class="mb-3">
-                                        <label for="moneyCreate" class="col-form-label">Descripcion:</label>
+                                        <label for="moneyCreate" class="col-form-label">Dinero:</label>
                                         <input class="form-control" type="number" id="moneyCreate"
-                                               name="descriptionCreate"
+                                               name="moneyCreate"
                                                required></input>
                                     </div>
                                     <div class="mb-3">
                                         <label for="timeCreate" class="col-form-label">Costo:</label>
                                         <input class="form-control" type="number" id="timeCreate" name="timeCreate"
                                                required>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="passwordCreate" class="col-form-label">Duracion:</label>
-                                        <input class="form-control" type="text" id="passwordCreate"
-                                               name="passwordCreate" required>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn boton-quiero-tabla"

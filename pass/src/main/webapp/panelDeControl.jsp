@@ -306,10 +306,9 @@
                                     <div class="mb-3">
                                         <label for="typeCreate" class="col-form-label">Tipo: (Elija uno)</label>
                                         <select class="form-control" id="typeCreate" name="typeCreate">
-                                            <option value="ACCION">Accion</option>
-                                            <option value="BANQUETES">Banquetes</option>
-                                            <option value="LOCURA">Locura</option>
-                                            <option value="TERROR">Terror</option>
+                                            <c:forEach items="${types}" var="type">
+                                            <option value="${type}">${type}</option>
+                                            </c:forEach>
                                         </select>
                                     </div>
                                     <div class="mb-3">

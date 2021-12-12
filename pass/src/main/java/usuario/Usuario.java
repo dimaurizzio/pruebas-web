@@ -22,14 +22,14 @@ public class Usuario {
     private int dineroDisponible;
     private final int dineroInicial;
     private final double tiempoInicial;
-    private final Tipo preferencia;
+    private Tipo preferencia;
     private double tiempo;
     public final ArrayList<Atraccion> atraccionesCompradas = new ArrayList<Atraccion>();
     public final ArrayList<Promocion> promocionesCompradas = new ArrayList<Promocion>();
     public final ArrayList<Atraccion> comprasDeUsuario = new ArrayList<Atraccion>();
     private String password;
     private boolean admin;
-    private HashMap<String, String> errors;
+    public HashMap<String, String> errors;
     private boolean deleted;
 
 
@@ -97,6 +97,8 @@ public class Usuario {
     public Tipo getPreferencia() {
         return preferencia;
     }
+
+    public void setPreferencia(Tipo tipo){this.preferencia = tipo;}
 
     public void comprar(Ofertable o) {
         if (o.esPromocion()) {
@@ -195,10 +197,16 @@ public class Usuario {
         errors = new HashMap<String, String>();
 
         if (dineroDisponible < 0) {
-            errors.put("coins", "No debe ser negativo");
+            errors.put("coins", "Dinero no debe ser negativo");
         }
         if (tiempo < 0) {
-            errors.put("time", "No debe ser negativo");
+            errors.put("time", "Tiempo no debe ser negativo");
+        }
+        if (nombre == ""){
+            errors.put("name", "Debe completar el nombre");
+        }
+        if (password == ""){
+            errors.put("password", "Debe completar la contraseña");
         }
     }
 }

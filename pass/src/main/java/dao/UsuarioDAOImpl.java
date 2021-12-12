@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
+import atraccion.Atraccion;
 import jdbc.ConnectionProvider;
 import tipos.Tipo;
 import usuario.NullUser;
@@ -17,6 +18,21 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 
     public static ArrayList<Usuario> listaUsuarios = new ArrayList<Usuario>();
     private Connection conn;
+
+    @Override
+    public void restore(Usuario user) {
+        try {
+            String sql = "UPDATE usuarios SET deleted = '0' WHERE nombre = ?";
+            conn = ConnectionProvider.getConnection();
+
+            PreparedStatement statement = conn.prepareStatement(sql);
+            statement.setString(1, user.getNombre());
+            statement.executeUpdate();
+
+        } catch (Exception e) {
+            throw new MissingDataException(e);
+        }
+    }
 
     @Override
     public List<Usuario> findAll() {
@@ -43,32 +59,40 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 
     @Override
     public int insert(Usuario t) {
-        return 0;
+        try {
+            String sql = "INSERT INTO usuarios (nombre, password, dinero, tiempo, preferencia) VALUES (?, ?, ?, ?, ?)";
+            Connection conn = ConnectionProvider.getConnection();
+
+            PreparedStatement statement = conn.prepareStatement(sql);
+            statement.setString(1, t.getNombre());
+            statement.setString(2, t.getPassword());
+            statement.setInt(3, t.getDineroDisponible());
+            statement.setDouble(4, t.getTiempo());
+            statement.setString(5, t.getPreferencia().toString());
+            int rows = statement.executeUpdate();
+
+            return rows;
+        } catch (Exception e) {
+            throw new MissingDataException(e);
+        }
     }
 
     @Override
     public int update(Usuario t) {
         try {
-            String sql = "UPDATE usuarios SET dinero = ?, tiempo = ? WHERE id = ?";
+            String sql = "UPDATE usuarios SET dinero = ?, tiempo = ?, preferencia = ? WHERE id = ?";
             conn = ConnectionProvider.getConnection();
             PreparedStatement statement = conn.prepareStatement(sql);
             statement.setLong(1, t.getDineroDisponible());
             statement.setDouble(2, t.getTiempo());
-            statement.setInt(3, t.getId());
+            statement.setString(3, t.getPreferencia().toString());
+            statement.setInt(4, t.getId());
             int rows = statement.executeUpdate();
 
             return rows;
 
         } catch (Exception e) {
             throw new MissingDataException(e);
-        } finally {
-            if (conn != null) {
-                try {
-                    conn.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
         }
     }
 
@@ -104,7 +128,18 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 
     @Override
     public int delete(Usuario t) {
-        return 0;
+        try {
+            String sql = "UPDATE usuarios SET deleted = '1' WHERE nombre = ?";
+            conn = ConnectionProvider.getConnection();
+
+            PreparedStatement statement = conn.prepareStatement(sql);
+            statement.setString(1, t.getNombre());
+            statement.executeUpdate();
+
+        } catch (Exception e) {
+            throw new MissingDataException(e);
+        }
+        return 1;
     }
 
 
@@ -137,7 +172,28 @@ public class UsuarioDAOImpl implements UsuarioDAO {
     }
 
     private Usuario toUser(ResultSet userRegister) throws SQLException {
-        return new Usuario(userRegister.getString("nombre"), userRegister.getInt("dinero"), Tipo.valueOf(userRegister.getString("preferencia")), userRegister.getDouble("tiempo"), userRegister.getInt("id"), userRegister.getString("password"), userRegister.getBoolean("admin"), false);
+        return new Usuario(userRegister.getString("nombre"), userRegister.getInt("dinero"), Tipo.valueOf(userRegister.getString("preferencia")), userRegister.getDouble("tiempo"), userRegister.getInt("id"), userRegister.getString("password"), userRegister.getBoolean("admin"), userRegister.getBoolean("deleted"));
+    }
+
+    @Override
+    public Usuario findByAtraccionId(int id) throws SQLException {
+        try {
+            String sql = "SELECT * FROM usuarios WHERE id = ?";
+            conn = ConnectionProvider.getConnection();
+            PreparedStatement statement = conn.prepareStatement(sql);
+            statement.setInt(1, id);
+            ResultSet resultados = statement.executeQuery();
+
+            Usuario usuario = null;
+
+            if (resultados.next()) {
+                usuario = toUser(resultados);
+            }
+
+            return usuario;
+        } catch (Exception e) {
+            throw new MissingDataException(e);
+        }
     }
 
 }

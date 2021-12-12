@@ -6,6 +6,7 @@ import dao.DAOFactory;
 import tipos.Tipo;
 
 import java.sql.SQLException;
+import java.util.LinkedList;
 import java.util.List;
 
 public class AttractionService {
@@ -60,4 +61,13 @@ public class AttractionService {
 		Atraccion attraction = atraccionDAO.findByAtraccionName(nombre);
 		atraccionDAO.restore(attraction);
 	}
+
+    public List<String> types() {
+		List<String> typesL = new LinkedList<>();
+		for (Tipo tipo : Tipo.values()){
+			typesL.add(tipo.toString());
+		}
+		return typesL;
+
+    }
 }

@@ -12,4 +12,8 @@ public interface UsuarioDAO extends GenericDAO<Usuario>{
 	public abstract void createArray() throws SQLException;
 
 	public abstract void actualizarDBUsuarios();
+
+	void restore(Usuario user);
+
+    Usuario findByAtraccionId(int id) throws SQLException;
 }
