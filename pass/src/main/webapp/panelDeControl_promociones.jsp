@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-    <title>Panel de Control/Usuarios</title>
+    <title>Panel de Control/Promociones</title>
 
     <!-- favicon -->
 
@@ -67,11 +67,10 @@
 
                 <ul class="list-unstyled components">
                     <p>Panel de control</p>
-                    <li><a href="panelDeControl.do"
-                    >Atracciones</a></li>
+                    <li><a href="panelDeControl.do">Atracciones</a></li>
                     <li><a href="#">Itinerarios</a></li>
-                    <li><a href="panelDeControl_promociones.do">Promociones</a></li>
-                    <li class="active"><a href="panelDeControl_usuarios.do">Usuarios</a></li>
+                    <li class="active"><a href="panelDeControl_promociones.do">Promociones</a></li>
+                    <li><a href="panelDeControl_usuarios.do">Usuarios</a></li>
                 </ul>
             </div>
         </div>
@@ -140,7 +139,8 @@
                             <div class="container-fluid">
                                 <p class="logo">
                                     ¡Bienvenido,
-                                    <c:out value="${user.nombre}"/>!
+                                    <c:out value="${user.nombre}"/>
+                                    !
                                 </p>
                                 <button class="navbar-toggler nav-button" type="button"
                                         data-bs-toggle="collapse" data-bs-target="#navbarScroll"
@@ -184,155 +184,47 @@
                         </c:if>
                         <br>
 
-                        <h2 class="titulo">Usuarios</h2>
-                        <br>
-                        <a data-bs-target="#modalCreate" data-bs-toggle="modal"
-                           class="btn boton-iniciarS" role="button"><i
-                                class="bi bi-x-circle-fill">Agregar</i></a>
-                        <br>
-                        <br>
+                        <h2 class="titulo">Promociones</h2>
                         <table class="table table-stripped table-hover">
                             <thead>
                             <tr>
                                 <th>Nombre</th>
-                                <th>Dinero</th>
-                                <th>Tiempo</th>
-                                <th>Preferencia</th>
+                                <th>Tipo</th>
+                                <th>Tipo de Promocion</th>
+                                <th>Atracciones</th>
                                 <th>Acciones</th>
                             </tr>
                             </thead>
                             <tbody>
-                            <c:forEach items="${users}" var="users">
-                                <tr <c:if test="${users.deleted}"> style="background-color: orangered"</c:if>>
-                                    <td><strong>${users.nombre}</strong></td>
-                                    <td><p><c:out value="${users.dineroDisponible}"></c:out></p></td>
-                                    <td><c:out value="${users.tiempo}"></c:out>
-                                    </td>
-                                    <td><c:out value="${users.preferencia}"></c:out></td>
+                            <c:forEach items="${promotions}" var="promotion">
+                                <tr <c:if test="${promotion.deleted}"> style="background-color: orangered"</c:if>>
+                                    <td><strong>${promotion.nombre}</strong>
+                                        <p><c:out value="${promotion.breveDescripcion}"></c:out></p></td>
+                                    <td><c:out value="${promotion.tipo}"></c:out></td>
+                                    <td> ${promotion.tipoP} </td>
+                                    <td><c:forEach items="${promotion.atraccionesDePromo}" var="t">
+                                        <c:out value="${t.nombre}"></c:out><br>
+                                    </c:forEach></td>
                                     <td>
                                         <c:choose>
-                                            <c:when test="${users.deleted}">
-                                                <a href="restoreUser?nombre=${users.nombre}"
+                                            <c:when test="${promotion.deleted}">
+                                                <a href="restorePromotion?nombre=${promotion.nombre}"
                                                    class="btn boton-quiero-tabla" role="button"><i
                                                         class="bi bi-x-circle-fill">Alta</i></a>
                                             </c:when>
                                             <c:otherwise>
-                                                <a href="deleteUser?nombre=${users.nombre}"
+                                                <a href="deletePromotion?nombre=${promotion.nombre}"
                                                    class="btn boton-iniciarS" role="button"><i
                                                         class="bi bi-x-circle-fill">Baja</i></a>
                                             </c:otherwise>
                                         </c:choose>
-                                        <a data-bs-target="#modalEditUser_${users.id}" data-bs-toggle="modal"
-                                           class="btn boton-iniciarS" role="button"><i
-                                                class="bi bi-x-circle-fill">Modificar</i></a>
                                     </td>
                                 </tr>
-                                <div class="modal fade" id="modalEditUser_${users.id}" tabindex="-1"
-                                     aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="ModalLabel">Ingrese datos a modificar</h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                        aria-label="Close"></button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <form action="editUser" method="get">
-                                                    <input type="hidden" name="id" value="${users.id}">
-                                                    <div class="mb-3">
-                                                            ${users.nombre}
-                                                    </div>
-                                                    <div class="mb-3">
-                                                        <label for="money" class="col-form-label">Dinero:</label>
-                                                        <input class="form-control" type="text" id="money"
-                                                               name="money"
-                                                               required value="${users.dineroDisponible}"></input>
-                                                    </div>
-                                                    <div class="mb-3">
-                                                        <label for="time" class="col-form-label">Tiempo:</label>
-                                                        <input class="form-control" type="number" id="time" name="time"
-                                                               required value="${users.tiempo}"></input>
-                                                    </div>
-                                                    <div class="mb-3">
-                                                        <label for="preference" class="col-form-label">Tipo: (Elija uno)</label>
-                                                        <select class="form-control" id="preference" name="preference">
-                                                            <c:forEach items="${types}" var="type">
-                                                                <option value="${type}">${type}</option>
-                                                            </c:forEach>
-                                                        </select>
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn boton-quiero-tabla"
-                                                                data-bs-dismiss="modal">
-                                                            Cerrar
-                                                        </button>
-                                                        <button type="submit" class="btn boton-iniciarS">Guardar
-                                                        </button>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                             </c:forEach>
-
                             </tbody>
                         </table>
                     </div>
                 </section>
-
-                <div class="modal fade" id="modalCreate" tabindex="-1"
-                     aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="ModalC">Ingrese datos del usuario</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                        aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                <form action="createUser" method="get">
-                                    <div class="mb-3">
-                                        <label for="nameCreate" class="col-form-label">Nombre:</label>
-                                        <input class="form-control" type="text" id="nameCreate" name="nameCreate"
-                                               required>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="passwordCreate" class="col-form-label">Contraseña:</label>
-                                        <input class="form-control" type="text" id="passwordCreate" name="passwordCreate"
-                                               required>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="typeCreate" class="col-form-label">Preferencia: (Elija uno)</label>
-                                        <select class="form-control" id="typeCreate" name="typeCreate">
-                                            <c:forEach items="${types}" var="type">
-                                                <option value="${type}">${type}</option>
-                                            </c:forEach>
-                                        </select>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="moneyCreate" class="col-form-label">Dinero:</label>
-                                        <input class="form-control" type="number" id="moneyCreate"
-                                               name="moneyCreate"
-                                               required></input>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="timeCreate" class="col-form-label">Costo:</label>
-                                        <input class="form-control" type="number" id="timeCreate" name="timeCreate"
-                                               required>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn boton-quiero-tabla"
-                                                data-bs-dismiss="modal">Cerrar
-                                        </button>
-                                        <button type="submit" class="btn boton-iniciarS">Guardar
-                                        </button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>

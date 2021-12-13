@@ -12,11 +12,21 @@ public class PromoAbsoluta extends Promocion implements Ofertable {
 	private Integer descuento = 0;
 	private String breveDescripcion;
 	Integer costoTotal = 0;
+	private String tipoP = "Absoluta";
 
-	public PromoAbsoluta(String nombre, Tipo tipo, int descuento, String breveDescripcion) {
-		super(nombre, tipo);
+
+	public PromoAbsoluta(String nombre, Tipo tipo, int descuento, String breveDescripcion, boolean deleted) {
+		super(nombre, tipo, deleted);
 		this.descuento = descuento;
 		this.breveDescripcion = breveDescripcion;
+	}
+
+	public String getTipoP() {
+		return tipoP;
+	}
+
+	public void setTipoP(String tipoP) {
+		this.tipoP = tipoP;
 	}
 
 	@Override

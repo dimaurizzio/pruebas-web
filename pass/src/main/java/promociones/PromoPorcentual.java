@@ -11,11 +11,21 @@ import tipos.Tipo;
 public class PromoPorcentual extends Promocion implements Ofertable {
 	Integer porcentaje = 0;
 	private String breveDescripcion;
+	private String tipoP = "Porcentual";
 
-	public PromoPorcentual(String nombre, Tipo tipo, Integer porcentaje, String breveDescripcion) {
-		super(nombre, tipo);
+
+	public PromoPorcentual(String nombre, Tipo tipo, Integer porcentaje, String breveDescripcion, boolean deleted) {
+		super(nombre, tipo, deleted);
 		this.porcentaje = porcentaje;
 		this.breveDescripcion = breveDescripcion;
+	}
+
+	public String getTipoP() {
+		return tipoP;
+	}
+
+	public void setTipoP(String tipoP) {
+		this.tipoP = tipoP;
 	}
 
 	@Override

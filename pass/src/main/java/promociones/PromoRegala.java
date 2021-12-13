@@ -12,15 +12,24 @@ public class PromoRegala extends Promocion implements Ofertable {
 
 	static Atraccion regalo;
 	private String breveDescripcion;
+	private String tipoP = "Regalo";
 
-	public PromoRegala(String nombre, Tipo tipo, Atraccion regalo, String breveDescripcion) {
-		super(nombre, tipo);
+	public PromoRegala(String nombre, Tipo tipo, Atraccion regalo, String breveDescripcion, boolean deleted) {
+		super(nombre, tipo, deleted);
 		PromoRegala.regalo = regalo;
 		this.breveDescripcion = breveDescripcion;
 	}
 
 	public static Atraccion getRegalo() {
 		return regalo;
+	}
+
+	public String getTipoP() {
+		return tipoP;
+	}
+
+	public void setTipoP(String tipoP) {
+		this.tipoP = tipoP;
 	}
 
 	@Override
