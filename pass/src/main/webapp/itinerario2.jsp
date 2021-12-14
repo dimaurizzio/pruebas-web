@@ -47,19 +47,13 @@
 
 <script type="text/javascript" defer
 	src="js\itinerarioJs\HTML2PDF\html2pdf.bundle.min.js"></script>
-<script type="text/javascript" defer
-	src="js\itinerarioJs\HTML2PDF\descargarPDF.js"></script>
+<script type="text/javascript" defer src="js\itinerarioJs\HTML2PDF\descargarPDF.js"></script>
 
-<script type="text/javascript" defer
-	src="js\itinerarioJs\acordionJs\scriptMostrarAccordion.js"></script>
-<script type="text/javascript" defer
-	src="js\itinerarioJs\acordionJs\scriptMostrarLista.js"></script>
+<script type="text/javascript" defer src="js\itinerarioJs\acordionJs\scriptMostrarAccordion.js"></script>
+<script type="text/javascript" defer src="js\itinerarioJs\acordionJs\scriptMostrarLista.js"></script>
 
-<script type="text/javascript" defer
-	src="js\itinerarioJs\climaJs\clima.js"></script>
-<script type="text/javascript" defer
-	src="js\itinerarioJs\climaJs\hora.js"></script>
-
+<script type="text/javascript" defer src="js\itinerarioJs\climaJs\clima.js"></script>
+<script type="text/javascript" defer src="js\itinerarioJs\climaJs\hora.js"></script>
 
 </head>
 
@@ -71,7 +65,7 @@
 	<div class="container-fluid">
 
 		<div class="contenedor">
-			<div class="container viewport">
+			<div class="container"> 
 				<nav class="navbar navbar-expand-lg navbar-light ">
 					<div class="container-fluid">
 						<a class="logo" href="index.jsp">muy lejano <span
@@ -99,7 +93,7 @@
 										aria-labelledby="navbarScrollingDropdown">
 										<li><a class="dropdown-item" href="itinerario.jsp">Itinerario</a></li>
 										<li><hr class="dropdown-divider"></li>
-										<li><a class="dropdown-item" href="panelDeControl.jsp">Alta
+										<li><a class="dropdown-item" href="panelDeControl.do">Alta
 												y baja</a></li>
 									</ul></li>
 							</ul>
@@ -107,41 +101,145 @@
 					</div>
 				</nav>
 
-				<div id="containergeneral-estilosclima container" class="container">
-					<div id="contenedor-clima" class="row">
+		<!--  MAIN CONTENT  -->
+			
+			<p class="titulo mb-5">su <span class="pass-span"> itinerario</span></p>
+			
+			<div class="accordion accordion-flush" id="accordionFlushExample">
+						<div class="accordion-item">
+							<h2 class="accordion-header" id="flush-headingOne">
+								<button class="accordion-button collapsed" type="button"
+									data-bs-toggle="collapse" data-bs-target="#flush-collapseOne"
+									aria-expanded="false" aria-controls="flush-collapseOne">
+									<div class="accordion-data row">
+										<div class="col-6 nombre-atraccion">
+											<p>Nombre de la actividad que compró el usuario (Por ej:
+												El Calabozo)</p>
+										</div>
+										<div class="col-3 clock-in-accordion">
+											<img class="clock" src="img\clock.svg" /> Duración
+										</div>
+										<div class="col-3 coin-in-accordion">
+											<img class="coin" src="img\coin.svg" /> Costo
+										</div>
+									</div>
+								</button>
+							</h2>
+							<div id="flush-collapseOne" class="accordion-collapse collapse"
+								aria-labelledby="flush-headingOne"
+								data-bs-parent="#accordionFlushExample">
+								<div class="container">
+									<div class="row">
+										<div class="col-12">
+											<div class="accordion-body descripcion-accordion">Descripción
+												de la atracción</div>
+										</div>
 
-						<div id="caja2" class="col-3">
-							<h4 id="ubicacion"></h4>
-							<img id="icono-animado" src='' alt="" height="128" width="128">
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="accordion-item">
+							<h2 class="accordion-header" id="flush-headingTwo">
+								<button class="accordion-button collapsed" type="button"
+									data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo"
+									aria-expanded="false" aria-controls="flush-collapseTwo">
+									<div class="accordion-data row">
+										<div class="col-6 nombre-atraccion">
+											<p>Duloc</p>
+										</div>
+										<div class="col-3 clock-in-accordion">
+											<img class="clock" src="img\clock.svg" /> 1:30 horas
+										</div>
+										<div class="col-3 coin-in-accordion">
+											<img class="coin" src="img\coin.svg" /> 25 monedas
+										</div>
+									</div>
+								</button>
+							</h2>
+							<div id="flush-collapseTwo" class="accordion-collapse collapse"
+								aria-labelledby="flush-headingTwo"
+								data-bs-parent="#accordionFlushExample">
+								<div class="container">
+									<div class="row">
+										<div class="col-12">
+											<div class="accordion-body descripcion-accordion">Por
+												qué elegiste esto?</div>
+										</div>
+
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="accordion-item">
+							<h2 class="accordion-header" id="flush-headingThree">
+								<button class="accordion-button collapsed" type="button"
+									data-bs-toggle="collapse" data-bs-target="#flush-collapseThree"
+									aria-expanded="false" aria-controls="flush-collapseThree">
+									<div class="accordion-data row">
+										<div class="col-6 nombre-atraccion">
+											<p>Banquete en el Pantano</p>
+										</div>
+										<div class="col-3 clock-in-accordion">
+											<img class="clock" src="img\clock.svg" /> 1 hora
+										</div>
+										<div class="col-3 coin-in-accordion">
+											<img class="coin" src="img\coin.svg" /> 5 monedas
+										</div>
+									</div>
+								</button>
+							</h2>
+							<div id="flush-collapseThree" class="accordion-collapse collapse"
+								aria-labelledby="flush-headingThree"
+								data-bs-parent="#accordionFlushExample">
+								<div class="container">
+									<div class="row">
+										<div class="col-12">
+											<div class="accordion-body descripcion-accordion">Buena
+												relación costo/calidad</div>
+										</div>
+
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+			
+			
+			
+			<div id="containergeneral-estilosclima" class="container justify-content-center">
+					<div id="contenedor-clima" class="row clima-container align-items-center">
+
+						<div id="caja2" class="col item-clima">
+							<p id="ubicacion"></p>
+							<img id="icono-animado" src='' alt="" height="100" width="100">
 						</div>
 
 
-						<div id="caja1" class="col-3">
-							<h4 id="temperatura-valor"></h4>
-							<h4 id="temperatura-descripcion"></h4>
+						<div id="caja1" class="col">
+							<p id="temperatura-valor"></p>
+							<p id="temperatura-descripcion"></p>
 						</div>
 
 
-						<div id="caja3" class="col-3">
-							<h4>Velocidad del viento</h4>
-							<h4 id="viento-velocidad"></h4>
+						<div id="caja3" class="col">
+							<p>Velocidad del viento</p>
+							<p id="viento-velocidad"></p>
 						</div>
 
 
-						<div id="caja4" class="col-3">
-							<h4>Hora</h4>
-							<h4 id="hora"></h4>
+						<div id="caja4" class="col-1 last-col">
+							<p>Hora</p>
+							<p id="hora"></p>
 
 						</div>
 					</div>
 				</div>
-
-
-
-
+		</div>
 
 			</div>
-		</div>
+			
+			
 
 
 

@@ -493,8 +493,8 @@ Cosas por hacer:
 								</div>
 							</div>
 
-							<button aria-label="Previous" class="glider-prev">�</button>
-							<button aria-label="Next" class="glider-next">�</button>
+							<button aria-label="Previous" class="glider-prev"><</button>
+							<button aria-label="Next" class="glider-next">></button>
 							<div role="tablist" class="dots"></div>
 						</div>
 					</div>
@@ -517,7 +517,7 @@ Cosas por hacer:
 								en muy <b>muy lejano</b>...
 							</h3>
 							<h4 class="subtitulo">Tenemos destinos personalizados para
-								t�</h4>
+								tí</h4>
 							<a class="btn boton-quiero" data-bs-toggle="modal"
 								data-bs-target="#exampleModal">Quiero!</a>
 						</div>
@@ -544,33 +544,11 @@ Cosas por hacer:
 							</thead>
 							<tbody>
 								
-								<c:forEach items="${attractions}" var="attraction">
-                                <tr>
-                                    <td><strong>${attraction.nombre}</strong>
-                                        <p><c:out value="${attraction.breveDescripcion}"></c:out></p></td>
-                                    <td><c:out value="${attraction.costo}"></c:out></td>
-                                    <td><c:out value="${attraction.duracion}"></c:out></td>
-                                    <td><c:out value="${attraction.cupoMaximo}"></c:out></td>
-                                    <td>
-                                        <c:choose>
-                                            <c:when test="${attraction.deleted}">
-                                            <a href="restore?nombre=${attraction.nombre}"
-                                               class="btn boton-quiero-tabla" role="button"><i
-                                                    class="bi bi-x-circle-fill">Alta</i></a>
-                                            </c:when>
-                                            <c:otherwise>
-                                                <a href="delete?nombre=${attraction.nombre}"
-                                                   class="btn boton-quiero-tabla" role="button"><i
-                                                        class="bi bi-x-circle-fill">Baja</i></a>
-                                            </c:otherwise>
-                                        </c:choose>
-                                    </td>
-                                </tr>
-                            </c:forEach>
+							
 								
 								
 								
-								<!--  <tr>
+								 <tr>
 									<th scope="row">1</th>
 									<td>PACK LOCURA</td>
 									<td>50u</td>
@@ -632,7 +610,7 @@ Cosas por hacer:
 									<td>50u</td>
 									<td>1.5hs</td>
 									<td><a class="btn boton-quiero-tabla">Quiero!</a></td>
-								</tr>  -->
+								</tr> 
 							</tbody>
 						</table>
 					</div>
