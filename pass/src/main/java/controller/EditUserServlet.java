@@ -29,10 +29,14 @@ public class EditUserServlet extends HttpServlet {
             Tipo preference = Tipo.valueOf(req.getParameter("preference"));
             Integer money = Integer.parseInt(req.getParameter("money"));
             Double time = Double.parseDouble(req.getParameter("time"));
+            String password = req.getParameter("password");
 
             Usuario user = null;
 
             user = userservice.update(id, money, time, preference);
+            if (password != ""){
+                Userservice.updatePassword(password, id);
+            }
 
 
             if (user.isValid()) {

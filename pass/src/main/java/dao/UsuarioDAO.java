@@ -6,7 +6,9 @@ import usuario.Usuario;
 
 public interface UsuarioDAO extends GenericDAO<Usuario>{
 
-	public abstract Usuario findByUsername(String username);
+    public abstract void updatePassword(String password, int id);
+
+    public abstract Usuario findByUsername(String username);
 
 
 	public abstract void createArray() throws SQLException;

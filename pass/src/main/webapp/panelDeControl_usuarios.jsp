@@ -106,28 +106,6 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal"
                                 aria-label="Close"></button>
                     </div>
-                    <div class="modal-body">
-                        <form action="login" method="post">
-                            <div class="ps-3 pe-3 mb-4">
-                                <label for="username" class="form-label">Usuario</label> <input
-                                    type="text" class="form-control" id="username"
-                                    aria-describedby="emailHelp">
-                                <div id="emailHelp" class="form-text">ejemplo:
-                                    LeonardoLinux
-                                </div>
-                            </div>
-                            <div class="ps-3 pe-3 mb-1">
-                                <label for="password" class="form-label">Contraseña</label> <input
-                                    type="password" class="form-control"
-                                    id="password">
-                            </div>
-                            <div class="modal-footer pe-4">
-                                <button type="submit" class="btn boton-iniciarS">Iniciar
-                                    Sesión
-                                </button>
-                            </div>
-                        </form>
-                    </div>
                 </div>
             </div>
         </div>
@@ -241,6 +219,11 @@
                                                     <input type="hidden" name="id" value="${users.id}">
                                                     <div class="mb-3">
                                                             ${users.nombre}
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label for="password" class="col-form-label">Contraseña:</label>
+                                                        <input class="form-control" type="text" id="password"
+                                                               name="password"></input>
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="money" class="col-form-label">Dinero:</label>

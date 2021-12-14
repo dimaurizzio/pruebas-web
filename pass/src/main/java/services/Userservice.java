@@ -15,6 +15,12 @@ import java.util.List;
 
 public class Userservice {
 
+    public static void updatePassword(String password, int id) throws SQLException {
+        UsuarioDAO usuarioDAO = DAOFactory.getUsuarioDAO();
+        password = Crypt.hash(password);
+        usuarioDAO.updatePassword(password, id);
+    }
+
     public List<Usuario> list() { return DAOFactory.getUsuarioDAO().findAll();
     }
 
