@@ -160,7 +160,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
                 Tipo preferencia = Tipo.valueOf(rs.getString("preferencia"));
                 int tiempo = rs.getInt("tiempo");
                 String password = rs.getString("password");
-                boolean admin = rs.getBoolean("password");
+                boolean admin = rs.getBoolean("admin");
 
                 user = new Usuario(nombre, dineroDisponible, preferencia, tiempo, id, password, admin, false);
             }
@@ -172,7 +172,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
     }
 
     private Usuario toUser(ResultSet userRegister) throws SQLException {
-        return new Usuario(userRegister.getString("nombre"), userRegister.getInt("dinero"), Tipo.valueOf(userRegister.getString("preferencia")), userRegister.getDouble("tiempo"), userRegister.getInt("id"), userRegister.getString("password"), userRegister.getBoolean("admin"), userRegister.getBoolean("deleted"));
+        return new Usuario(userRegister.getString("nombre"), userRegister.getInt("dinero"), Tipo.valueOf(userRegister.getString("preferencia")), userRegister.getDouble("tiempo"), userRegister.getInt("id"), userRegister.getString("password"), userRegister.getBoolean(7), userRegister.getBoolean("deleted"));
     }
 
     @Override

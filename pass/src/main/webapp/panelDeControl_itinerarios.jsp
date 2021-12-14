@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-    <title>Panel de Control/Promociones</title>
+    <title>Panel de Control/Itinerarios</title>
 
     <!-- favicon -->
 
@@ -67,9 +67,10 @@
 
                 <ul class="list-unstyled components">
                     <p>Panel de control</p>
-                    <li><a href="panelDeControl.do">Atracciones</a></li>
-                    <li><a href="panelDeControl_itinerarios.do">Itinerarios</a></li>
-                    <li class="active"><a href="panelDeControl_promociones.do">Promociones</a></li>
+                    <li><a href="panelDeControl.do"
+                    >Atracciones</a></li>
+                    <li class="active"><a href="#">Itinerarios</a></li>
+                    <li><a href="panelDeControl_promociones.do">Promociones</a></li>
                     <li><a href="panelDeControl_usuarios.do">Usuarios</a></li>
                 </ul>
             </div>
@@ -139,8 +140,7 @@
                             <div class="container-fluid">
                                 <p class="logo">
                                     ¡Bienvenido,
-                                    <c:out value="${user.nombre}"/>
-                                    !
+                                    <c:out value="${user.nombre}"/>!
                                 </p>
                                 <button class="navbar-toggler nav-button" type="button"
                                         data-bs-toggle="collapse" data-bs-target="#navbarScroll"
@@ -184,45 +184,29 @@
                         </c:if>
                         <br>
 
-                        <h2 class="titulo">Promociones</h2>
-                        <table class="table table-stripped table-hover">
-                            <thead>
-                            <tr>
-                                <th>Nombre</th>
-                                <th>Tipo</th>
-                                <th>Tipo de Promocion</th>
-                                <th>Atracciones</th>
-                                <th>Acciones</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <c:forEach items="${promotions}" var="promotion">
-                                <tr <c:if test="${promotion.deleted}"> style="background-color: orangered"</c:if>>
-                                    <td><strong>${promotion.nombre}</strong>
-                                        <p><c:out value="${promotion.breveDescripcion}"></c:out></p></td>
-                                    <td><c:out value="${promotion.tipo}"></c:out></td>
-                                    <td> ${promotion.tipoP} </td>
-                                    <td><c:forEach items="${promotion.atraccionesDePromo}" var="t">
-                                        <c:out value="${t.nombre}"></c:out><br>
-                                    </c:forEach></td>
-                                    <td>
-                                        <c:choose>
-                                            <c:when test="${promotion.deleted}">
-                                                <a href="restorePromotion?nombre=${promotion.nombre}"
-                                                   class="btn boton-quiero-tabla" role="button"><i
-                                                        class="bi bi-x-circle-fill">Alta</i></a>
-                                            </c:when>
-                                            <c:otherwise>
-                                                <a href="deletePromotion?nombre=${promotion.nombre}"
-                                                   class="btn boton-iniciarS" role="button"><i
-                                                        class="bi bi-x-circle-fill">Baja</i></a>
-                                            </c:otherwise>
-                                        </c:choose>
-                                    </td>
-                                </tr>
+                        <h2 class="titulo">Itinerarios</h2>
+                        <br>
+                        <div class="accordion" id="accordionExample">
+                            <c:forEach items="${itinerary}" var="itinerary">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingOne">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                                data-bs-target="#collapseOne" aria-expanded="true"
+                                                aria-controls="collapseOne">
+                                                ${itinerary.nombre}
+                                        </button>
+                                    </h2>
+                                    <div id="collapseOne" class="accordion-collapse collapse show"
+                                         aria-labelledby="headingOne" >
+                                        <div class="accordion-body">
+                                            <strong><c:forEach items="${itinerary.compras}" var="compras">
+                                                ${compras}<br>
+                                            </c:forEach> </strong>
+                                        </div>
+                                    </div>
+                                </div>
                             </c:forEach>
-                            </tbody>
-                        </table>
+                        </div>
                     </div>
                 </section>
             </div>

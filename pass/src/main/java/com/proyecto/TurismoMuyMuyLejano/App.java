@@ -3,6 +3,7 @@ package com.proyecto.TurismoMuyMuyLejano;
 import dao.*;
 import maquinaDeSugerencias.MaquinaDeSugerencias;
 import promociones.Promocion;
+import services.ItineraryService;
 import services.LoginService;
 import tipos.Tipo;
 
@@ -13,9 +14,9 @@ import java.sql.SQLException;
 public class App {
 
 	public static void main(String[] args) throws IOException, SQLException {
+		ItineraryService itineraryService = new ItineraryService();
+		System.out.println(itineraryService.list());
 		UsuarioDAO usuarioDAO = DAOFactory.getUsuarioDAO();
-		LoginService login = new LoginService();
-		System.out.println(login.login("Burro", "burro"));
 		usuarioDAO.createArray();
  		AtraccionDAO atraccionDAO = DAOFactory.getAtraccionDAO();
 		atraccionDAO.createArray();

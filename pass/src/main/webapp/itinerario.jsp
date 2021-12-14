@@ -95,7 +95,7 @@
 											aria-labelledby="navbarScrollingDropdown">
 											<li><a class="dropdown-item" href="itinerario.jsp">Itinerario</a></li>
 											<li><hr class="dropdown-divider"></li>
-											<li><a class="dropdown-item" href="panelDeControl.jsp">Alta
+											<li><a class="dropdown-item" href="panelDeControl.do">Alta
 													y baja</a></li>
 										</ul></li>
 								</ul>

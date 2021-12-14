@@ -26,7 +26,11 @@
     --redondeado2: 0.5rem;
     --border-radius-size: 14px;
 }
-
+.accordion-button:not(.collapsed) {
+    color: white;
+    background-color: #03cbaf;
+    box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.125);
+}
 
 .boton-quiero-tabla {
     font-weight: 700;

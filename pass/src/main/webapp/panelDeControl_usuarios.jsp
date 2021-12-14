@@ -69,7 +69,7 @@
                     <p>Panel de control</p>
                     <li><a href="panelDeControl.do"
                     >Atracciones</a></li>
-                    <li><a href="#">Itinerarios</a></li>
+                    <li><a href="panelDeControl_itinerarios.do">Itinerarios</a></li>
                     <li><a href="panelDeControl_promociones.do">Promociones</a></li>
                     <li class="active"><a href="panelDeControl_usuarios.do">Usuarios</a></li>
                 </ul>
