@@ -239,17 +239,31 @@ Cosas por hacer:
 												<div class="valor-i">
 													<img class="coin" src="img\coin.svg" />
 												</div>
-												<span class="valor"> 50u </span>
+												<span class="valor">${attraction.costo}u</span>
 											</div>
 											<div class="valores-contenedor tiempo">
 												<div class="valor-i">
 													<img class="clock" src="img\clock.svg" />
 												</div>
-												<span class="valor"> 1.5hs </span>
+												<span class="valor">${attraction.duracion}hs</span>
 											</div>
-											<div class="categoria-i">
+										<c:if test="${attraction.tipo == 'LOCURA'}">
+										<div class="categoria-i">
 												<img src="img\cat-locura.png" />
-											</div>
+											</div></c:if>
+										<c:if test="${attraction.tipo == 'ACCION'}">
+										<div class="categoria-i">
+												<img src="img\cat-aventura.png" />
+											</div></c:if>
+											<c:if test="${attraction.tipo == 'BANQUETES'}">
+										<div class="categoria-i">
+												<img src="img\cat-degustacion.png" />
+											</div></c:if>
+											<c:if test="${attraction.tipo == 'TERROR'}">
+										<div class="categoria-i">
+												<img src="img\cat-locura.png" />
+											</div></c:if>
+											
 										</div>
 									</div>
 								</c:forEach>
