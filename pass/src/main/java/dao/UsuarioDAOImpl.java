@@ -196,5 +196,20 @@ public class UsuarioDAOImpl implements UsuarioDAO {
         }
     }
 
+    public void updatePassword(String password, int id) {
+        try {
+            String sql = "UPDATE usuarios SET password = ? WHERE id = ?";
+            conn = ConnectionProvider.getConnection();
+            PreparedStatement statement = conn.prepareStatement(sql);
+            statement.setString(1, password);
+            statement.setInt(2, id);
+            statement.executeUpdate();
+
+
+        } catch (Exception e) {
+            throw new MissingDataException(e);
+        }
+    }
+
 }
 
