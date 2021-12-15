@@ -229,6 +229,54 @@ style="-bs-scroll-height: 200px">
         <div class="glider-contain">
         <div class="glider">
         <div>
+        
+        <c:forEach items="${attraction}" var="attraction">
+        <div class="card-contenedor">
+        <c:if test="${attraction.tipo == 'ACCION'}">
+        <img class="img-card" src="img\3-card.png">
+        </c:if>
+        <c:if test="${attraction.tipo == 'BANQUETES'}">
+        <img class="img-card" src="img\1-card.png">
+        </c:if>
+        <c:if test="${attraction.tipo == 'LOCURA'}">
+        <img class="img-card" src="img\2-card.png">
+        </c:if>
+        <c:if test="${attraction.tipo == 'TERROR'}">
+        <img class="img-card" src="img\1-card.png">
+        </c:if>
+        </div>
+        <div class="titulo-contenedor">
+        <p class="titulo-carta">${attraction.nombre}</p>
+        </div>
+        <div class="valores-contenedor">
+        <div class="valor-i">
+        <img class="coin" src="img\coin.svg">
+        </div>
+        <span class="valor">${attraction.costo}</span>
+        </div>
+        <div class="valores-contenedor tiempo">
+        <div class="valor-i">
+        <img class="clock" src="img\clock.svg">
+        </div>
+        <span class="valor">${attraction.duracion}</span>
+        </div>
+        <div class="categoria-i">
+        <c:if test="${attraction.tipo == 'ACCION'}">
+        <img class="categoria-i" src="img\cat-aventura.png">
+        </c:if>
+        <c:if test="${attraction.tipo == 'BANQUETES'}">
+        <img class="categoria-i" src="img\cat-degustacion.png">
+        </c:if>
+        <c:if test="${attraction.tipo == 'LOCURA'}">
+        <img class="categoria-i" src="img\cat-locura.png">
+        </c:if>
+        <c:if test="${attraction.tipo == 'TERROR'}">
+        <img class="categoria-i" src="img\cat-aventura.png">
+        </c:if>
+        </div>
+        </c:forEach>
+        
+        <!-- 
         <div class="card-contenedor">
         <div class="img-contenedor">
         <img class="img-card" src="img\1-card.png" />
@@ -504,7 +552,9 @@ style="-bs-scroll-height: 200px">
         </div>
         </div>
         </div>
-
+		
+		-->
+		
         <button aria-label="Previous" class="glider-prev"><</button>
         <button aria-label="Next" class="glider-next">></button>
         <div role="tablist" class="dots"></div>
