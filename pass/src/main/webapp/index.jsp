@@ -163,8 +163,8 @@ Cosas por hacer:
 									<li class="nav-item"><a class="iniciar-sesion"
 										aria-current="page" href="#" data-bs-toggle="modal"
 										data-bs-target="#exampleModal">Iniciar Sesión</a></li>
-									<li class="nav-item"><a class="nav-link nav-a" href="nosotros.jsp">Nosotros</a>
-									</li>
+									<li class="nav-item"><a class="nav-link nav-a"
+										href="nosotros.jsp">Nosotros</a></li>
 									<li class="nav-item dropdown"><a
 										class="nav-link dropdown-toggle nav-a" href="#"
 										id="navbarScrollingDropdown" role="button"
@@ -543,74 +543,18 @@ Cosas por hacer:
 								</tr>
 							</thead>
 							<tbody>
-								
-							
-								
-								
-								
-								 <tr>
+							<c:forEach items="${attractions}" var="attration">
+							<tr>
 									<th scope="row">1</th>
-									<td>PACK LOCURA</td>
+									<td>${attraction.nombre}</td>
 									<td>50u</td>
 									<td>1.5hs</td>
 									<td><a class="btn boton-quiero-tabla">Quiero!</a></td>
 								</tr>
-								<tr>
-									<th scope="row">2</th>
-									<td>PACK LOCURA</td>
-									<td>50u</td>
-									<td>1.5hs</td>
-									<td><a class="btn boton-quiero-tabla">Quiero!</a></td>
-								</tr>
-								<tr>
-									<th scope="row">3</th>
-									<td>PACK LOCURA</td>
-									<td>50u</td>
-									<td>1.5hs</td>
-									<td><a class="btn boton-quiero-tabla">Quiero!</a></td>
-								</tr>
-								<tr>
-									<th scope="row">4</th>
-									<td>PACK LOCURA</td>
-									<td>50u</td>
-									<td>1.5hs</td>
-									<td><a class="btn boton-quiero-tabla">Quiero!</a></td>
-								</tr>
-								<tr>
-									<th scope="row">5</th>
-									<td>PACK LOCURA</td>
-									<td>50u</td>
-									<td>1.5hs</td>
-									<td><a class="btn boton-quiero-tabla">Quiero!</a></td>
-								</tr>
-								<tr>
-									<th scope="row">6</th>
-									<td>PACK LOCURA</td>
-									<td>50u</td>
-									<td>1.5hs</td>
-									<td><a class="btn boton-quiero-tabla">Quiero!</a></td>
-								</tr>
-								<tr>
-									<th scope="row">7</th>
-									<td>PACK LOCURA</td>
-									<td>50u</td>
-									<td>1.5hs</td>
-									<td><a class="btn boton-quiero-tabla">Quiero!</a></td>
-								</tr>
-								<tr>
-									<th scope="row">8</th>
-									<td>PACK LOCURA</td>
-									<td>50u</td>
-									<td>1.5hs</td>
-									<td><a class="btn boton-quiero-tabla">Quiero!</a></td>
-								</tr>
-								<tr>
-									<th scope="row">9</th>
-									<td>PACK LOCURA</td>
-									<td>50u</td>
-									<td>1.5hs</td>
-									<td><a class="btn boton-quiero-tabla">Quiero!</a></td>
-								</tr> 
+							
+							</c:forEach>
+								
+
 							</tbody>
 						</table>
 					</div>
