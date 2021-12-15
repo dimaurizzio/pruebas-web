@@ -66,7 +66,7 @@
 	<div class="container-fluid">
 
 		<div class="contenedor">
-			<section class="header">
+			<div class="">
 				<div class="container viewport">
 					<nav class="navbar navbar-expand-lg navbar-light ">
 						<div class="container-fluid">
@@ -106,62 +106,42 @@
 					<div id="containergeneral-estilosclima container"
 							class="container">
 							<div id="contenedor-clima" class="row">
-
-								<div id="caja2" class="col-3">
-									<h4 id="ubicacion"></h4>
+								<div id="caja1" class="col-3">
+									<p id="ubicacion"></p>
 									<img id="icono-animado" src='' alt="" height="128" width="128">
 								</div>
-
-
-								<div id="caja1" class="col-3">
-									<h4 id="temperatura-valor"></h4>
-									<h4 id="temperatura-descripcion"></h4>
+								<div id="caja2" class="col-3">
+									<p id="temperatura-valor"></p>
+									<p id="temperatura-descripcion"></p>
 								</div>
-
-
 								<div id="caja3" class="col-3">
-									<h4>Velocidad del viento</h4>
-									<h4 id="viento-velocidad"></h4>
+									<p>Velocidad del viento</p>
+									<p id="viento-velocidad"></p>
 								</div>
-
-
 								<div id="caja4" class="col-3">
-									<h4>Hora</h4>
-									<h4 id="hora"></h4>
-
+									<p>Hora</p>
+									<p id="hora"></p>
 								</div>
 							</div>
 						</div>
 					
 					<div class="itinerario">
-
-						
-						<p class="titulo">Su itinerario</p>
-
-						<br>
-
-
-
-
+						<p class="titulo-itinerario">Su itinerario</p>
 					</div>
 
-					<div class="container col-4 botones-mostrar-tipo-itinerario" id="">
-
+					<div class="container col-4 botones-mostrar-tipo-itinerario">
 						<div class="btn">
 							<a data-aos="fade-down" data-aos-duration="1000"
 								class="btn boton-destinos" id="btn-mostrar-accordion"
 								href="#Destinos">Mostrar Accordion</a>
 						</div>
-
 						<div class="btn">
 							<a data-aos="fade-down" data-aos-duration="1000"
 								class="btn boton-destinos" id="btn-mostrar-lista"
 								href="#Destinos">Mostrar Lista</a>
 						</div>
-
 					</div>
 					<!-- La idea es que presione un boton para mostrar las atracciones compradas en forma de accordion o de lista -->
-					<br>
 
 					<div class="accordion accordion-flush" id="accordionFlushExample">
 						<div class="accordion-item">
@@ -262,20 +242,20 @@
 							</div>
 						</div>
 					</div>
-
-
-					<br>
-					<button class="btn boton-destinos" id="btnCrearPdf">Descargar
-						PDF</button>
-					<br>
+				
 				</div>
-			</section>
-
-
+				
+			</div>
+			<br>
+			<button class="btn boton-destinos" id="btnCrearPdf">Descargar
+						PDF</button>
+	<br><br>
 		</div>
 	</div>
 
-
+	<div>
+	<h3>Por acá hay que poner la lista con las atracciones que compró, para que pueda verlas en acorddion o en list</h3>
+	</div>
 
 
 	<footer></footer>

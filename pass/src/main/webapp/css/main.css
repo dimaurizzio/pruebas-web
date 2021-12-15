@@ -666,9 +666,12 @@ section {
   margin: 5vw;
   width: 80vw;
 }
-
+#accordionFlushExample{
+	margin-top: -3%;
+}
 .accordion-item {
   color: var(--amarilloBase);
+  font-weight: bold;
   background-color: var(--verdeBase);
 }
 .accordion-button {
@@ -681,28 +684,47 @@ section {
 .accordion-data div{
   text-align: center;
 }
-div .botones-mostrar-tipo-itinerario{
-	text-align: center;
-	display: block;
+#contenedor-clima{
+	height: 100px !important;
 }
-#btn-mostrar-itinerario, #btn-mostar-lista{
-	height: 4em !important;
-	width: 8em !important;
-}
-
 .clima-container {
-	
-	margin-top: 4em;
 	backdrop-filter: blur(2px);
 	background-color: white;
 	border-radius: 10px;
-	  box-shadow: 1px 3px 5px 4px rgba(0 ,0 ,0 , 0.1);
-	  
-		}
-.item-clima {
-	
+	box-shadow: 1px 3px 5px 4px rgba(0 ,0 ,0 , 0.1);
 }
 
+#caja1, #caja2, #caja3, #caja4{
+	height: 100px;
+	font-size: calc(0.6em + 0.6vw) !important;
+}
 .last-col {
 	padding-right: 0;
+}
+.itinerario .titulo-itinerario{
+	margin-left: -10%;
+	padding: 0;
+	text-align: center;
+	font-weight: bold;
+	font-size: calc(1em + 1vw);
+	text-transform: upperCase;
+}
+.botones-mostrar-tipo-itinerario{
+	margin-top: -5%;
+	height: 200px;
+	text-align: center;
+	display: block;
+	position: left;
+}
+#btn-mostrar-accordion, #btn-mostrar-lista{
+	padding: 0;
+	margin: 0;
+	width: 120px;
+	height:70px;
+}
+#btnCrearPdf{
+	padding: 0;
+	margin-left: 10%;
+	width: 120px;
+	height:70px;
 }

@@ -572,68 +572,7 @@ style="-bs-scroll-height: 200px">
         </div>
         </section>
 
-        <section class="lista">
-        <div class="container viewport">
-        <div class="row titular">
-        <div class="col-10 titulo">
-        <h3>
-        en muy <b>muy lejano</b>...
-        </h3>
-        <h4 class="subtitulo">Tenemos destinos personalizados para
-        tí</h4>
-        <a class="btn boton-quiero" data-bs-toggle="modal"
-        data-bs-target="#exampleModal">Quiero!</a>
-        </div>
-        <div class="info-container">
-        <div class="info">
-        <span>i</span>
-        <p class="h1">Hey!</p>
-        <p>Piensa con detenimiento tu compra!, una vez realizada
-        esta no tendra reembolso.</p>
-        </div>
-        </div>
-        </div>
-
-        <div class="row tabla-contenedor">
-        <table class="col-8 table table-striped">
-        <thead>
-        <tr>
-        <th scope="col"></th>
-        <th scope="col">Nombre</th>
-        <th scope="col">Costo</th>
-        <th scope="col">Duración</th>
-        <td></td>
-        </tr>
-        </thead>
-        <tbody>
-        <c:forEach items="${promotions}" var="promotion">
-            <tr>
-                <th scope="row">1</th>
-                <td>${promotion.nombre}</td>
-                <td>50u</td>
-                <td>1.5hs</td>
-                <td><a class="btn boton-quiero-tabla">Quiero!</a></td>
-            </tr>
-        </c:forEach>
-        <c:forEach items="${attractions}" var="attraction">
-            <tr>
-                <th scope="row">1</th>
-                <td>${attraction.nombre}</td>
-                <td>50u</td>
-                <td>1.5hs</td>
-                <td><a class="btn boton-quiero-tabla">Quiero!</a></td>
-            </tr>
-        </c:forEach>
-        </tbody>
-        </table>
-        </div>
-        <article>
-        <p class="politicas">*Promociones válidas del 25/08 al 30/12
-        de 2021. Cupos limitados, SOLO CON RESERVA, comunicarse al
-        0800-000-000 lunes a sábados de 8hs a 20hs.</p>
-        </article>
-        </div>
-        </section>
+        
         </div>
         <footer></footer>
         </div>

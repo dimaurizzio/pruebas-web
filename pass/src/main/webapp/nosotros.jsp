@@ -29,6 +29,8 @@
 	integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
 	crossorigin="anonymous" />
 
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
 <!-- Css -->
 
 <link rel="stylesheet" href="css\main.css" />
@@ -65,6 +67,11 @@
 <!-- Js -->
 
 <script defer src="js\indexJs\script.js"></script>
+
+<script
+    defer src="https://kit.fontawesome.com/a881acabe8.js"
+    crossorigin="anonymous"
+  ></script>
 
 </head>
 
@@ -174,6 +181,12 @@
 
 					<!--  end Navbar -->
 
+<a>
+<i class="fas fa-address-card"></i>
+</a>
+ <p>Hola</p>
+
+
 					<!--  main content  -->
 
 					<div class="container">
@@ -185,4 +198,5 @@
 					</div>
 				</div>
 </body>
+
 </html>
