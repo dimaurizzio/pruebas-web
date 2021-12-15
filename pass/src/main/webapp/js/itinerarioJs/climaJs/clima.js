@@ -32,19 +32,19 @@ window.addEventListener('load', ()=> {
                
                 ubicacion.textContent = data.name
                
-                vientoVelocidad.textContent = `${data.wind.speed} m/s`
-                console.log(data)
+				vientoVelocidad.textContent = `${Math.trunc(data.wind.speed*3.6)} km/h`
+				
                 console.log(data.weather[0].main)
                 switch(data.weather[0].main){
                     case 'Clear':
-                        if(date.getHours()>=6&&date.getHours<=19){
+                        if(date.getHours()<6||date.getHours()>20){
                             iconoAnimado.src = 'animated/night.svg'
                         }else{
                             iconoAnimado.src = 'animated/day.svg'
                         }
                         break;
                     case 'Clouds':
-                        if(date.getHours()>5&&date.getHours<20){
+                        if(date.getHours()<6||date.getHours()>20){
                             iconoAnimado.src = 'animated/cloudy-night-1.svg'
                         }else{
                             iconoAnimado.src = 'animated/cloudy-day-1.svg'
@@ -54,7 +54,7 @@ window.addEventListener('load', ()=> {
                         iconoAnimado.src = 'animated/thunder.svg'
                         break;
                     case 'Drizzle':
-                        if(date.getHours()>=6&&date.getHours<=19){
+                        if(date.getHours()<6||date.getHours()>20){
                             iconoAnimado.src = 'animated/rainy-4.svg'
                         }else{
                             iconoAnimado.src = 'animated/rainy-2.svg'
@@ -70,7 +70,7 @@ window.addEventListener('load', ()=> {
                         iconoAnimado.src = "animated/weather.svg"
                         break;
                     default:
-                        if(date.getHours()>=6&&date.getHours<=19){
+                        if(date.getHours()<6||date.getHours()>20){
                             iconoAnimado.src = 'animated/cloudy-night-1.svg'
                         }else{
                             iconoAnimado.src = 'animated/cloudy-day-1.svg'
