@@ -1,10 +1,7 @@
 package services;
 
-import atraccion.Atraccion;
-import dao.AtraccionDAO;
 import dao.DAOFactory;
 import dao.UsuarioDAO;
-import dao.UsuarioDAOImpl;
 import tipos.Tipo;
 import usuario.Usuario;
 import utils.Crypt;

@@ -32,11 +32,11 @@ public class PromotionService {
         promocionDAO.restore(promocion);
     }
 
-    public void create(Promocion promocion) throws SQLException {
+    public void create(Promocion promocion, String promotionTipe) throws SQLException {
 
         if (promocion.isValid()) {
             PromocionDAO promocionDAO = DAOFactory.getPromociosDAO();
-            promocionDAO.insert(promocion);
+            promocionDAO.insertPromo(promocion, promotionTipe);
         }
     }
 

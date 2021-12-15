@@ -107,12 +107,10 @@ public abstract class Promocion implements Ofertable {
 		if (this.getCosto() <= 0) {
 			errors.put("cost", "Costo debe ser positivo");
 		}
-		if (this.getDuracion() <= 0) {
-			errors.put("duration", "Duracion debe ser positivo");
+		if (!this.getAtraccionesDePromo().get(0).getTipo().toString().equals(this.getAtraccionesDePromo().get(1).getTipo().toString())){
+			errors.put("duration", "Las atracciones y el tipo deben coincidir");
 		}
-		if (this.getCupoMaximo() <= 0) {
-			errors.put("capacity", "Capacidad debe ser positivo");
-		}
+
 		if (nombre == ""){
 			errors.put("name", "Debe completar el nombre");
 		}

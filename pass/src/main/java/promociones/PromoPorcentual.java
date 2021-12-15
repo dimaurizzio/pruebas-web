@@ -20,6 +20,14 @@ public class PromoPorcentual extends Promocion implements Ofertable {
 		this.breveDescripcion = breveDescripcion;
 	}
 
+	public void setPorcentaje(Integer porcentaje) {
+		this.porcentaje = porcentaje;
+	}
+
+	public void setBreveDescripcion(String breveDescripcion) {
+		this.breveDescripcion = breveDescripcion;
+	}
+
 	public String getTipoP() {
 		return tipoP;
 	}

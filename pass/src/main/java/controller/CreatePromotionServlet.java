@@ -52,15 +52,21 @@ public class CreatePromotionServlet extends HttpServlet {
                 String free = req.getParameter("Free");
                 Atraccion gratis = atraccionDAO.findByAtraccionName(free);
                 promotion = new PromoRegala(name, type, gratis, description, false);
-                promotionService.create(promotion);
+                promotion.atraccionesDePromo.add(atraccionDAO.findByAtraccionName(attraction1));
+                promotion.atraccionesDePromo.add(atraccionDAO.findByAtraccionName(attraction2));
+                promotionService.create(promotion, promotionTipe);
             } else if (promotionTipe.equals("PORCENTUAL")) {
                 int descuento = discount;
                 promotion = new PromoPorcentual(name, type, descuento, description, false);
-                promotionService.create(promotion);
+                promotion.atraccionesDePromo.add(atraccionDAO.findByAtraccionName(attraction1));
+                promotion.atraccionesDePromo.add(atraccionDAO.findByAtraccionName(attraction2));
+                promotionService.create(promotion, promotionTipe);
             } else if (promotionTipe.equals("NETO")) {
                 int descuento = discount;
                 promotion = new PromoAbsoluta(name, type, descuento, description, false);
-                promotionService.create(promotion);
+                promotion.atraccionesDePromo.add(atraccionDAO.findByAtraccionName(attraction1));
+                promotion.atraccionesDePromo.add(atraccionDAO.findByAtraccionName(attraction2));
+                promotionService.create(promotion, promotionTipe);
             }
 
             if (promotion.isValid()) {

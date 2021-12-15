@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
-import atraccion.Atraccion;
 import jdbc.ConnectionProvider;
 import tipos.Tipo;
 import usuario.NullUser;

@@ -226,14 +226,14 @@ Cosas por hacer:
 					<div class="container glider-contenedor">
 						<div class="glider-contain">
 							<div class="glider">
-								<c:forEach items="${attration}" var="attraction">
+								<c:forEach items="${attraction}" var="attraction">
 									<div>
 										<div class="card-contenedor">
 											<div class="img-contenedor">
 												<img class="img-card" src="img\1-card.png" />
 											</div>
 											<div class="titulo-contenedor">
-												<p class="titulo-carta">${atrattion.nombre}</p>
+												<p class="titulo-carta">${attraction.nombre}</p>
 											</div>
 											<div class="valores-contenedor">
 												<div class="valor-i">

@@ -102,36 +102,52 @@ public class PromocionDAOimpl implements PromocionDAO {
         return 0;
     }
 
-    public int insert(Promocion t) {
+    @Override
+    public int insert(Promocion promocion) {
+        return 0;
+    }
+
+    public void insertPromo(Promocion t, String promotionTipe) {
         try {
-            String sql = "INSERT INTO promociones (nombre ,Tipo, Costo, Atraccion1,Descuento) VALUES "
-                    + "(?,?,?,?,?,?)";
+            if (promotionTipe.equals("PORCENTUAL")) {
+            String sql = "INSERT INTO promociones (nombre ,Tipo, Costo, Porcentaje, Tipo_Promo, Atraccion1, Atraccion2, Descripccion, deleted) VALUES "
+                    + "(?,?,?,?,?,?,?,?,?)";
             conn = ConnectionProvider.getConnection();
 
             PreparedStatement statement = conn.prepareStatement(sql);
             statement.setString(1, t.getNombre());
-            statement.setObject(2, t.getTipo());
+            statement.setObject(2, promotionTipe);
             statement.setDouble(3, t.getCosto());
-            statement.setObject(5, PromoRegala.getRegalo());
-            statement.setDouble(6, ((PromoPorcentual) t).getPorcentaje());
+            statement.setObject(4, ((PromoPorcentual) t).getPorcentaje());
+            statement.setString(5, t.getTipoAtraccion().toString());
+            statement.setInt(6, t.getAtraccionesDePromo().get(0).getId());
+            statement.setInt(7, t.getAtraccionesDePromo().get(1).getId());
+            statement.setString(8, t.getBreveDescripcion());
+            statement.setInt(9, 0);
 
-            int rows = statement.executeUpdate();
+            statement.executeUpdate();
+            }
+            if (promotionTipe.equals("AxB")) {
+                String sql = "INSERT INTO promociones (nombre ,Tipo, Costo, Regalo, Tipo_Promo, Atraccion1, Atraccion2, Descripccion, deleted) VALUES "
+                        + "(?,?,?,?,?,?,?,?,?)";
+                conn = ConnectionProvider.getConnection();
 
-            return rows;
+                PreparedStatement statement = conn.prepareStatement(sql);
+                statement.setString(1, t.getNombre());
+                statement.setObject(2, promotionTipe);
+                statement.setDouble(3, t.getCosto());
+                statement.setInt(4, ((PromoRegala)t).getRegalo().getId());
+                statement.setString(5, t.getTipoAtraccion().toString());
+                statement.setInt(6, t.getAtraccionesDePromo().get(0).getId());
+                statement.setInt(7, t.getAtraccionesDePromo().get(1).getId());
+                statement.setString(8, t.getBreveDescripcion());
+                statement.setInt(9, 0);
+
+                statement.executeUpdate();
+            }
         } catch (SQLException ex) {
             Logger.getLogger(PromocionDAOimpl.class.getName()).log(Level.SEVERE, null, ex);
-        } finally {
-            if (conn != null) {
-                try {
-                    conn.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-
-            }
-
         }
-        return 0;
     }
 
     public int update(Promocion t) {

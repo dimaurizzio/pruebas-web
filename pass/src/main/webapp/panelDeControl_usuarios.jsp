@@ -300,7 +300,7 @@
                                                required></input>
                                     </div>
                                     <div class="mb-3">
-                                        <label for="timeCreate" class="col-form-label">Costo:</label>
+                                        <label for="timeCreate" class="col-form-label">Tiempo:</label>
                                         <input class="form-control" type="number" id="timeCreate" name="timeCreate"
                                                required>
                                     </div>

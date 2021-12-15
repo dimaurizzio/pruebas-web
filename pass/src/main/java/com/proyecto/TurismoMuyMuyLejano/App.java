@@ -14,12 +14,11 @@ import java.sql.SQLException;
 public class App {
 
 	public static void main(String[] args) throws IOException, SQLException {
-		ItineraryService itineraryService = new ItineraryService();
-		System.out.println(itineraryService.list());
 		UsuarioDAO usuarioDAO = DAOFactory.getUsuarioDAO();
 		usuarioDAO.createArray();
  		AtraccionDAO atraccionDAO = DAOFactory.getAtraccionDAO();
 		atraccionDAO.createArray();
+		System.out.println(AtraccionDAO.listaAtracciones.get(1).getTipo().toString().equals(AtraccionDAO.listaAtracciones.get(1).toString()));
 		PromocionDAO promocionDAO = DAOFactory.getPromociosDAO();
 		promocionDAO.findAll();
 		MaquinaDeSugerencias.iterarListas();
