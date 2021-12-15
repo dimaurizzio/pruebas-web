@@ -18,7 +18,7 @@ import usuario.Usuario;
 
 
 @WebServlet("/index.do")
-public class recomendationServlet extends HttpServlet implements Servlet {
+public class RecomendationServlet extends HttpServlet implements Servlet {
 
   
 	private static final long serialVersionUID = 3302529498089859809L;
@@ -33,8 +33,6 @@ public class recomendationServlet extends HttpServlet implements Servlet {
     @Override
     protected void doGet (HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
     	Usuario user = (Usuario) req.getSession().getAttribute("user");
-    	
-    	
     	List<Promocion> promocion = recomendationService.iterarPromocion(user);
         List<Atraccion> atraccion = recomendationService.iterarAtraccion(user);
         

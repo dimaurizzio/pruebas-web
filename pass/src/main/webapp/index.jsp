@@ -543,7 +543,16 @@ Cosas por hacer:
 								</tr>
 							</thead>
 							<tbody>
-							<c:forEach items="${attractions}" var="attration">
+							<c:forEach items="${promotions}" var="promotion">
+								<tr>
+									<th scope="row">1</th>
+									<td>${promotion.nombre}</td>
+									<td>50u</td>
+									<td>1.5hs</td>
+									<td><a class="btn boton-quiero-tabla">Quiero!</a></td>
+								</tr>
+							</c:forEach>
+							<c:forEach items="${attractions}" var="attraction">
 							<tr>
 									<th scope="row">1</th>
 									<td>${attraction.nombre}</td>
@@ -551,10 +560,7 @@ Cosas por hacer:
 									<td>1.5hs</td>
 									<td><a class="btn boton-quiero-tabla">Quiero!</a></td>
 								</tr>
-							
 							</c:forEach>
-								
-
 							</tbody>
 						</table>
 					</div>
