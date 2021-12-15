@@ -229,7 +229,7 @@ style="-bs-scroll-height: 200px">
         <div class="glider-contain">
         <div class="glider">
         <div>
-        
+
         <c:forEach items="${attraction}" var="attraction">
         <div class="card-contenedor">
         <c:if test="${attraction.tipo == 'ACCION'}">

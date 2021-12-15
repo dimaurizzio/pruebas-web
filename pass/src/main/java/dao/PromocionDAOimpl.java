@@ -104,7 +104,7 @@ public class PromocionDAOimpl implements PromocionDAO {
 
     public int insert(Promocion t) {
         try {
-            String sql = "INSERT INTO Promocion  (nombre ,Tipo,monto,AtraccionGratis,Descuento) VALUES "
+            String sql = "INSERT INTO promociones (nombre ,Tipo, Costo, Atraccion1,Descuento) VALUES "
                     + "(?,?,?,?,?,?)";
             conn = ConnectionProvider.getConnection();
 

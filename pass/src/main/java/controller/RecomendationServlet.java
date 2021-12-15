@@ -12,6 +12,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import promociones.Promocion;
+import services.AttractionService;
 import services.RecomendationService;
 import usuario.Usuario;
 
@@ -23,11 +24,15 @@ public class RecomendationServlet extends HttpServlet implements Servlet {
   
 	private static final long serialVersionUID = 3302529498089859809L;
 	private RecomendationService recomendationService;
+    private AttractionService attractionService;
+
 
     @Override
     public void init() throws ServletException {
         super.init();
         this.recomendationService = new RecomendationService();
+        this.attractionService = new AttractionService();
+
     }
 
     @Override
@@ -35,9 +40,11 @@ public class RecomendationServlet extends HttpServlet implements Servlet {
     	Usuario user = (Usuario) req.getSession().getAttribute("user");
     	List<Promocion> promocion = recomendationService.iterarPromocion(user);
         List<Atraccion> atraccion = recomendationService.iterarAtraccion(user);
-        
+        List<Atraccion> lista = attractionService.list();
+
         req.setAttribute("promotions", promocion);
         req.setAttribute("attractions", atraccion);
+        req.setAttribute("attraction", lista);
 
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/index.jsp");
         dispatcher.forward(req, resp);
