@@ -266,7 +266,7 @@ p {
 }
 .logo-span {
   padding: 0 5px;
-  font-size: var(--fontSizeTitulo3);
+  font-size: var(--fontSizeTitulo4);
   background: linear-gradient(
     to bottom,
     transparent 50%,
@@ -381,6 +381,7 @@ p {
   bottom: 0;
   left: 50%;
   height: 15em;
+  width: auto;
   transform: translateX(-50%);
 }
 
@@ -523,7 +524,7 @@ p {
 /* lista */
 
 .boton-quiero {
-  margin-top: 2rem;
+  margin-top: 1rem;
   font-weight: 700;
   font-size: 1.25rem;
   background-color: var(--verdeBase);
@@ -622,6 +623,14 @@ p {
 /* fin lista */
 
 /* footer */
+
+.footer {
+	scroll-snap-align: start;
+  padding: 1rem;
+ height: 10em;
+  text-align: center;
+	background-color: var(--amarilloBase);
+}
 
 /* fin footer */
 /* zonas scroll snap */

@@ -139,7 +139,7 @@ Cosas por hacer:
 				<div class="container">
 					<nav class="navbar navbar-expand-lg navbar-light nav-sticky-hijo">
 						<div class="container-fluid">
-							<a class="logo" href="#home">muy lejano <span
+							<a class="logo" href="index.do">muy lejano <span
 								class="logo-span">PASS</span>
 							</a>
 
@@ -205,10 +205,9 @@ Cosas por hacer:
 								<a data-aos="fade-down" data-aos-duration="1000"
 									class="btn boton-destinos" href="#Destinos">destinos</a>
 							</div>
-							<div class="shrek-img" data-aos="fade-up"
-								data-aos-duration="1500">
-								<img class="img" src="img\shrek-bg.png" />
-							</div>
+							
+								<img class="img" src="img\shrek-bg.png">
+							
 						</div>
 					</div>
 				</div>
@@ -306,9 +305,13 @@ Cosas por hacer:
 			
 		
 
-
+<footer>
+		
+		<div class="footer"></div>
+		
+		</footer>
 		</div>
-		<footer></footer>
+		
 	</div>
 </body>
 </html>

@@ -182,10 +182,9 @@
                                 </p>
                             </div>
                         </c:if>
-                        <br>
-
-                        <h2 class="titulo">Itinerarios</h2>
-                        <br>
+                       <article class="titulo mb-5">
+								<h2>Itinerarios</h2>
+							</article>
                         <div class="accordion" id="accordionExample">
                             <c:forEach items="${itinerary}" var="itinerary">
                                 <div class="accordion-item">

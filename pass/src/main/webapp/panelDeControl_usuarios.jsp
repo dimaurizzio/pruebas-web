@@ -164,9 +164,10 @@
 
                         <h2 class="titulo">Usuarios</h2>
                         <br>
-                        <a data-bs-target="#modalCreate" data-bs-toggle="modal"
-                           class="btn boton-iniciarS" role="button"><i
-                                class="bi bi-x-circle-fill">Agregar</i></a>
+                        <a data-bs-target="#modalCreate"
+									data-bs-toggle="modal" class="btn boton-accion" role="button">New<i
+									class="ms-2 bi bi-file-earmark-plus font-size"></i>
+								</a>
                         <br>
                         <br>
                         <table class="table table-stripped table-hover">
@@ -191,18 +192,15 @@
                                         <c:choose>
                                             <c:when test="${users.deleted}">
                                                 <a href="restoreUser?nombre=${users.nombre}"
-                                                   class="btn boton-quiero-tabla" role="button"><i
-                                                        class="bi bi-x-circle-fill">Alta</i></a>
+                                                   class="btn boton-quiero-tabla" role="button"><i class="bi bi-file-earmark-arrow-down font-size"></i></a>
                                             </c:when>
                                             <c:otherwise>
                                                 <a href="deleteUser?nombre=${users.nombre}"
-                                                   class="btn boton-iniciarS" role="button"><i
-                                                        class="bi bi-x-circle-fill">Baja</i></a>
+                                                   class="btn boton-accion-tabla" role="button"><i class="bi bi-file-earmark-arrow-down font-size"></i></a>
                                             </c:otherwise>
                                         </c:choose>
                                         <a data-bs-target="#modalEditUser_${users.id}" data-bs-toggle="modal"
-                                           class="btn boton-iniciarS" role="button"><i
-                                                class="bi bi-x-circle-fill">Modificar</i></a>
+                                           class="btn boton-accion-tabla" role="button"><i class="bi bi-gear font-size"></i</a>
                                     </td>
                                 </tr>
                                 <div class="modal fade" id="modalEditUser_${users.id}" tabindex="-1"
@@ -245,10 +243,6 @@
                                                         </select>
                                                     </div>
                                                     <div class="modal-footer">
-                                                        <button type="button" class="btn boton-quiero-tabla"
-                                                                data-bs-dismiss="modal">
-                                                            Cerrar
-                                                        </button>
                                                         <button type="submit" class="btn boton-iniciarS">Guardar
                                                         </button>
                                                     </div>
@@ -305,9 +299,6 @@
                                                required>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn boton-quiero-tabla"
-                                                data-bs-dismiss="modal">Cerrar
-                                        </button>
                                         <button type="submit" class="btn boton-iniciarS">Guardar
                                         </button>
                                     </div>

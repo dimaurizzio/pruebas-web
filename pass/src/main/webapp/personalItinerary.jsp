@@ -65,9 +65,6 @@
 	</div>
 
 	<div class="container-fluid">
-
-		<div class="contenedor">
-			<div class="">
 				<div class="container viewport">
 					<nav class="navbar navbar-expand-lg navbar-light ">
 						<div class="container-fluid">
@@ -96,17 +93,22 @@
 																data-bs-target="#exampleModal">Iniciar Sesión</a></li>
 									</c:otherwise>
 									</c:choose>
-									<li class="nav-item dropdown"><a
+									<li class="nav-item"><a class="nav-link nav-a"
+										href="nosotros.jsp">Nosotros</a></li>
+									<c:choose>
+									<c:when test="${user.admin}">
+										<li class="nav-item dropdown"><a
 										class="nav-link dropdown-toggle nav-a" href="#"
 										id="navbarScrollingDropdown" role="button"
 										data-bs-toggle="dropdown" aria-expanded="false"> Más </a>
 										<ul class="dropdown-menu"
 											aria-labelledby="navbarScrollingDropdown">
-											<li><a class="dropdown-item" href="personalItinerary.jsp">Itinerario</a></li>
-											<li><hr class="dropdown-divider"></li>
 											<li><a class="dropdown-item" href="panelDeControl.do">Alta
 													y baja</a></li>
 										</ul></li>
+									</c:when>
+									</c:choose>
+									
 								</ul>
 							</div>
 						</div>
@@ -204,20 +206,21 @@
 							</div>
 						</div>
 						</c:forEach>
-						<button class="btn boton-destinos" id="btnCrearPdf">Descargar
-							PDF</button>
+						<button class="btn boton-destinos" id="btnCrearPdf">Descargar</button>
 					</div>
 				</div>
 			</div>
+		<footer>
+		
+		<div class="footer"></div>
+		
+		</footer>
+	
 
-		</div>
-	</div>
-
-	<div>
-	</div>
+	
 
 
-	<footer></footer>
+	
 
 </body>
 </html>
