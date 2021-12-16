@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -44,16 +44,19 @@
 <script defer src="https://code.jquery.com/jquery-3.6.0.min.js"
 	integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
 	crossorigin="anonymous"></script>
-	
+
 <script defer src="js\indexJs\script.js"></script>
 
 <script type="text/javascript" defer
 	src="js\itinerarioJs\HTML2PDF\html2pdf.bundle.min.js"></script>
-<script type="text/javascript" defer src="js\itinerarioJs\HTML2PDF\descargarPDF.js"></script>
+<script type="text/javascript" defer
+	src="js\itinerarioJs\HTML2PDF\descargarPDF.js"></script>
 
 
-<script type="text/javascript" defer src="js\itinerarioJs\climaJs\clima.js"></script>
-<script type="text/javascript" defer src="js\itinerarioJs\climaJs\hora.js"></script>
+<script type="text/javascript" defer
+	src="js\itinerarioJs\climaJs\clima.js"></script>
+<script type="text/javascript" defer
+	src="js\itinerarioJs\climaJs\hora.js"></script>
 
 </head>
 
@@ -65,86 +68,80 @@
 	<div class="container-fluid">
 
 		<div class="contenedor">
-			<div class="container"> 
+			<div class="container">
 				<nav class="navbar navbar-expand-lg navbar-light ">
-						<div class="container-fluid">
-							<a class="logo" href="index.do">muy lejano <span
-								class="logo-span">PASS</span>
-							</a>
+					<div class="container-fluid">
+						<a class="logo" href="index.do">muy lejano <span
+							class="logo-span">PASS</span>
+						</a>
 
-							<button class="navbar-toggler nav-button" type="button"
-								data-bs-toggle="collapse" data-bs-target="#navbarScroll"
-								aria-controls="navbarScroll" aria-expanded="false"
-								aria-label="Toggle navigation">
-								<span class="navbar-toggler-icon"> </span>
-							</button>
-							<div class="collapse navbar-collapse" id="navbarScroll">
-								<ul class="navbar-nav ms-auto my-5 my-lg-0 navbar-nav-scroll"
-									style="-bs-scroll-height: 200px">
-									<li class="nav-item"></li>
-									<c:choose>
-										<c:when test="${user.nombre != null}">
-											<li class="nav-item"><a class="iniciar-sesion"
-												href="recomendaciones.do">Quiero!</a></li>
-										</c:when>
-										<c:otherwise>
-											<li class="nav-item"><a class="iniciar-sesion"
-												aria-current="page" href="#" data-bs-toggle="modal"
-												data-bs-target="#exampleModal">Iniciar Sesión</a></li>
-										</c:otherwise>
-									</c:choose>
+						<button class="navbar-toggler nav-button" type="button"
+							data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+							aria-controls="navbarScroll" aria-expanded="false"
+							aria-label="Toggle navigation">
+							<span class="navbar-toggler-icon"> </span>
+						</button>
+						<div class="collapse navbar-collapse" id="navbarScroll">
+							<ul class="navbar-nav ms-auto my-5 my-lg-0 navbar-nav-scroll"
+								style="-bs-scroll-height: 200px">
+								<li class="nav-item"></li>
+								<c:choose>
+									<c:when test="${user.nombre != null}">
+										<li class="nav-item"><a class="iniciar-sesion"
+											href="recomendaciones.do">Quiero!</a></li>
+									</c:when>
+									<c:otherwise>
+										<li class="nav-item"><a class="iniciar-sesion"
+											aria-current="page" href="#" data-bs-toggle="modal"
+											data-bs-target="#exampleModal">Iniciar Sesión</a></li>
+									</c:otherwise>
+								</c:choose>
 
-									<li class="nav-item"><a class="nav-link nav-a"
-										href="nosotros.jsp">Nosotros</a></li>
-									<li class="nav-item dropdown"><a
-										class="nav-link dropdown-toggle nav-a" href="#"
-										id="navbarScrollingDropdown" role="button"
-										data-bs-toggle="dropdown" aria-expanded="false"> Más </a>
-										<ul class="dropdown-menu dropdown-menu-end"
-											aria-labelledby="navbarScrollingDropdown">
-											<li><a class="dropdown-item"
-														href="index.do">Home</a></li>
-											<c:choose>
-												<c:when test="${user.nombre != null}">
-										
-													<c:if test="${user.admin}">
-														<li>
-															<hr class="dropdown-divider" />
-														</li>
-														<li><a class="dropdown-item" href="panelDeControl.do">Alta
-																y baja</a></li>
-													</c:if>
+								<li class="nav-item"><a class="nav-link nav-a"
+									href="nosotros.jsp">Nosotros</a></li>
+								<li class="nav-item dropdown"><a
+									class="nav-link dropdown-toggle nav-a" href="#"
+									id="navbarScrollingDropdown" role="button"
+									data-bs-toggle="dropdown" aria-expanded="false"> Más </a>
+									<ul class="dropdown-menu dropdown-menu-end"
+										aria-labelledby="navbarScrollingDropdown">
+										<li><a class="dropdown-item" href="index.do">Home</a></li>
+										<c:choose>
+											<c:when test="${user.nombre != null}">
+
+												<c:if test="${user.admin}">
 													<li>
 														<hr class="dropdown-divider" />
 													</li>
-													<li><a type="button" href="logout"
-														class="dropdown-item">Cerrar Sesión</a></li>
-												</c:when>
-												<c:otherwise>
-													<li><a class="dropdown-item" aria-current="page"
-														href="#" data-bs-toggle="modal"
-														data-bs-target="#exampleModal">Itinerario</a></li>
-												</c:otherwise>
-											</c:choose>
-
-
-
-
-
-
-
-										</ul></li>
-								</ul>
-							</div>
+													<li><a class="dropdown-item" href="panelDeControl.do">Alta
+															y baja</a></li>
+												</c:if>
+												<li>
+													<hr class="dropdown-divider" />
+												</li>
+												<li><a type="button" href="logout"
+													class="dropdown-item">Cerrar Sesión</a></li>
+											</c:when>
+											<c:otherwise>
+												<li><a class="dropdown-item" aria-current="page"
+													href="#" data-bs-toggle="modal"
+													data-bs-target="#exampleModal">Itinerario</a></li>
+											</c:otherwise>
+										</c:choose>
+									</ul></li>
+							</ul>
 						</div>
-					</nav>
+					</div>
+				</nav>
 
-		<!--  MAIN CONTENT  -->
-			
-			<p class="titulo mb-5">su <span class="pass-span"> itinerario</span></p>
-			
-			<div class="accordion accordion-flush" id="accordionFlushExample">
-						<c:forEach items="${itinerary}" var="itinerary">
+				<!--  MAIN CONTENT  -->
+
+				<p class="titulo mb-5">
+					su <span class="pass-span"> itinerario</span>
+				</p>
+
+				<div class="accordion accordion-flush" id="accordionFlushExample">
+					<c:forEach items="${itinerary}" var="itinerary">
 						<div class="accordion-item">
 							<h2 class="accordion-header" id="flush-headingThree">
 								<button class="accordion-button collapsed" type="button"
@@ -155,10 +152,12 @@
 											<p>${itinerary.nombre}</p>
 										</div>
 										<div class="col-3 clock-in-accordion">
-											<img class="clock" src="img\clock.svg" /> ${itinerary.duracion} hora
+											<img class="clock" src="img\clock.svg" />
+											${itinerary.duracion} hora
 										</div>
 										<div class="col-3 coin-in-accordion">
-											<img class="coin" src="img\coin.svg" /> ${itinerary.costo} monedas
+											<img class="coin" src="img\coin.svg" /> ${itinerary.costo}
+											monedas
 										</div>
 									</div>
 								</button>
@@ -175,14 +174,16 @@
 								</div>
 							</div>
 						</div>
-						</c:forEach>
-						<!-- <button class="btn boton-destinos" id="btnCrearPdf">Descargar</button>  -->
-					</div>
-			
-			
-			
-			<div id="containergeneral-estilosclima" class="container justify-content-center mt-5">
-					<div id="contenedor-clima" class="row clima-container align-items-center">
+					</c:forEach>
+					<!-- <button class="btn boton-destinos" id="btnCrearPdf">Descargar</button>  -->
+				</div>
+
+
+
+				<div id="containergeneral-estilosclima"
+					class="container justify-content-center mt-5">
+					<div id="contenedor-clima"
+						class="row clima-container align-items-center">
 
 						<div id="caja2" class="col item-clima">
 							<p id="ubicacion"></p>
@@ -209,16 +210,59 @@
 						</div>
 					</div>
 				</div>
-		</div>
-
 			</div>
-			
-			
 
-
-
-
-		<footer></footer>
 		</div>
+
+		<footer>
+
+			<div class="footer">
+				<div class="wrapper-1">
+
+					<a class="logo">muy lejano <span class="logo-span">PASS</span>
+					</a>
+
+
+				</div>
+				<div class="row wrapper-2">
+					<div class="col">
+						<p>Andrada, Tomás</p>
+						<a href="www.linkedin.com/in/tomas-agustin-andrada-74a1a61a3"
+							target="_blank" class="btn btn-primary"> <i
+							class="bi bi-linkedin"></i>
+						</a> <a href="https://github.com/TomasAndrada" target="_blank"
+							class="btn btn-primary"> <i class="bi bi-github"></i>
+						</a> <a href="mailto:tomasandrada1012@gmail.com" target="_blank"
+							class="btn btn-primary"> <i class="bi bi-envelope"></i>
+						</a>
+					</div>
+					<div class="col">
+						<p>De Maurizio, Cesar</p>
+						<a href="https://www.linkedin.com/in/cesar-de-maurizio/"
+							target="_blank" class="btn btn-primary"> <i
+							class="bi bi-linkedin"></i>
+						</a> <a href="https://github.com/dimaurizzio" target="_blank"
+							class="btn btn-primary"> <i class="bi bi-github"></i>
+						</a> <a href="mailto:cesardemaurizio1@gmail.com" target="_blank"
+							class="btn btn-primary"> <i class="bi bi-envelope"></i>
+						</a>
+					</div>
+					<div class="col">
+						<p>González, Gustavo</p>
+						<a
+							href="https://www.linkedin.com/in/gustavo-antonio-gonz%C3%A1lez/"
+							target="_blank" class="btn btn-primary"> <i
+							class="bi bi-linkedin"></i>
+						</a> <a href="https://github.com/Gustavo27Gonzalez" target="_blank"
+							class="btn btn-primary"> <i class="bi bi-github"></i>
+						</a> <a href="mailto:gustavo27gonzalez27@gmail.com" target="_blank"
+							class="btn btn-primary"> <i class="bi bi-envelope"></i>
+						</a>
+					</div>
+				</div>
+			</div>
+
+		</footer>
+	</div>
 </body>
 </html>

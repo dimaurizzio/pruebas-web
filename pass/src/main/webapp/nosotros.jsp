@@ -130,119 +130,170 @@
 		</a>
 		<div class="contenedor">
 			<div class="cursor"></div>
-			
+
+			<div class="container">
+				<nav class="navbar navbar-expand-lg navbar-light ">
+					<div class="container-fluid">
+						<a class="logo" href="index.do">muy lejano <span
+							class="logo-span">PASS</span>
+						</a>
+
+						<button class="navbar-toggler nav-button" type="button"
+							data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+							aria-controls="navbarScroll" aria-expanded="false"
+							aria-label="Toggle navigation">
+							<span class="navbar-toggler-icon"> </span>
+						</button>
+						<div class="collapse navbar-collapse" id="navbarScroll">
+							<ul class="navbar-nav ms-auto my-5 my-lg-0 navbar-nav-scroll"
+								style="-bs-scroll-height: 200px">
+								<li class="nav-item"></li>
+								<c:choose>
+									<c:when test="${user.nombre != null}">
+										<li class="nav-item"><a class="iniciar-sesion"
+											href="recomendaciones.do">Quiero!</a></li>
+									</c:when>
+									<c:otherwise>
+										<li class="nav-item"><a class="iniciar-sesion"
+											aria-current="page" href="#" data-bs-toggle="modal"
+											data-bs-target="#exampleModal">Iniciar Sesión</a></li>
+									</c:otherwise>
+								</c:choose>
+
+								<li class="nav-item dropdown"><a
+									class="nav-link dropdown-toggle nav-a" href="#"
+									id="navbarScrollingDropdown" role="button"
+									data-bs-toggle="dropdown" aria-expanded="false"> Más </a>
+									<ul class="dropdown-menu dropdown-menu-end"
+										aria-labelledby="navbarScrollingDropdown">
+										<li><a class="dropdown-item" href="index.do">Home</a></li>
+										<c:choose>
+											<c:when test="${user.nombre != null}">
+												<li>
+													<hr class="dropdown-divider" />
+												</li>
+												<li><a class="dropdown-item"
+													href="personalItinerary.do">Itinerario</a></li>
+												<li><c:if test="${user.admin}">
+														<li>
+															<hr class="dropdown-divider" />
+														</li>
+														<li><a class="dropdown-item" href="panelDeControl.do">Alta
+																y baja</a></li>
+													</c:if>
+
+													<hr class="dropdown-divider" /></li>
+												<li><a type="button" href="logout"
+													class="dropdown-item">Cerrar Sesión</a></li>
+											</c:when>
+											<c:otherwise>
+
+											</c:otherwise>
+										</c:choose>
+									</ul></li>
+							</ul>
+						</div>
+					</div>
+				</nav>
+
+				<!--  end Navbar -->
+
+
+				<!--  main content  -->
+
 				<div class="container">
-					<nav class="navbar navbar-expand-lg navbar-light nav-sticky-hijo">
-						<div class="container-fluid">
-							<a class="logo" href="index.jsp">muy lejano <span
-								class="logo-span">PASS</span>
-							</a>
 
-							<button class="navbar-toggler nav-button" type="button"
-								data-bs-toggle="collapse" data-bs-target="#navbarScroll"
-								aria-controls="navbarScroll" aria-expanded="false"
-								aria-label="Toggle navigation">
-								<span class="navbar-toggler-icon"> </span>
-							</button>
-							<div class="collapse navbar-collapse" id="navbarScroll">
-								<ul class="navbar-nav ms-auto my-5 my-lg-0 navbar-nav-scroll"
-									style="-bs-scroll-height: 200px">
-									<li class="nav-item"></li>
-									<li class="nav-item"><a class="iniciar-sesion"
-										aria-current="page" href="#" data-bs-toggle="modal"
-										data-bs-target="#exampleModal">Iniciar Sesión</a></li>
-									<li class="nav-item"><a class="nav-link nav-a" href="#">Nosotros</a>
-									</li>
-									<li class="nav-item dropdown"><a
-										class="nav-link dropdown-toggle nav-a" href="#"
-										id="navbarScrollingDropdown" role="button"
-										data-bs-toggle="dropdown" aria-expanded="false">Más</a>
-										<ul class="dropdown-menu dropdown-menu-end"
-											aria-labelledby="navbarScrollingDropdown">
-											<li><a class="dropdown-item" href="personalItinerary.do">Itinerario</a>
-											</li>
-											<li>
-												<hr class="dropdown-divider" />
-											</li>
-											<li><a class="dropdown-item " href="panelDeControl.do">Alta
-													y baja</a></li>
-										</ul></li>
-								</ul>
-							</div>
-						</div>
-					</nav>
-
-					<!--  end Navbar -->
-
-
-					<!--  main content  -->
-
-					<div class="container">
-					
-						<div class="nosotros-container">
-							<h2 class="titulo">Somos una empresa con amplia experiencia en el rubro</h2>
-						</div>
-						<br>
-						<div class="row">
-							<div class="col">
-								<p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum mi quis erat venenatis tristique. Duis consectetur, sapien vitae euismod lacinia, ipsum felis tempor augue, a vehicula erat odio sed urna. Mauris rhoncus pellentesque gravida. Nulla semper mauris vitae mauris tempus fermentum. Suspendisse vitae felis placerat, ultricies ante sed, consequat velit. Donec vehicula tristique malesuada. Vestibulum quis sollicitudin orci. Donec tempor nibh elit, eu congue augue mattis in. Curabitur a suscipit nibh. Donec sit amet mattis dolor, at vestibulum sem.
-
-Pellentesque a suscipit lorem. Morbi id turpis fermentum, posuere augue id, fringilla tortor. Suspendisse convallis vel augue vitae hendrerit. Cras in lorem at mi iaculis dictum vel non leo. Vestibulum quis consectetur elit, congue pellentesque est. Nulla facilisi. Ut ut ullamcorper massa, at imperdiet leo. In tempor eros non ligula imperdiet, eu egestas eros malesuada. Sed pellentesque faucibus lorem id faucibus. Proin sed scelerisque risus. Vivamus diam nisl, laoreet sit amet pellentesque non, egestas eu justo. </p>
-							</div>
-							<div class="col">
-								<img alt="Parque temático de Shrek" src="img\icons\shrekparque.jpg" style="width:40vw;">
-							</div>
-						</div>
+					<div class="nosotros-container">
+						<h2 class="titulo">Somos una empresa con amplia experiencia
+							en el rubro</h2>
+					</div>
 					<br>
-					
+					<div class="row">
+						<div class="col">
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+								Pellentesque vestibulum mi quis erat venenatis tristique. Duis
+								consectetur, sapien vitae euismod lacinia, ipsum felis tempor
+								augue, a vehicula erat odio sed urna. Mauris rhoncus
+								pellentesque gravida. Nulla semper mauris vitae mauris tempus
+								fermentum. Suspendisse vitae felis placerat, ultricies ante sed,
+								consequat velit. Donec vehicula tristique malesuada. Vestibulum
+								quis sollicitudin orci. Donec tempor nibh elit, eu congue augue
+								mattis in. Curabitur a suscipit nibh. Donec sit amet mattis
+								dolor, at vestibulum sem. Pellentesque a suscipit lorem. Morbi
+								id turpis fermentum, posuere augue id, fringilla tortor.
+								Suspendisse convallis vel augue vitae hendrerit. Cras in lorem
+								at mi iaculis dictum vel non leo. Vestibulum quis consectetur
+								elit, congue pellentesque est. Nulla facilisi. Ut ut ullamcorper
+								massa, at imperdiet leo. In tempor eros non ligula imperdiet, eu
+								egestas eros malesuada. Sed pellentesque faucibus lorem id
+								faucibus. Proin sed scelerisque risus. Vivamus diam nisl,
+								laoreet sit amet pellentesque non, egestas eu justo.</p>
+						</div>
+						<div class="col">
+							<img alt="Parque temático de Shrek"
+								src="img\icons\shrekparque.jpg" style="width: 40vw;">
+						</div>
+					</div>
+					<br>
+
 					<div>
 						<div class="row">
 							<div class="col">
 								<div class="card" style="width: 18rem;">
-  									<img src="img\3-card.png" class="card-img-top" alt="...">
- 									 <div class="card-body">
-    									<h5 class="card-title">Fede Gasior</h5>
-    									<p class="card-text">Bastante piola, le faltan un par de detalles. Ah, y la página está bien.</p>
-    									<br>
-    									<p>Puntuación: </p>
-    									<div class="progress">
-  										<div class="progress-bar" role="progressbar" style="width: 90%;" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">90%</div>
+									<img src="img\3-card.png" class="card-img-top" alt="...">
+									<div class="card-body">
+										<h5 class="card-title">Fede Gasior</h5>
+										<p class="card-text">Bastante piola, le faltan un par de
+											detalles. Ah, y la página está bien.</p>
+										<br>
+										<p>Puntuación:</p>
+										<div class="progress">
+											<div class="progress-bar" role="progressbar"
+												style="width: 90%;" aria-valuenow="90" aria-valuemin="0"
+												aria-valuemax="100">90%</div>
 										</div>
-  									</div>
+									</div>
 								</div>
 							</div>
 							<div class="col">
 								<div class="card" style="width: 18rem;">
-  									<img src="img\1-card.png" class="card-img-top" alt="...">
- 									 <div class="card-body">
-    									<h5 class="card-title">El Leo Blau</h5>
-    									<p class="card-text">Digamos que para lo que se pidió, cumple. Este parque podría estar mejor.</p>
-    									<br>
-    									<p>Puntuación: </p>
-    									<div class="progress">
-  										<div class="progress-bar" role="progressbar" style="width: 75%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">75%</div>
-										</div>		
-    								</div>
+									<img src="img\1-card.png" class="card-img-top" alt="...">
+									<div class="card-body">
+										<h5 class="card-title">El Leo Blau</h5>
+										<p class="card-text">Digamos que para lo que se pidió,
+											cumple. Este parque podría estar mejor.</p>
+										<br>
+										<p>Puntuación:</p>
+										<div class="progress">
+											<div class="progress-bar" role="progressbar"
+												style="width: 75%;" aria-valuenow="75" aria-valuemin="0"
+												aria-valuemax="100">75%</div>
+										</div>
+									</div>
 								</div>
 							</div>
 							<div class="col">
 								<div class="card" style="width: 18rem;">
-  									<img src="img\1-card.png" class="card-img-top" alt="...">
- 									 <div class="card-body">
-    									<h5 class="card-title">Lucas Vid</h5>
-    									<p class="card-text">Buen precio. Le falta Spring.</p>
-    									<br>
-    									<p>Puntuación: </p>
-    									<div class="progress">
-  										<div class="progress-bar" role="progressbar" style="width: 65%;" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100">65%</div>
+									<img src="img\1-card.png" class="card-img-top" alt="...">
+									<div class="card-body">
+										<h5 class="card-title">Lucas Vid</h5>
+										<p class="card-text">Buen precio. Le falta Spring.</p>
+										<br>
+										<p>Puntuación:</p>
+										<div class="progress">
+											<div class="progress-bar" role="progressbar"
+												style="width: 65%;" aria-valuenow="65" aria-valuemin="0"
+												aria-valuemax="100">65%</div>
 										</div>
-  									</div>
+									</div>
 								</div>
 							</div>
 						</div>
 					</div>
-					</div>
+
 				</div>
+
+			</div>
 </body>
 
 </html>

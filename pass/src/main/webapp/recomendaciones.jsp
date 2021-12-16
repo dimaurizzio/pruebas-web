@@ -57,17 +57,13 @@
 	<div class="billetera">
 		<div class="billetera-content">
 			<div class="billetera-dinero">
-					<img class="coin-wallet" src="img\coin.svg" /> 
-					<div class="text-wallet">
-							${user.dineroDisponible} u
-					</div>
-				
+				<img class="coin-wallet" src="img\coin.svg" />
+				<div class="text-wallet">${user.dineroDisponible} u</div>
+
 			</div>
 			<div class="billetera-tiempo">
-					<img class="clock-wallet" src="img\clock.svg" /> 
-					<div class="text-wallet">
-							${user.tiempo} hs
-					</div>
+				<img class="clock-wallet" src="img\clock.svg" />
+				<div class="text-wallet">${user.tiempo} hs</div>
 			</div>
 		</div>
 	</div>
@@ -121,7 +117,7 @@
 
 	<div class="container-fluid">
 		<div class="container">
-			<nav class="navbar navbar-expand-lg navbar-light">
+			<nav class="navbar navbar-expand-lg navbar-light ">
 				<div class="container-fluid">
 					<a class="logo" href="index.do">muy lejano <span
 						class="logo-span">PASS</span>
@@ -137,17 +133,14 @@
 						<ul class="navbar-nav ms-auto my-5 my-lg-0 navbar-nav-scroll"
 							style="-bs-scroll-height: 200px">
 							<li class="nav-item"></li>
-							<c:choose>
-								<c:when test="${user.nombre != null}">
-									<li><a type="button" href="logout" class="iniciar-sesion">Cerrar
-											Sesión</a></li>
-								</c:when>
-								<c:otherwise>
-									<li class="nav-item"><a class="iniciar-sesion"
-										aria-current="page" href="#" data-bs-toggle="modal"
-										data-bs-target="#exampleModal">Iniciar Sesión</a></li>
-								</c:otherwise>
-							</c:choose>
+
+							<c:if test="${user.nombre == null}">
+								<li class="nav-item"><a class="iniciar-sesion"
+									aria-current="page" href="#" data-bs-toggle="modal"
+									data-bs-target="#exampleModal">Iniciar Sesión</a></li>
+							</c:if>
+
+
 							<li class="nav-item"><a class="nav-link nav-a"
 								href="nosotros.jsp">Nosotros</a></li>
 							<li class="nav-item dropdown"><a
@@ -156,16 +149,35 @@
 								data-bs-toggle="dropdown" aria-expanded="false"> Más </a>
 								<ul class="dropdown-menu dropdown-menu-end"
 									aria-labelledby="navbarScrollingDropdown">
-									<li><a class="dropdown-item" href="personalItinerary.do">Itinerario</a>
-									</li>
+									<li><a class="dropdown-item" href="index.do">Home</a></li>
+									<c:choose>
+										<c:when test="${user.nombre != null}">
+											<li>
+												<hr class="dropdown-divider" />
+											</li>
+											<li><a class="dropdown-item" href="personalItinerary.do">Itinerario</a></li>
+											<c:if test="${user.admin}">
+												<li>
+													<hr class="dropdown-divider" />
+												</li>
+												<li><a class="dropdown-item" href="panelDeControl.do">Alta
+														y baja</a></li>
+											</c:if>
+											<li>
+												<hr class="dropdown-divider" />
+											</li>
+											<li><a type="button" href="logout" class="dropdown-item">Cerrar
+													Sesión</a></li>
+										</c:when>
 
-									<c:if test="${user.admin}">
-										<li>
-											<hr class="dropdown-divider" />
-										</li>
-										<li><a class="dropdown-item" href="panelDeControl.do">Alta
-												y baja</a></li>
-									</c:if>
+									</c:choose>
+
+
+
+
+
+
+
 								</ul></li>
 						</ul>
 					</div>
@@ -245,7 +257,7 @@
 									</tr>
 								</c:if>
 							</c:forEach>
-							
+
 						</tbody>
 					</table>
 				</div>

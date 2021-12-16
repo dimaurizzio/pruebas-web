@@ -333,7 +333,15 @@ Cosas por hacer:
 			<footer>
 
 				<div class="footer">
-				<div class="row">
+				<div class="wrapper-1">
+				
+				<a class="logo">muy lejano <span
+								class="logo-span">PASS</span>
+							</a>
+				
+				
+				</div>
+				<div class="row wrapper-2">
 				<div class="col">
 					<p>Andrada, Tomás</p>
    					<a href="www.linkedin.com/in/tomas-agustin-andrada-74a1a61a3" target="_blank" class="btn btn-primary">
@@ -348,18 +356,18 @@ Cosas por hacer:
    				</div>
    				<div class="col">
    					<p>De Maurizio, Cesar</p>
-   					<a href="https://www.linkedin.com/in/" target="_blank" class="btn btn-primary">
+   					<a href="https://www.linkedin.com/in/cesar-de-maurizio/" target="_blank" class="btn btn-primary">
     				<i class="bi bi-linkedin"></i>
     				</a>
     				<a href="https://github.com/dimaurizzio" target="_blank" class="btn btn-primary">
     				<i class="bi bi-github"></i>
     				</a>
-    				<a href="mailto:" target="_blank" class="btn btn-primary">
+    				<a href="mailto:cesardemaurizio1@gmail.com" target="_blank" class="btn btn-primary">
     				<i class="bi bi-envelope"></i>
     				</a>
    				</div>
    				<div class="col">
-   					<p>González, Gustavo Antonio</p>
+   					<p>González, Gustavo</p>
    					<a href="https://www.linkedin.com/in/gustavo-antonio-gonz%C3%A1lez/" target="_blank" class="btn btn-primary">
     				<i class="bi bi-linkedin"></i>
     				</a>
