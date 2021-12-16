@@ -59,7 +59,7 @@
                  class="mCSB_container mCS_y_hidden mCS_no_scrollbar_y"
                  style="position: relative; top: 0; left: 0;" dir="ltr">
                 <div class="sidebar-header">
-                    <a class="logo" href="index.jsp">muy lejano <span
+                    <a class="logo" href="index.do">muy lejano <span
                             class="logo-span">PASS</span>
                     </a>
                 </div>
@@ -159,9 +159,9 @@
                                                                          aria-expanded="false"> Más </a>
                                             <ul class="dropdown-menu dropdown-menu-end"
                                                 aria-labelledby="navbarScrollingDropdown">
-                                                <li><a class="dropdown-item" href="index.jsp">Home</a>
+                                                <li><a class="dropdown-item" href="index.do">Home</a>
                                                 </li>
-                                                <li><a class="dropdown-item" href="itinerario.jsp">Itinerario</a>
+                                                <li><a class="dropdown-item" href="personalItinerary.do">Itinerario</a>
                                                 </li>
                                                 <li>
                                                     <hr class="dropdown-divider"/>

@@ -310,4 +310,29 @@ public class PromocionDAOimpl implements PromocionDAO {
             throw new MissingDataException(e);
         }
     }
+
+    public Promocion buscarPromo(String name) {
+        Promocion promo = null;
+        try {
+            String sql = "SELECT * FROM promociones where Nombre = ?";
+            conn = ConnectionProvider.getConnection();
+            PreparedStatement statement = conn.prepareStatement(sql);
+            statement.setString(1, name);
+            ResultSet resultados = statement.executeQuery();
+            while (resultados.next()) {
+                try {
+                    promo = toPromo(resultados);
+                    promo.agregarAtraccion(buscarPorId(resultados.getInt("Atraccion1")));
+                    promo.agregarAtraccion(buscarPorId(resultados.getInt("Atraccion2")));
+                } catch (Exception e) {
+
+                    throw new MissingDataException(e);
+                }
+            }
+            return promo;
+        } catch (SQLException ex) {
+            Logger.getLogger(PromocionDAOimpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
 }

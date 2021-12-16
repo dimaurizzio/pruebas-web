@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+		 pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -55,6 +56,7 @@
 <script type="text/javascript" defer src="js\itinerarioJs\climaJs\clima.js"></script>
 <script type="text/javascript" defer src="js\itinerarioJs\climaJs\hora.js"></script>
 
+
 </head>
 
 <body>
@@ -65,47 +67,78 @@
 	<div class="container-fluid">
 
 		<div class="contenedor">
-			<div class="container"> 
-				<nav class="navbar navbar-expand-lg navbar-light ">
-					<div class="container-fluid">
-						<a class="logo" href="index.jsp">muy lejano <span
-							class="logo-span">PASS</span>
-						</a>
+			<div class="">
+				<div class="container viewport">
+					<nav class="navbar navbar-expand-lg navbar-light ">
+						<div class="container-fluid">
+							<a class="logo" href="index.do">muy lejano <span
+								class="logo-span">PASS</span>
+							</a>
 
-						<button class="navbar-toggler nav-button" type="button"
-							data-bs-toggle="collapse" data-bs-target="#navbarScroll"
-							aria-controls="navbarScroll" aria-expanded="false"
-							aria-label="Toggle navigation">
-							<span class="navbar-toggler-icon"> </span>
-						</button>
-						<div class="collapse navbar-collapse" id="navbarScroll">
-							<ul class="navbar-nav ms-auto my-5 my-lg-0 navbar-nav-scroll"
-								style="-bs-scroll-height: 200px;">
-								<li class="nav-item"><a class=" iniciar-sesion"
-									aria-current="page" href="#">Iniciar Sesion</a></li>
-								<li class="nav-item"><a class="nav-link nav-a" href="#">Nosotros</a>
-								</li>
-								<li class="nav-item dropdown"><a
-									class="nav-link dropdown-toggle nav-a" href="#"
-									id="navbarScrollingDropdown" role="button"
-									data-bs-toggle="dropdown" aria-expanded="false"> Más </a>
-									<ul class="dropdown-menu"
-										aria-labelledby="navbarScrollingDropdown">
-										<li><a class="dropdown-item" href="itinerario.jsp">Itinerario</a></li>
-										<li><hr class="dropdown-divider"></li>
-										<li><a class="dropdown-item" href="panelDeControl.do">Alta
-												y baja</a></li>
-									</ul></li>
-							</ul>
+							<button class="navbar-toggler nav-button" type="button"
+								data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+								aria-controls="navbarScroll" aria-expanded="false"
+								aria-label="Toggle navigation">
+								<span class="navbar-toggler-icon"> </span>
+							</button>
+							<div class="collapse navbar-collapse" id="navbarScroll">
+								<ul class="navbar-nav ms-auto my-5 my-lg-0 navbar-nav-scroll"
+									style="-bs-scroll-height: 200px;">
+									<li class="nav-item">
+										<c:choose>
+										<c:when test="${user.nombre != null}">
+									<li><a type="button" href="logout"
+										   class="iniciar-sesion">Cerrar Sesión</a></li>
+									</c:when>
+									<c:otherwise>
+										<li class="nav-item"><a class="iniciar-sesion"
+																aria-current="page" href="#" data-bs-toggle="modal"
+																data-bs-target="#exampleModal">Iniciar Sesión</a></li>
+									</c:otherwise>
+									</c:choose>
+									<li class="nav-item dropdown"><a
+										class="nav-link dropdown-toggle nav-a" href="#"
+										id="navbarScrollingDropdown" role="button"
+										data-bs-toggle="dropdown" aria-expanded="false"> Más </a>
+										<ul class="dropdown-menu"
+											aria-labelledby="navbarScrollingDropdown">
+											<li><a class="dropdown-item" href="personalItinerary.jsp">Itinerario</a></li>
+											<li><hr class="dropdown-divider"></li>
+											<li><a class="dropdown-item" href="panelDeControl.do">Alta
+													y baja</a></li>
+										</ul></li>
+								</ul>
+							</div>
 						</div>
+					</nav>
+					
+					<div id="containergeneral-estilosclima container"
+							class="container">
+							<div id="contenedor-clima" class="row">
+								<div id="caja1" class="col-3">
+									<p id="ubicacion"></p>
+									<img id="icono-animado" src='' alt="" height="128" width="128">
+								</div>
+								<div id="caja2" class="col-3">
+									<p id="temperatura-valor"></p>
+									<p id="temperatura-descripcion"></p>
+								</div>
+								<div id="caja3" class="col-3">
+									<p>Velocidad del viento</p>
+									<p id="viento-velocidad"></p>
+								</div>
+								<div id="caja4" class="col-3">
+									<p>Hora</p>
+									<p id="hora"></p>
+								</div>
+							</div>
+						</div>
+					
+					<div class="itinerario">
+						<p class="titulo-itinerario">Su itinerario</p>
 					</div>
-				</nav>
 
-		<!--  MAIN CONTENT  -->
-			
-			<p class="titulo mb-5">su <span class="pass-span"> itinerario</span></p>
-			
-			<div class="accordion accordion-flush" id="accordionFlushExample">
+					<div class="accordion accordion-flush" id="accordionFlushExample">
 						<div class="accordion-item">
 							<h2 class="accordion-header" id="flush-headingOne">
 								<button class="accordion-button collapsed" type="button"
@@ -139,38 +172,7 @@
 								</div>
 							</div>
 						</div>
-						<div class="accordion-item">
-							<h2 class="accordion-header" id="flush-headingTwo">
-								<button class="accordion-button collapsed" type="button"
-									data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo"
-									aria-expanded="false" aria-controls="flush-collapseTwo">
-									<div class="accordion-data row">
-										<div class="col-6 nombre-atraccion">
-											<p>Duloc</p>
-										</div>
-										<div class="col-3 clock-in-accordion">
-											<img class="clock" src="img\clock.svg" /> 1:30 horas
-										</div>
-										<div class="col-3 coin-in-accordion">
-											<img class="coin" src="img\coin.svg" /> 25 monedas
-										</div>
-									</div>
-								</button>
-							</h2>
-							<div id="flush-collapseTwo" class="accordion-collapse collapse"
-								aria-labelledby="flush-headingTwo"
-								data-bs-parent="#accordionFlushExample">
-								<div class="container">
-									<div class="row">
-										<div class="col-12">
-											<div class="accordion-body descripcion-accordion">Por
-												qué elegiste esto?</div>
-										</div>
-
-									</div>
-								</div>
-							</div>
-						</div>
+						<c:forEach items="${itinerary}" var="itinerary">
 						<div class="accordion-item">
 							<h2 class="accordion-header" id="flush-headingThree">
 								<button class="accordion-button collapsed" type="button"
@@ -178,13 +180,13 @@
 									aria-expanded="false" aria-controls="flush-collapseThree">
 									<div class="accordion-data row">
 										<div class="col-6 nombre-atraccion">
-											<p>Banquete en el Pantano</p>
+											<p>${itinerary.nombre}</p>
 										</div>
 										<div class="col-3 clock-in-accordion">
-											<img class="clock" src="img\clock.svg" /> 1 hora
+											<img class="clock" src="img\clock.svg" /> ${itinerary.duracion} hora
 										</div>
 										<div class="col-3 coin-in-accordion">
-											<img class="coin" src="img\coin.svg" /> 5 monedas
+											<img class="coin" src="img\coin.svg" /> ${itinerary.costo} monedas
 										</div>
 									</div>
 								</button>
@@ -195,56 +197,27 @@
 								<div class="container">
 									<div class="row">
 										<div class="col-12">
-											<div class="accordion-body descripcion-accordion">Buena
-												relación costo/calidad</div>
+											<div class="accordion-body descripcion-accordion">${itinerary.breveDescripcion}</div>
 										</div>
-
 									</div>
 								</div>
 							</div>
 						</div>
-					</div>
-			
-			
-			
-			<div id="containergeneral-estilosclima" class="container justify-content-center">
-					<div id="contenedor-clima" class="row clima-container align-items-center">
-
-						<div id="caja2" class="col item-clima">
-							<p id="ubicacion"></p>
-							<img id="icono-animado" src='' alt="" height="100" width="100">
-						</div>
-
-
-						<div id="caja1" class="col">
-							<p id="temperatura-valor"></p>
-							<p id="temperatura-descripcion"></p>
-						</div>
-
-
-						<div id="caja3" class="col">
-							<p>Velocidad del viento</p>
-							<p id="viento-velocidad"></p>
-						</div>
-
-
-						<div id="caja4" class="col-1 last-col">
-							<p>Hora</p>
-							<p id="hora"></p>
-
-						</div>
+						</c:forEach>
+						<button class="btn boton-destinos" id="btnCrearPdf">Descargar
+							PDF</button>
 					</div>
 				</div>
-		</div>
-
 			</div>
-			
-			
 
-
-
-
-		<footer></footer>
 		</div>
+	</div>
+
+	<div>
+	</div>
+
+
+	<footer></footer>
+
 </body>
 </html>

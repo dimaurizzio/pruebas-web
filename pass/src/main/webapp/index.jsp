@@ -100,13 +100,6 @@ Cosas por hacer:
           </svg></span>
 					<button type="button" class="btn-close" data-bs-dismiss="modal"
 						aria-label="Close"></button>
-					<c:if test="${flash != null}">
-						<div class="alert alert-danger">
-							<p>
-								<c:out value="${flash}" />
-							</p>
-						</div>
-					</c:if>
 				</div>
 				<div class="modal-body">
 					<form action="login" method="post">
@@ -179,7 +172,7 @@ Cosas por hacer:
 										data-bs-toggle="dropdown" aria-expanded="false"> Más </a>
 										<ul class="dropdown-menu dropdown-menu-end"
 											aria-labelledby="navbarScrollingDropdown">
-											<li><a class="dropdown-item" href="itinerario.jsp">Itinerario</a>
+											<li><a class="dropdown-item" href="personalItinerary.do">Itinerario</a>
 											</li>
 											
 											<c:if test="${user.admin}">
@@ -195,7 +188,13 @@ Cosas por hacer:
 						</div>
 					</nav>
 					<!-- end navbar -->
-
+					<c:if test="${flash != null}">
+						<div class="alert alert-danger">
+							<p>
+								<c:out value="${flash}" />
+							</p>
+						</div>
+					</c:if>
 					<!-- titular y bg -->
 					<div class="container">
 						<div class="row justify-content-center viewport-no-nav">

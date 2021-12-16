@@ -7,9 +7,12 @@ import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;
 
+import atraccion.Atraccion;
 import atraccion.Itinerario;
 import jdbc.ConnectionProvider;
 import ofertable.Ofertable;
+import promociones.Promocion;
+import usuario.Usuario;
 
 public class ItinerarioDAO {
     private Connection conn;
@@ -103,6 +106,33 @@ public class ItinerarioDAO {
             ex.printStackTrace();
         }
         return false;
+    }
+
+    public List<Ofertable> itinerarioPersonal(Usuario user) {
+        List<Ofertable> attractions = new LinkedList<Ofertable>();
+
+        try {
+            String sql = "SELECT * FROM itinerario WHERE id_usuario = ?";
+            Connection conn = ConnectionProvider.getConnection();
+            PreparedStatement statement = conn.prepareStatement(sql);
+            statement.setInt(1, user.getId());
+            ResultSet resultados = statement.executeQuery();
+
+            AtraccionDAO atraccionDAO = new AtraccionDAO();
+            PromocionDAOimpl promocionDAO = new PromocionDAOimpl();
+            while (resultados.next()) {
+                if (promocionDAO.findByName(resultados.getString("compra")) != null){
+                   attractions.add(promocionDAO.buscarPromo(resultados.getString("compra")));
+                }else {
+                    attractions.add(atraccionDAO.findByAtraccionName(resultados.getString("compra")));
+                }
+            }
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return attractions;
+
     }
 }
 

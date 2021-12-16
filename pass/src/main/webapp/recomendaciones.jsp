@@ -118,7 +118,7 @@
 		<div class="container">
 			<nav class="navbar navbar-expand-lg navbar-light">
 				<div class="container-fluid">
-					<a class="logo" href="#home">muy lejano <span class="logo-span">PASS</span>
+					<a class="logo" href="index.do">muy lejano <span class="logo-span">PASS</span>
 					</a>
 
 					<button class="navbar-toggler nav-button" type="button"
@@ -150,7 +150,7 @@
 								data-bs-toggle="dropdown" aria-expanded="false"> Más </a>
 								<ul class="dropdown-menu dropdown-menu-end"
 									aria-labelledby="navbarScrollingDropdown">
-									<li><a class="dropdown-item" href="itinerario.jsp">Itinerario</a>
+									<li><a class="dropdown-item" href="personalItinerary.do">Itinerario</a>
 									</li>
 
 									<c:if test="${user.admin}">
@@ -216,20 +216,7 @@
                                     </td>
                                     <td><c:out value="${attraction.duracion}"></c:out></td>
                                     <td><c:out value="${attraction.cupoMaximo}"></c:out></td>
-                                    <td>
-                                        <c:choose>
-                                            <c:when test="${attraction.deleted}">
-                                                <a href="restore?nombre=${attraction.nombre}"
-                                                   class="btn boton-quiero-tabla" role="button"><i
-                                                        class="bi bi-x-circle-fill">Alta</i></a>
-                                            </c:when>
-                                            <c:otherwise>
-                                                <a href="delete?nombre=${attraction.nombre}"
-                                                   class="btn boton-iniciarS" role="button"><i
-                                                        class="bi bi-x-circle-fill">Baja</i></a>
-                                            </c:otherwise>
-                                        </c:choose>
-                                        <a data-bs-target="#modalEdit_${attraction.id}" data-bs-toggle="modal"
+                                    <td><a data-bs-target="#modalEdit_${attraction.id}" data-bs-toggle="modal"
                                            class="btn boton-iniciarS" role="button"><i
                                                 class="bi bi-x-circle-fill">Modificar</i></a>
                                     </td>

@@ -166,7 +166,7 @@
 										data-bs-toggle="dropdown" aria-expanded="false">Más</a>
 										<ul class="dropdown-menu dropdown-menu-end"
 											aria-labelledby="navbarScrollingDropdown">
-											<li><a class="dropdown-item" href="itinerario.jsp">Itinerario</a>
+											<li><a class="dropdown-item" href="personalItinerary.do">Itinerario</a>
 											</li>
 											<li>
 												<hr class="dropdown-divider" />
