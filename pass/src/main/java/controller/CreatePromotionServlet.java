@@ -42,26 +42,27 @@ public class CreatePromotionServlet extends HttpServlet {
             Tipo type = Tipo.valueOf(req.getParameter("typeCreate"));
             String attraction1 = req.getParameter("attraction1");
             String attraction2 = req.getParameter("attraction2");
-            Integer discount = Integer.parseInt(req.getParameter("discount"));
             String description = req.getParameter("description");
             String promotionTipe = req.getParameter("promotionTipe");
 
             Promocion promotion = null;
 
             if (promotionTipe.equals("AxB")) {
-                String free = req.getParameter("Free");
+                String free = req.getParameter("free");
                 Atraccion gratis = atraccionDAO.findByAtraccionName(free);
                 promotion = new PromoRegala(name, type, gratis, description, false);
                 promotion.atraccionesDePromo.add(atraccionDAO.findByAtraccionName(attraction1));
                 promotion.atraccionesDePromo.add(atraccionDAO.findByAtraccionName(attraction2));
                 promotionService.create(promotion, promotionTipe);
             } else if (promotionTipe.equals("PORCENTUAL")) {
+                Integer discount = Integer.parseInt(req.getParameter("discount"));
                 int descuento = discount;
                 promotion = new PromoPorcentual(name, type, descuento, description, false);
                 promotion.atraccionesDePromo.add(atraccionDAO.findByAtraccionName(attraction1));
                 promotion.atraccionesDePromo.add(atraccionDAO.findByAtraccionName(attraction2));
                 promotionService.create(promotion, promotionTipe);
             } else if (promotionTipe.equals("NETO")) {
+                Integer discount = Integer.parseInt(req.getParameter("discount"));
                 int descuento = discount;
                 promotion = new PromoAbsoluta(name, type, descuento, description, false);
                 promotion.atraccionesDePromo.add(atraccionDAO.findByAtraccionName(attraction1));

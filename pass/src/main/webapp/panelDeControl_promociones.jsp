@@ -271,7 +271,7 @@
                                             </select>
                                         </div>
                                         <div class="mb-3">
-                                            <label for="attraction2" class="col-form-label">Atraccion 1: (Elija
+                                            <label for="attraction2" class="col-form-label">Atraccion 2: (Elija
                                                 uno)</label>
                                             <select class="form-control" id="attraction2" name="attraction2">
                                                 <c:forEach items="${attractions}" var="attraction">
@@ -297,77 +297,150 @@
                                             <button type="submit" class="btn boton-iniciarS">Guardar
                                             </button>
                                         </div>
+                                    </div>
                                 </form>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="modal fade" id="modalCreateAxB" tabindex="-1"
-                     aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="ModalAxB">Ingrese datos del usuario</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                        aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                <form action="createPromotion" method="get">
-                                    <input type="hidden" for="promotionTipe" name="promotionTipe" value="PORCENTUAL">
-                                    <div class="mb-3">
-                                        <label for="nameCreate" class="col-form-label">Nombre:</label>
-                                        <input class="form-control" type="text" id="nameCreateAxB" name="nameCreate"
-                                               required>
-                                        <div class="mb-3">
-                                            <label for="typeCreate" class="col-form-label">Preferencia: (Elija
-                                                uno)</label>
-                                            <select class="form-control" id="typeCreateAxB" name="typeCreate">
-                                                <c:forEach items="${types}" var="type">
-                                                    <option value="${type}">${type}</option>
-                                                </c:forEach>
-                                            </select>
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="attraction1" class="col-form-label">Atraccion 1: (Elija
-                                                uno)</label>
-                                            <select class="form-control" id="attraction1AxB" name="attraction1">
-                                                <c:forEach items="${attractions}" var="attraction">
-                                                    <option value="${attraction.nombre}">${attraction.nombre}</option>
-                                                </c:forEach>
-                                            </select>
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="attraction2" class="col-form-label">Atraccion 1: (Elija
-                                                uno)</label>
-                                            <select class="form-control" id="attraction2AxB" name="attraction2">
-                                                <c:forEach items="${attractions}" var="attraction">
-                                                    <option value="${attraction.nombre}">${attraction.nombre}</option>
-                                                </c:forEach>
-                                            </select>
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="discount" class="col-form-label">Descuento:</label>
-                                            <input class="form-control" type="number" id="discount"
-                                                   name="discount"
-                                                   required></input>
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="description" class="col-form-label">Descripcion:</label>
-                                            <input class="form-control" type="text" id="description" name="description"
-                                                   required>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn boton-quiero-tabla"
-                                                    data-bs-dismiss="modal">Cerrar
-                                            </button>
-                                            <button type="submit" class="btn boton-iniciarS">Guardar
-                                            </button>
-                                        </div>
-                                </form>
-                            </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="modalCreateAxB" tabindex="-1"
+     aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="ModalAxB">Ingrese datos del usuario</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="createPromotion" method="get">
+                    <input type="hidden" for="promotionTipe" name="promotionTipe" value="AxB">
+                    <div class="mb-3">
+                        <label for="nameCreate" class="col-form-label">Nombre:</label>
+                        <input class="form-control" type="text" id="nameCreate" name="nameCreate"
+                               required>
+                        <div class="mb-3">
+                            <label for="typeCreate" class="col-form-label">Preferencia: (Elija
+                                uno)</label>
+                            <select class="form-control" id="typeCreate" name="typeCreate">
+                                <c:forEach items="${types}" var="type">
+                                    <option value="${type}">${type}</option>
+                                </c:forEach>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="attraction1" class="col-form-label">Atraccion 1: (Elija
+                                uno)</label>
+                            <select class="form-control" id="attraction1" name="attraction1">
+                                <c:forEach items="${attractions}" var="attraction">
+                                    <option value="${attraction.nombre}">${attraction.nombre}</option>
+                                </c:forEach>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="attraction2" class="col-form-label">Atraccion 2: (Elija
+                                uno)</label>
+                            <select class="form-control" id="attraction2" name="attraction2">
+                                <c:forEach items="${attractions}" var="attraction">
+                                    <option value="${attraction.nombre}">${attraction.nombre}</option>
+                                </c:forEach>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="free" class="col-form-label">Atraccion regalo: (Elija
+                                uno)</label>
+                            <select class="form-control" id="free" name="free">
+                                <c:forEach items="${attractions}" var="attraction">
+                                    <option value="${attraction.nombre}">${attraction.nombre}</option>
+                                </c:forEach>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="description" class="col-form-label">Descripcion:</label>
+                            <input class="form-control" type="text" id="description" name="description"
+                                   required>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn boton-quiero-tabla"
+                                    data-bs-dismiss="modal">Cerrar
+                            </button>
+                            <button type="submit" class="btn boton-iniciarS">Guardar
+                            </button>
                         </div>
                     </div>
-                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="modalCreateNeto" tabindex="-1"
+     aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="ModalC">Ingrese datos del usuario</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="createPromotion" method="get">
+                    <input type="hidden" for="promotionTipe" name="promotionTipe" value="NETO">
+                    <div class="mb-3">
+                        <label for="nameCreate" class="col-form-label">Nombre:</label>
+                        <input class="form-control" type="text" id="nameCreate" name="nameCreate"
+                               required>
+                        <div class="mb-3">
+                            <label for="typeCreate" class="col-form-label">Preferencia: (Elija
+                                uno)</label>
+                            <select class="form-control" id="typeCreate" name="typeCreate">
+                                <c:forEach items="${types}" var="type">
+                                    <option value="${type}">${type}</option>
+                                </c:forEach>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="attraction1" class="col-form-label">Atraccion 1: (Elija
+                                uno)</label>
+                            <select class="form-control" id="attraction1" name="attraction1">
+                                <c:forEach items="${attractions}" var="attraction">
+                                    <option value="${attraction.nombre}">${attraction.nombre}</option>
+                                </c:forEach>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="attraction2" class="col-form-label">Atraccion 2: (Elija
+                                uno)</label>
+                            <select class="form-control" id="attraction2" name="attraction2">
+                                <c:forEach items="${attractions}" var="attraction">
+                                    <option value="${attraction.nombre}">${attraction.nombre}</option>
+                                </c:forEach>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="discount" class="col-form-label">Descuento:</label>
+                            <input class="form-control" type="number" id="discount"
+                                   name="discount"
+                                   required></input>
+                        </div>
+                        <div class="mb-3">
+                            <label for="description" class="col-form-label">Descripcion:</label>
+                            <input class="form-control" type="text" id="description" name="description"
+                                   required>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn boton-quiero-tabla"
+                                    data-bs-dismiss="modal">Cerrar
+                            </button>
+                            <button type="submit" class="btn boton-iniciarS">Guardar
+                            </button>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

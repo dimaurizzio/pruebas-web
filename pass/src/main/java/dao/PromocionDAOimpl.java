@@ -145,6 +145,25 @@ public class PromocionDAOimpl implements PromocionDAO {
 
                 statement.executeUpdate();
             }
+            if (promotionTipe.equals("NETO")) {
+                String sql = "INSERT INTO promociones (nombre ,Tipo, Costo, Porcentaje, Tipo_Promo, Atraccion1, Atraccion2, Descripccion, deleted) VALUES "
+                        + "(?,?,?,?,?,?,?,?,?)";
+                conn = ConnectionProvider.getConnection();
+
+                PreparedStatement statement = conn.prepareStatement(sql);
+                statement.setString(1, t.getNombre());
+                statement.setObject(2, promotionTipe);
+                statement.setDouble(3, t.getCosto());
+                statement.setObject(4, ((PromoPorcentual) t).getPorcentaje());
+                statement.setString(5, t.getTipoAtraccion().toString());
+                statement.setInt(6, t.getAtraccionesDePromo().get(0).getId());
+                statement.setInt(7, t.getAtraccionesDePromo().get(1).getId());
+                statement.setString(8, t.getBreveDescripcion());
+                statement.setInt(9, 0);
+
+                statement.executeUpdate();
+            }
+
         } catch (SQLException ex) {
             Logger.getLogger(PromocionDAOimpl.class.getName()).log(Level.SEVERE, null, ex);
         }
