@@ -172,8 +172,15 @@ Cosas por hacer:
 										data-bs-toggle="dropdown" aria-expanded="false"> Más </a>
 										<ul class="dropdown-menu dropdown-menu-end"
 											aria-labelledby="navbarScrollingDropdown">
-											<li><a class="dropdown-item" href="personalItinerary.do">Itinerario</a>
+											<c:choose>
+											<c:when test="${user.nombre != null}"><li><a class="dropdown-item" href="personalItinerary.do">Itinerario</a>
+											</li></c:when>
+											<c:otherwise>
+											<li><a class="dropdown-item" aria-current="page" href="#" data-bs-toggle="modal"
+												data-bs-target="#exampleModal">Itinerario</a>
 											</li>
+											</c:otherwise></c:choose>
+											
 											
 											<c:if test="${user.admin}">
 											<li>
