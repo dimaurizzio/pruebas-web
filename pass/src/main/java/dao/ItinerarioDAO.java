@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.util.LinkedList;
 import java.util.List;
 
+import atraccion.Atraccion;
 import atraccion.Itinerario;
 import jdbc.ConnectionProvider;
 import ofertable.Ofertable;
@@ -82,5 +83,39 @@ public class ItinerarioDAO {
             throw new MissingDataException(e);
         }
     }
+    
+    public static LinkedList<Atraccion> findBuys(){
+    	
+        try {
+            String sql = "SELECT * FROM itinerario";
+            Connection conn = ConnectionProvider.getConnection();
+            PreparedStatement statement = conn.prepareStatement(sql);
+            ResultSet resultados = statement.executeQuery();
+            UsuarioDAOImpl usuarioDAO = new UsuarioDAOImpl();
+            LinkedList<Itinerario> itinerarios = new LinkedList<>();
+            while (resultados.next()) {
+                int id = resultados.getInt("id_usuario");
+                String compra = resultados.getString("compra");
+                String nombre = usuarioDAO.findByAtraccionId(id).getNombre();
+
+                if (isRepeated(itinerarios, id) == -1){
+                    Itinerario i = new Itinerario(id, nombre);
+                    i.getCompras().add(compra);
+                    itinerarios.add(i);
+                } else {
+                    for (Itinerario actual : itinerarios){
+                        if (actual.getId().equals(id)){
+                            actual.getCompras().add(compra);
+                        }
+                    }
+                }
+            }
+            return itinerarios;
+        } catch (Exception e) {
+            throw new MissingDataException(e);
+        }
+    }
+
+    
 }
 

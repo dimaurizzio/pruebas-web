@@ -5,8 +5,10 @@ import java.util.LinkedList;
 import java.util.List;
 
 import atraccion.Atraccion;
+import atraccion.Itinerario;
 import comparador.Comparador;
 import dao.DAOFactory;
+import dao.ItinerarioDAO;
 import ofertable.Ofertable;
 import promociones.Promocion;
 import usuario.Usuario;
@@ -51,13 +53,18 @@ public class RecomendationService {
 
 	public static boolean puedeComprar(Usuario usuario, Ofertable  ofertable) {
 	
+		LinkedList<Atraccion> comprasDeUsuario = new LinkedList<Atraccion>();
+		comprasDeUsuario = ItinerarioDAO.findBuys();
+		
 		boolean puede = true;
 
 		if (usuario.getDineroDisponible() < ofertable.getCosto()) {
 			puede = false;
 		} else if (usuario.getTiempo() < ofertable.getDuracion()) {
 			puede = false;
-		} 
+		} else if (comprasDeUsuario.contains(ofertable)) {
+			puede = false;
+		}
 		
 		return puede;
 	}
@@ -66,6 +73,8 @@ public class RecomendationService {
 
 		AttractionService attractionService = new AttractionService();
 		List<Atraccion> listaAtracciones = attractionService.list();
+		
+		
 		
 		LinkedList<Atraccion> atraccionesIteradas = new LinkedList<Atraccion>();
 		

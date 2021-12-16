@@ -194,6 +194,8 @@ public class UsuarioDAOImpl implements UsuarioDAO {
             throw new MissingDataException(e);
         }
     }
+    
+   
 
     public void updatePassword(String password, int id) {
         try {
