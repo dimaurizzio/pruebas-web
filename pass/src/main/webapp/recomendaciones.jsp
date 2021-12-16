@@ -46,20 +46,6 @@
 	crossorigin="anonymous"></script>
 <script defer src="js\indexJs\script.js"></script>
 
-<script type="text/javascript" defer
-	src="js\itinerarioJs\HTML2PDF\html2pdf.bundle.min.js"></script>
-<script type="text/javascript" defer
-	src="js\itinerarioJs\HTML2PDF\descargarPDF.js"></script>
-
-<script type="text/javascript" defer
-	src="js\itinerarioJs\acordionJs\scriptMostrarAccordion.js"></script>
-<script type="text/javascript" defer
-	src="js\itinerarioJs\acordionJs\scriptMostrarLista.js"></script>
-
-<script type="text/javascript" defer
-	src="js\itinerarioJs\climaJs\clima.js"></script>
-<script type="text/javascript" defer
-	src="js\itinerarioJs\climaJs\hora.js"></script>
 
 </head>
 
@@ -67,6 +53,25 @@
 	<div class="loader-wrapper">
 		<span class="loader"><span class="loader-inner"></span></span>
 	</div>
+
+	<div class="billetera">
+		<div class="billetera-content">
+			<div class="billetera-dinero">
+					<img class="coin-wallet" src="img\coin.svg" /> 
+					<div class="text-wallet">
+							${user.dineroDisponible} u
+					</div>
+				
+			</div>
+			<div class="billetera-tiempo">
+					<img class="clock-wallet" src="img\clock.svg" /> 
+					<div class="text-wallet">
+							${user.tiempo} hs
+					</div>
+			</div>
+		</div>
+	</div>
+
 	<div class="modal" id="exampleModal" tabindex="-1"
 		aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog  modal-sm">
@@ -118,7 +123,8 @@
 		<div class="container">
 			<nav class="navbar navbar-expand-lg navbar-light">
 				<div class="container-fluid">
-					<a class="logo" href="index.do">muy lejano <span class="logo-span">PASS</span>
+					<a class="logo" href="index.do">muy lejano <span
+						class="logo-span">PASS</span>
 					</a>
 
 					<button class="navbar-toggler nav-button" type="button"
@@ -165,7 +171,7 @@
 					</div>
 				</div>
 			</nav>
-			<div class="contenedor">
+			<div class="contenedor viewport-no-nav">
 				<div class="row titular">
 					<div class="col-10 titulo">
 						<h3>
@@ -186,7 +192,6 @@
 							</p>
 						</div>
 					</c:if>
-					<h4 class="subtitulo">Usted tiene: $${user.dineroDisponible} y ${user.tiempo} horas</h4>
 					<div class="info-container">
 						<div class="info">
 							<span>i</span>
@@ -196,56 +201,55 @@
 						</div>
 					</div>
 				</div>
-			
-			<div class="tabla-contenedor">
-			 <table class="table table-stripped table-hover">
-                            <thead>
-                            <tr>
-                                <th>Atracci&oacute;n</th>
-                                <th>Costo</th>
-                                <th>Duraci&oacute;n</th>
-                                <th>Cupo</th>
-                                <th>Acciones</th>
-                            </tr>
-                            </thead>
-                            <tbody>
+
+				<div class="tabla-contenedor">
+					<table class="table table-stripped table-hover">
+						<thead>
+							<tr>
+								<th>Atracci&oacute;n</th>
+								<th>Costo</th>
+								<th>Duraci&oacute;n</th>
+								<th>Cupo</th>
+								<th>Acciones</th>
+							</tr>
+						</thead>
+						<tbody>
 							<c:forEach items="${promotions}" var="promotions">
 								<c:if test="${!attraction.deleted}">
-								<tr>
-									<td><strong>${promotions.nombre}</strong>
-										<p><c:out value="${promotions.breveDescripcion}"></c:out></p></td>
-									<td><c:out value="$${promotions.costo}"></c:out>
-									</td>
-									<td><c:out value="${promotions.duracion} horas"></c:out></td>
-									<td><c:out value="${promotions.lugaresDisponibles}"></c:out></td>
-									<td>
-										<a href="buy?nombre=${promotions.nombre}"
-										class="btn boton-quiero-tabla" role="button"><i
-											class="bi bi-x-circle-fill">Comprar</i></a>
-									</td>
-								</tr>
-							</c:if>
+									<tr>
+										<td><strong>${promotions.nombre}</strong>
+											<p>
+												<c:out value="${promotions.breveDescripcion}"></c:out>
+											</p></td>
+										<td><c:out value="${promotions.costo} u"></c:out></td>
+										<td><c:out value="${promotions.duracion} hs"></c:out></td>
+										<td><c:out value="${promotions.lugaresDisponibles}"></c:out></td>
+										<td><a href="buy?nombre=${promotions.nombre}"
+											class="btn boton-quiero-tabla" role="button"><i
+												class="bi bi-x-circle-fill">Comprar</i></a></td>
+									</tr>
+								</c:if>
 							</c:forEach>
 
-                            <c:forEach items="${attractions}" var="attraction">
+							<c:forEach items="${attractions}" var="attraction">
 								<c:if test="${!attraction.deleted}">
-								<tr>
-                                    <td><strong>${attraction.nombre}</strong>
-                                        <p><c:out value="${attraction.breveDescripcion}"></c:out></p></td>
-                                    <td><c:out value="$${attraction.costo}"></c:out>
-                                    </td>
-                                    <td><c:out value="${attraction.duracion} horas"></c:out></td>
-                                    <td><c:out value="${attraction.cupoMaximo}"></c:out></td>
-                                    <td><a href="buy?nombre=${attraction.nombre}"
-										   class="btn boton-quiero-tabla" role="button"><i
-											class="bi bi-x-circle-fill">Comprar</i></a>
-                                    </td>
-                                </tr>
+									<tr>
+										<td><strong>${attraction.nombre}</strong>
+											<p>
+												<c:out value="${attraction.breveDescripcion}"></c:out>
+											</p></td>
+										<td><c:out value="${attraction.costo} u"></c:out></td>
+										<td><c:out value="${attraction.duracion} hs"></c:out></td>
+										<td><c:out value="${attraction.cupoMaximo}"></c:out></td>
+										<td><a href="buy?nombre=${attraction.nombre}"
+											class="btn boton-quiero-tabla" role="button"><i
+												class="bi bi-x-circle-fill">Comprar</i></a></td>
+									</tr>
 								</c:if>
-                            </c:forEach>
-                            </tbody>
-                        </table>
-                        </div>
+							</c:forEach>
+						</tbody>
+					</table>
+				</div>
 			</div>
 		</div>
 	</div>

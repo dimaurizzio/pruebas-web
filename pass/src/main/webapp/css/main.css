@@ -566,7 +566,7 @@ p {
   color: var(--verdeBase);
   border: 2px solid var(--verdeBase);
   height: 2rem;
-  width: 5rem;
+  width: 6rem;
   border-radius: var(--redondeado2);
   transition: all 0.8s;
   z-index: 10;
@@ -726,15 +726,53 @@ section {
 	display: block;
 	position: left;
 }
-#btn-mostrar-accordion, #btn-mostrar-lista{
-	padding: 0;
-	margin: 0;
-	width: 120px;
-	height:70px;
-}
 #btnCrearPdf{
 	padding: 0;
 	margin-left: 10%;
 	width: 120px;
 	height:70px;
 }
+
+.billetera {
+	position: fixed;
+	top: 30%;
+	width: 4em;
+	height: 10em;
+	background-color: #ffeeae;
+	border-bottom-right-radius: 15px;
+	border-top-right-radius: 15px;
+}
+
+
+.billetera-dinero {
+	display:flex;
+	flex-direction:column;
+	justify-content:center;
+	text-align:center;
+	height: 5em;
+	width: 4;
+}
+.billetera-tiempo{
+	display:flex;
+	flex-direction:column;
+	justify-content:center;
+	text-align:center;
+	height: 5em;
+	width: 4;
+}
+
+.clock-wallet {
+	color: var(--verdeBase);
+	margin-top: 0.5em;
+	height: 2em;
+}
+.coin-wallet {
+margin-top: 0.5em;
+	height: 2em;
+}
+.text-wallet {
+	margin-top: .5em;
+	font-weight: 700;
+	color: var(--verdeBase);
+}
+
