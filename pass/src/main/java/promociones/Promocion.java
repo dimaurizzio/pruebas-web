@@ -1,11 +1,10 @@
 package promociones;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
+import java.sql.SQLException;
+import java.util.*;
 
 import atraccion.Atraccion;
+import dao.AtraccionDAO;
 import ofertable.Ofertable;
 import tipos.Tipo;
 
@@ -117,5 +116,20 @@ public abstract class Promocion implements Ofertable {
 		if (this.getBreveDescripcion() == ""){
 			errors.put("description", "Debe completar la descripcion");
 		}
+	}
+
+	public Integer getLugaresDisponibles() {
+		ArrayList<Integer> lugares = new ArrayList<Integer>();
+		AtraccionDAO atraccionDAO = new AtraccionDAO();
+		ArrayList<Atraccion> atraccioneslist = new ArrayList<Atraccion>();
+
+		try {
+			Atraccion atraccion1 = atraccionDAO.findByAtraccionId(atraccionesDePromo.get(0).getId());
+			Atraccion atraccion2 = atraccionDAO.findByAtraccionId(atraccionesDePromo.get(1).getId());
+			return Math.min(atraccion1.getCupoMaximo(), atraccion2.getCupoMaximo());
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 }

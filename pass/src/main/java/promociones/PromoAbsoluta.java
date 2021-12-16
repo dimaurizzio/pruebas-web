@@ -1,9 +1,11 @@
 package promociones;
 
 import atraccion.Atraccion;
+import dao.AtraccionDAO;
 import ofertable.Ofertable;
 import tipos.Tipo;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -39,15 +41,6 @@ public class PromoAbsoluta extends Promocion implements Ofertable {
 		return this.costoTotal - this.descuento;
 	}
 
-	@Override
-	public Integer getLugaresDisponibles() {
-		ArrayList<Integer> lugares = new ArrayList<Integer>();
-		for (Atraccion atracciones : atraccionesDePromo){
-			lugares.add(atracciones.getLugaresDisponibles());
-		}
-		Collections.sort(lugares);
-		return lugares.indexOf(0);
-	}
 
 	@Override
 	public void setLugaresDisponibles(Integer lugaresDisponibles) {

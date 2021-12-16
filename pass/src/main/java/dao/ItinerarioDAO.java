@@ -3,10 +3,10 @@ package dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;
 
-import atraccion.Atraccion;
 import atraccion.Itinerario;
 import jdbc.ConnectionProvider;
 import ofertable.Ofertable;
@@ -83,39 +83,26 @@ public class ItinerarioDAO {
             throw new MissingDataException(e);
         }
     }
-    
-    public static LinkedList<Atraccion> findBuys(){
-    	
+
+
+    public boolean tieneCompra(int id, Ofertable ofertable) {
         try {
-            String sql = "SELECT * FROM itinerario";
+            String sql = "SELECT * FROM itinerario WHERE id_usuario = ? AND compra = ?";
             Connection conn = ConnectionProvider.getConnection();
             PreparedStatement statement = conn.prepareStatement(sql);
+            statement.setInt(1, id);
+            statement.setString(2, ofertable.getNombre());
             ResultSet resultados = statement.executeQuery();
-            UsuarioDAOImpl usuarioDAO = new UsuarioDAOImpl();
-            LinkedList<Itinerario> itinerarios = new LinkedList<>();
-            while (resultados.next()) {
-                int id = resultados.getInt("id_usuario");
-                String compra = resultados.getString("compra");
-                String nombre = usuarioDAO.findByAtraccionId(id).getNombre();
 
-                if (isRepeated(itinerarios, id) == -1){
-                    Itinerario i = new Itinerario(id, nombre);
-                    i.getCompras().add(compra);
-                    itinerarios.add(i);
-                } else {
-                    for (Itinerario actual : itinerarios){
-                        if (actual.getId().equals(id)){
-                            actual.getCompras().add(compra);
-                        }
-                    }
-                }
+            if (resultados.getString("compra").equals(ofertable.getNombre())){
+                return true;
             }
-            return itinerarios;
-        } catch (Exception e) {
-            throw new MissingDataException(e);
-        }
-    }
 
-    
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return false;
+    }
 }
 

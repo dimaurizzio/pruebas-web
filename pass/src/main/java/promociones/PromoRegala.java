@@ -49,15 +49,6 @@ public class PromoRegala extends Promocion implements Ofertable {
 		return true;
 	}
 
-	@Override
-	public Integer getLugaresDisponibles() {
-		ArrayList<Integer> lugares = new ArrayList<Integer>();
-		for (Atraccion atracciones : atraccionesDePromo){
-			lugares.add(atracciones.getLugaresDisponibles());
-		}
-		Collections.sort(lugares);
-		return lugares.indexOf(0);
-	}
 
 	@Override
 	public void setLugaresDisponibles(Integer lugaresDisponibles) {

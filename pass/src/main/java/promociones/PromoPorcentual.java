@@ -48,15 +48,6 @@ public class PromoPorcentual extends Promocion implements Ofertable {
 		return costoTotal;
 	}
 
-	@Override
-	public Integer getLugaresDisponibles() {
-		ArrayList<Integer> lugares = new ArrayList<Integer>();
-		for (Atraccion atracciones : atraccionesDePromo){
-			lugares.add(atracciones.getLugaresDisponibles());
-		}
-		Collections.sort(lugares);
-		return lugares.indexOf(0);
-	}
 
 	@Override
 	public void setLugaresDisponibles(Integer lugaresDisponibles) {

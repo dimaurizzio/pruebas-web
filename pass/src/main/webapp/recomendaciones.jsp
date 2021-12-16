@@ -194,7 +194,20 @@
                             </tr>
                             </thead>
                             <tbody>
-                            
+							<c:forEach items="${promotions}" var="promotions">
+								<tr>
+									<td><strong>${promotions.nombre}</strong>
+										<p><c:out value="${promotions.breveDescripcion}"></c:out></p></td>
+									<td><c:out value="${promotions.costo}"></c:out>
+									</td>
+									<td><c:out value="${promotions.duracion}"></c:out></td>
+									<td><c:out value="${promotions.lugaresDisponibles}"></c:out></td>
+									<td>
+
+									</td>
+								</tr>
+							</c:forEach>
+
                             <c:forEach items="${attractions}" var="attraction">
                                 <tr>
                                     <td><strong>${attraction.nombre}</strong>

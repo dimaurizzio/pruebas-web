@@ -38,10 +38,10 @@ public class RecomendationServlet extends HttpServlet implements Servlet {
     @Override
     protected void doGet (HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Usuario user = (Usuario) req.getSession().getAttribute("user");
-       // List<Promocion> promocion = recomendationService.iterarPromocion(user);
+        List<Promocion> promocion = recomendationService.iterarPromocion(user);
         List<Atraccion> atraccion = recomendationService.iterarAtraccion(user);
 
-   //     req.setAttribute("promotions", promocion);
+        req.setAttribute("promotions", promocion);
         req.setAttribute("attractions", atraccion);
 
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/recomendaciones.jsp");

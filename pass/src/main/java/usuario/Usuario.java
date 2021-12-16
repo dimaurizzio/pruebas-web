@@ -209,4 +209,13 @@ public class Usuario {
             errors.put("password", "Debe completar la contraseña");
         }
     }
+
+    public boolean compro(Ofertable ofertable) {
+        ItinerarioDAO itinerarioDAO = new ItinerarioDAO();
+        if (itinerarioDAO.tieneCompra(this.id, ofertable)){
+            return true;
+        }else {
+            return false;
+        }
+    }
 }
