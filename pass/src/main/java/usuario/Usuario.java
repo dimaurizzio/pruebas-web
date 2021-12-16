@@ -111,6 +111,7 @@ public class Usuario {
 
             ((Promocion) o).atraccionesDePromo.forEach((atraccion) -> {
                 this.restarCupo(atraccion);
+                ItinerarioDAO.agregarAtraccion(atraccion, atraccion.getId());
             });
 
         } else {
@@ -217,5 +218,10 @@ public class Usuario {
         }else {
             return false;
         }
+    }
+
+    public void addToItinerary(Atraccion attraction) {
+        this.tiempo -= attraction.getDuracion();
+        this.dineroDisponible -= attraction.getCosto();
     }
 }

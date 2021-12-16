@@ -227,6 +227,7 @@ Cosas por hacer:
 						<div class="glider-contain">
 							<div class="glider">
 								<c:forEach items="${attraction}" var="attraction">
+									<c:if test="${!attraction.deleted}">
 									<div>
 										<div class="card-contenedor">
 											<div class="img-contenedor">
@@ -266,6 +267,7 @@ Cosas por hacer:
 											
 										</div>
 									</div>
+									</c:if>
 								</c:forEach>
 
 

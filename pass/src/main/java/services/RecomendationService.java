@@ -9,6 +9,7 @@ import atraccion.Itinerario;
 import comparador.Comparador;
 import dao.DAOFactory;
 import dao.ItinerarioDAO;
+import dao.PromocionDAOimpl;
 import ofertable.Ofertable;
 import promociones.Promocion;
 import usuario.Usuario;
@@ -54,12 +55,22 @@ public class RecomendationService {
     public static boolean puedeComprar(Usuario usuario, Ofertable ofertable, boolean promocion) {
 
         boolean puede = true;
+        PromocionDAOimpl promocionDAOimpl = new PromocionDAOimpl();
+
+
 
         if (usuario.getDineroDisponible() < ofertable.getCosto()) {
             puede = false;
         } else if (usuario.getTiempo() < ofertable.getDuracion()) {
             puede = false;
-        } else if (usuario.compro(ofertable)) {
+        }
+        if (ofertable.esPromocion()){
+            Promocion promo = promocionDAOimpl.buscarPromo(ofertable.getNombre());
+            if (usuario.compro(promo.getAtraccionesDePromo().get(0)) || usuario.compro(promo.getAtraccionesDePromo().get(1))){
+                puede = false;
+            }
+        }
+        if (usuario.compro(ofertable)) {
             puede = false;
         }if (promocion==true){
             if (ofertable.getLugaresDisponibles()<=0){
@@ -106,6 +117,6 @@ public class RecomendationService {
                 promocionesIteradas.add(promocion);
             }
         }
-        return listaPromociones;
+        return promocionesIteradas;
     }
 }

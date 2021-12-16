@@ -17,7 +17,7 @@ import usuario.Usuario;
 public class ItinerarioDAO {
     private Connection conn;
 
-    public static List<Itinerario> findAll(){
+    public static List<Itinerario> findAll() {
         try {
             String sql = "SELECT * FROM itinerario";
             Connection conn = ConnectionProvider.getConnection();
@@ -30,13 +30,13 @@ public class ItinerarioDAO {
                 String compra = resultados.getString("compra");
                 String nombre = usuarioDAO.findByAtraccionId(id).getNombre();
 
-                if (isRepeated(itinerarios, id) == -1){
+                if (isRepeated(itinerarios, id) == -1) {
                     Itinerario i = new Itinerario(id, nombre);
                     i.getCompras().add(compra);
                     itinerarios.add(i);
                 } else {
-                    for (Itinerario actual : itinerarios){
-                        if (actual.getId().equals(id)){
+                    for (Itinerario actual : itinerarios) {
+                        if (actual.getId().equals(id)) {
                             actual.getCompras().add(compra);
                         }
                     }
@@ -48,7 +48,7 @@ public class ItinerarioDAO {
         }
     }
 
-    public static int isRepeated (List<Itinerario> list, int id) {
+    public static int isRepeated(List<Itinerario> list, int id) {
         for (Itinerario actual : list) {
             if (actual.getId().equals(id)) {
                 return actual.getId();
@@ -97,7 +97,7 @@ public class ItinerarioDAO {
             statement.setString(2, ofertable.getNombre());
             ResultSet resultados = statement.executeQuery();
 
-            if (resultados.getString("compra").equals(ofertable.getNombre())){
+            if (resultados.getString("compra").equals(ofertable.getNombre())) {
                 return true;
             }
 
@@ -121,9 +121,9 @@ public class ItinerarioDAO {
             AtraccionDAO atraccionDAO = new AtraccionDAO();
             PromocionDAOimpl promocionDAO = new PromocionDAOimpl();
             while (resultados.next()) {
-                if (promocionDAO.findByName(resultados.getString("compra")) != null){
-                   attractions.add(promocionDAO.buscarPromo(resultados.getString("compra")));
-                }else {
+                if (promocionDAO.findByName(resultados.getString("compra")) != null) {
+                    attractions.add(promocionDAO.buscarPromo(resultados.getString("compra")));
+                } else {
                     attractions.add(atraccionDAO.findByAtraccionName(resultados.getString("compra")));
                 }
             }

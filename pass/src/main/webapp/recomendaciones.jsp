@@ -171,7 +171,22 @@
 						<h3>
 							pensamos <span class="pass-span">como vos</span> 🤭 !
 						</h3>
+						<c:if test="${flash != null}">
+							<div class="alert alert-danger">
+								<p>
+									<c:out value="${flash}" />
+								</p>
+							</div>
+						</c:if>
 					</div>
+					<c:if test="${success != null}">
+						<div class="alert alert-success">
+							<p>
+								<c:out value="${success}" />
+							</p>
+						</div>
+					</c:if>
+					<h4 class="subtitulo">Usted tiene: $${user.dineroDisponible} y ${user.tiempo} horas</h4>
 					<div class="info-container">
 						<div class="info">
 							<span>i</span>
@@ -195,89 +210,42 @@
                             </thead>
                             <tbody>
 							<c:forEach items="${promotions}" var="promotions">
+								<c:if test="${!attraction.deleted}">
 								<tr>
 									<td><strong>${promotions.nombre}</strong>
 										<p><c:out value="${promotions.breveDescripcion}"></c:out></p></td>
-									<td><c:out value="${promotions.costo}"></c:out>
+									<td><c:out value="$${promotions.costo}"></c:out>
 									</td>
-									<td><c:out value="${promotions.duracion}"></c:out></td>
+									<td><c:out value="${promotions.duracion} horas"></c:out></td>
 									<td><c:out value="${promotions.lugaresDisponibles}"></c:out></td>
 									<td>
-
+										<a href="buy?nombre=${promotions.nombre}"
+										class="btn boton-quiero-tabla" role="button"><i
+											class="bi bi-x-circle-fill">Comprar</i></a>
 									</td>
 								</tr>
+							</c:if>
 							</c:forEach>
 
                             <c:forEach items="${attractions}" var="attraction">
-                                <tr>
+								<c:if test="${!attraction.deleted}">
+								<tr>
                                     <td><strong>${attraction.nombre}</strong>
                                         <p><c:out value="${attraction.breveDescripcion}"></c:out></p></td>
-                                    <td><c:out value="${attraction.costo}"></c:out>
+                                    <td><c:out value="$${attraction.costo}"></c:out>
                                     </td>
-                                    <td><c:out value="${attraction.duracion}"></c:out></td>
+                                    <td><c:out value="${attraction.duracion} horas"></c:out></td>
                                     <td><c:out value="${attraction.cupoMaximo}"></c:out></td>
-                                    <td><a data-bs-target="#modalEdit_${attraction.id}" data-bs-toggle="modal"
-                                           class="btn boton-iniciarS" role="button"><i
-                                                class="bi bi-x-circle-fill">Modificar</i></a>
+                                    <td><a href="buy?nombre=${attraction.nombre}"
+										   class="btn boton-quiero-tabla" role="button"><i
+											class="bi bi-x-circle-fill">Comprar</i></a>
                                     </td>
                                 </tr>
-                                <div class="modal fade" id="modalEdit_${attraction.id}" tabindex="-1"
-                                     aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="ModalLabel">Ingrese datos a modificar</h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                        aria-label="Close"></button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <form action="edit" method="get">
-                                                    <input type="hidden" name="id" value="${attraction.id}">
-                                                    <div class="mb-3">
-                                                            ${attraction.nombre}
-                                                    </div>
-                                                    <div class="mb-3">
-                                                        <label for="description" class="col-form-label">Descripcion:</label>
-                                                        <input class="form-control" type="text" id="description"
-                                                               name="description"
-                                                               required value="${attraction.breveDescripcion}"></input>
-                                                    </div>
-                                                    <div class="mb-3">
-                                                        <label for="cost" class="col-form-label">Costo:</label>
-                                                        <input class="form-control" type="number" id="cost" name="cost"
-                                                               required value="${attraction.costo}"></input>
-                                                    </div>
-                                                    <div class="mb-3">
-                                                        <label for="duration" class="col-form-label">Duracion:</label>
-                                                        <input class="form-control" type="number" id="duration"
-                                                               name="duration"
-                                                               required value="${attraction.duracion}"></input>
-                                                    </div>
-                                                    <div class="mb-3">
-                                                        <label for="capacity" class="col-form-label">Cupo:</label>
-                                                        <input class="form-control" type="number" id="capacity"
-                                                               name="capacity"
-                                                               required value="${attraction.cupoMaximo}"></input>
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn boton-quiero-tabla"
-                                                                data-bs-dismiss="modal">
-                                                            Cerrar
-                                                        </button>
-                                                        <button type="submit" class="btn boton-iniciarS">Guardar
-                                                        </button>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+								</c:if>
                             </c:forEach>
-
                             </tbody>
                         </table>
                         </div>
-			
 			</div>
 		</div>
 	</div>

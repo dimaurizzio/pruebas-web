@@ -227,4 +227,6 @@ public class Atraccion implements Ofertable {
 		return true;
 	}
 
+	public void host(int i) {
+	}
 }
