@@ -182,7 +182,101 @@
 					</div>
 				</div>
 			
-			
+			<div class="tabla-contenedor">
+			 <table class="table table-stripped table-hover">
+                            <thead>
+                            <tr>
+                                <th>Atracci&oacute;n</th>
+                                <th>Costo</th>
+                                <th>Duraci&oacute;n</th>
+                                <th>Cupo</th>
+                                <th>Acciones</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            
+                            <c:forEach items="${attractions}" var="attraction">
+                                <tr>
+                                    <td><strong>${attraction.nombre}</strong>
+                                        <p><c:out value="${attraction.breveDescripcion}"></c:out></p></td>
+                                    <td><c:out value="${attraction.costo}"></c:out>
+                                    </td>
+                                    <td><c:out value="${attraction.duracion}"></c:out></td>
+                                    <td><c:out value="${attraction.cupoMaximo}"></c:out></td>
+                                    <td>
+                                        <c:choose>
+                                            <c:when test="${attraction.deleted}">
+                                                <a href="restore?nombre=${attraction.nombre}"
+                                                   class="btn boton-quiero-tabla" role="button"><i
+                                                        class="bi bi-x-circle-fill">Alta</i></a>
+                                            </c:when>
+                                            <c:otherwise>
+                                                <a href="delete?nombre=${attraction.nombre}"
+                                                   class="btn boton-iniciarS" role="button"><i
+                                                        class="bi bi-x-circle-fill">Baja</i></a>
+                                            </c:otherwise>
+                                        </c:choose>
+                                        <a data-bs-target="#modalEdit_${attraction.id}" data-bs-toggle="modal"
+                                           class="btn boton-iniciarS" role="button"><i
+                                                class="bi bi-x-circle-fill">Modificar</i></a>
+                                    </td>
+                                </tr>
+                                <div class="modal fade" id="modalEdit_${attraction.id}" tabindex="-1"
+                                     aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="ModalLabel">Ingrese datos a modificar</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form action="edit" method="get">
+                                                    <input type="hidden" name="id" value="${attraction.id}">
+                                                    <div class="mb-3">
+                                                            ${attraction.nombre}
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label for="description" class="col-form-label">Descripcion:</label>
+                                                        <input class="form-control" type="text" id="description"
+                                                               name="description"
+                                                               required value="${attraction.breveDescripcion}"></input>
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label for="cost" class="col-form-label">Costo:</label>
+                                                        <input class="form-control" type="number" id="cost" name="cost"
+                                                               required value="${attraction.costo}"></input>
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label for="duration" class="col-form-label">Duracion:</label>
+                                                        <input class="form-control" type="number" id="duration"
+                                                               name="duration"
+                                                               required value="${attraction.duracion}"></input>
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label for="capacity" class="col-form-label">Cupo:</label>
+                                                        <input class="form-control" type="number" id="capacity"
+                                                               name="capacity"
+                                                               required value="${attraction.cupoMaximo}"></input>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn boton-quiero-tabla"
+                                                                data-bs-dismiss="modal">
+                                                            Cerrar
+                                                        </button>
+                                                        <button type="submit" class="btn boton-iniciarS">Guardar
+                                                        </button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </c:forEach>
+
+                            </tbody>
+                        </table>
+                        </div>
 			
 			</div>
 		</div>

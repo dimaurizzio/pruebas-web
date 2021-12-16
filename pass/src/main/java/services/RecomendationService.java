@@ -1,6 +1,7 @@
 package services;
 
 import java.util.Collections;
+import java.util.LinkedList;
 import java.util.List;
 
 import atraccion.Atraccion;
@@ -48,17 +49,16 @@ public class RecomendationService {
 		return laCompro;
 	}
 
-	public static boolean puedeComprar(Usuario usuario, Ofertable ofertable) {
+	public static boolean puedeComprar(Usuario usuario, Ofertable  ofertable) {
+	
 		boolean puede = true;
 
 		if (usuario.getDineroDisponible() < ofertable.getCosto()) {
 			puede = false;
 		} else if (usuario.getTiempo() < ofertable.getDuracion()) {
 			puede = false;
-		} else if (yaLaCompro(usuario, ofertable)) {
-			puede = false;
-		} else if (ofertable.getLugaresDisponibles() == 0)
-			puede = false;
+		} 
+		
 		return puede;
 	}
 
@@ -66,17 +66,23 @@ public class RecomendationService {
 
 		AttractionService attractionService = new AttractionService();
 		List<Atraccion> listaAtracciones = attractionService.list();
-
+		
+		LinkedList<Atraccion> atraccionesIteradas = new LinkedList<Atraccion>();
+		
 		listaAtracciones = ordenarListasAtracc(usuario, listaAtracciones);
-
+		
 		for (Atraccion atraccion : listaAtracciones) {
 
-			if (!puedeComprar(usuario, atraccion)) {
-				listaAtracciones.remove(atraccion);
+			if (puedeComprar(usuario, atraccion)) {
+			atraccionesIteradas.add(atraccion);
 			}
 		}
-		return listaAtracciones;
+		return atraccionesIteradas;
 	}
+
+
+
+		
 
 	public List<Promocion> iterarPromocion(Usuario usuario) {
 

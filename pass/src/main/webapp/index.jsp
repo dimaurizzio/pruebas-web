@@ -289,7 +289,7 @@ Cosas por hacer:
 								tí</h4>
 								<c:choose>
 								<c:when test="${user.nombre != null}">
-								<a class="btn boton-quiero" href="recomendaciones.jsp">Quiero!</a>
+								<a class="btn boton-quiero" href="recomendaciones.do">Quiero!</a>
 								</c:when>
 								<c:otherwise>
 								<a class="btn boton-quiero" aria-current="page" href="#" data-bs-toggle="modal"

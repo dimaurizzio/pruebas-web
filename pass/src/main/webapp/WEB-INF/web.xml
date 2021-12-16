@@ -17,5 +17,6 @@
     <filter-mapping>
         <filter-name>loggedFilter</filter-name>
         <url-pattern>/itinerario.do</url-pattern>
+        <url-pattern>/recomendaciones.do</url-pattern>
     </filter-mapping>
 </web-app>
