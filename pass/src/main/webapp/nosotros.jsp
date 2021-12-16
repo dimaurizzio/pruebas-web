@@ -29,8 +29,6 @@
 	integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
 	crossorigin="anonymous" />
 
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-
 <!-- Css -->
 
 <link rel="stylesheet" href="css\main.css" />
@@ -67,11 +65,6 @@
 <!-- Js -->
 
 <script defer src="js\indexJs\script.js"></script>
-
-<script
-    defer src="https://kit.fontawesome.com/a881acabe8.js"
-    crossorigin="anonymous"
-  ></script>
 
 </head>
 
@@ -137,7 +130,7 @@
 		</a>
 		<div class="contenedor">
 			<div class="cursor"></div>
-			<section class="header" id="home">
+			
 				<div class="container">
 					<nav class="navbar navbar-expand-lg navbar-light nav-sticky-hijo">
 						<div class="container-fluid">
@@ -181,20 +174,73 @@
 
 					<!--  end Navbar -->
 
-<a>
-<i class="fas fa-address-card"></i>
-</a>
- <p>Hola</p>
-
 
 					<!--  main content  -->
 
 					<div class="container">
 					
-					<div class="nosotros-container">
+						<div class="nosotros-container">
+							<h2 class="titulo">Somos una empresa con amplia experiencia en el rubro</h2>
+						</div>
+						<br>
+						<div class="row">
+							<div class="col">
+								<p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum mi quis erat venenatis tristique. Duis consectetur, sapien vitae euismod lacinia, ipsum felis tempor augue, a vehicula erat odio sed urna. Mauris rhoncus pellentesque gravida. Nulla semper mauris vitae mauris tempus fermentum. Suspendisse vitae felis placerat, ultricies ante sed, consequat velit. Donec vehicula tristique malesuada. Vestibulum quis sollicitudin orci. Donec tempor nibh elit, eu congue augue mattis in. Curabitur a suscipit nibh. Donec sit amet mattis dolor, at vestibulum sem.
+
+Pellentesque a suscipit lorem. Morbi id turpis fermentum, posuere augue id, fringilla tortor. Suspendisse convallis vel augue vitae hendrerit. Cras in lorem at mi iaculis dictum vel non leo. Vestibulum quis consectetur elit, congue pellentesque est. Nulla facilisi. Ut ut ullamcorper massa, at imperdiet leo. In tempor eros non ligula imperdiet, eu egestas eros malesuada. Sed pellentesque faucibus lorem id faucibus. Proin sed scelerisque risus. Vivamus diam nisl, laoreet sit amet pellentesque non, egestas eu justo. </p>
+							</div>
+							<div class="col">
+								<img alt="Parque temático de Shrek" src="img\icons\shrekparque.jpg" style="width:40vw;">
+							</div>
+						</div>
+					<br>
 					
+					<div>
+						<div class="row">
+							<div class="col">
+								<div class="card" style="width: 18rem;">
+  									<img src="img\3-card.png" class="card-img-top" alt="...">
+ 									 <div class="card-body">
+    									<h5 class="card-title">Fede Gasior</h5>
+    									<p class="card-text">Bastante piola, le faltan un par de detalles. Ah, y la página está bien.</p>
+    									<br>
+    									<p>Puntuación: </p>
+    									<div class="progress">
+  										<div class="progress-bar" role="progressbar" style="width: 90%;" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">90%</div>
+										</div>
+  									</div>
+								</div>
+							</div>
+							<div class="col">
+								<div class="card" style="width: 18rem;">
+  									<img src="img\1-card.png" class="card-img-top" alt="...">
+ 									 <div class="card-body">
+    									<h5 class="card-title">El Leo Blau</h5>
+    									<p class="card-text">Digamos que para lo que se pidió, cumple. Este parque podría estar mejor.</p>
+    									<br>
+    									<p>Puntuación: </p>
+    									<div class="progress">
+  										<div class="progress-bar" role="progressbar" style="width: 75%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">75%</div>
+										</div>		
+    								</div>
+								</div>
+							</div>
+							<div class="col">
+								<div class="card" style="width: 18rem;">
+  									<img src="img\1-card.png" class="card-img-top" alt="...">
+ 									 <div class="card-body">
+    									<h5 class="card-title">Lucas Vid</h5>
+    									<p class="card-text">Buen precio. Le falta Spring.</p>
+    									<br>
+    									<p>Puntuación: </p>
+    									<div class="progress">
+  										<div class="progress-bar" role="progressbar" style="width: 65%;" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100">65%</div>
+										</div>
+  									</div>
+								</div>
+							</div>
+						</div>
 					</div>
-					
 					</div>
 				</div>
 </body>
