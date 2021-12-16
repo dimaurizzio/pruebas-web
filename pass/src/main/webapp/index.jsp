@@ -181,11 +181,12 @@ Cosas por hacer:
 											aria-labelledby="navbarScrollingDropdown">
 											<li><a class="dropdown-item" href="itinerario.jsp">Itinerario</a>
 											</li>
+											
+											<c:if test="${user.admin}">
 											<li>
 												<hr class="dropdown-divider" />
 											</li>
-											<c:if test="${user.admin}">
-												<li><a class="dropdown-item " href="panelDeControl.do">Alta
+												<li><a class="dropdown-item" href="panelDeControl.do">Alta
 														y baja</a></li>
 											</c:if>
 										</ul></li>
@@ -279,8 +280,30 @@ Cosas por hacer:
 						</div>
 
 					</div>
+					<div class="row titular">
+						<div class="col-8 titulo mt-0">
+							<h3>
+								en muy <b>muy lejano</b>...
+							</h3>
+							<h4 class="subtitulo">Tenemos destinos personalizados para
+								tí</h4>
+								<c:choose>
+								<c:when test="${user.nombre != null}">
+								<a class="btn boton-quiero" href="recomendaciones.jsp">Quiero!</a>
+								</c:when>
+								<c:otherwise>
+								<a class="btn boton-quiero" aria-current="page" href="#" data-bs-toggle="modal"
+												data-bs-target="#exampleModal">Quiero!</a>
+								</c:otherwise>
+								</c:choose>
+							
+						</div>
 					</div>
+					</div>
+						
 			</section>
+			
+		
 
 
 		</div>
