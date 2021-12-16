@@ -158,6 +158,8 @@
 													</li>
 													<li><a class="dropdown-item"
 														href="personalItinerary.do">Itinerario</a></li>
+													<li class="nav-item"><a class="dropdown-item"
+														href="recomendaciones.do">Quiero!</a></li>
 													<li>
 														<hr class="dropdown-divider" />
 													</li>
@@ -183,7 +185,8 @@
 
 							<div class="boton-container">
 								<a data-bs-target="#modalCreate" data-bs-toggle="modal"
-									class="btn boton-accion" role="button">New<i class="ms-2 bi bi-file-earmark-plus font-size"></i></a>
+									class="btn boton-accion" role="button">New<i
+									class="ms-2 bi bi-file-earmark-plus font-size"></i></a>
 							</div>
 
 
@@ -211,16 +214,17 @@
 											<td><c:choose>
 													<c:when test="${attraction.deleted}">
 														<a href="restore?nombre=${attraction.nombre}"
-															class="btn boton-accion-tabla" role="button"><i class="bi bi-file-earmark-arrow-up font-size"></i></a>
+															class="btn boton-accion-tabla" role="button"><i
+															class="bi bi-file-earmark-arrow-up font-size"></i></a>
 													</c:when>
 													<c:otherwise>
 														<a href="delete?nombre=${attraction.nombre}"
-															class="btn boton-accion-tabla" role="button"><i class="bi bi-file-earmark-arrow-down font-size"></i></a>
+															class="btn boton-accion-tabla" role="button"><i
+															class="bi bi-file-earmark-arrow-down font-size"></i></a>
 													</c:otherwise>
 												</c:choose> <a data-bs-target="#modalEdit_${attraction.id}"
 												data-bs-toggle="modal" class="btn boton-accion-tabla"
-												role="button"><i class="bi bi-gear font-size"></i></a>
-											</td>
+												role="button"><i class="bi bi-gear font-size"></i></a></td>
 										</tr>
 										<div class="modal fade" id="modalEdit_${attraction.id}"
 											tabindex="-1" aria-labelledby="exampleModalLabel"

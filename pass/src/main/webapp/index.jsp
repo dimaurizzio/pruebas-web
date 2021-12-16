@@ -155,8 +155,8 @@ Cosas por hacer:
 									<li class="nav-item"></li>
 									<c:choose>
 										<c:when test="${user.nombre != null}">
-											<li><a type="button" href="logout"
-												class="iniciar-sesion">Cerrar Sesión</a></li>
+											<li class="nav-item"><a class="iniciar-sesion"
+												href="recomendaciones.do">Quiero!</a></li>
 										</c:when>
 										<c:otherwise>
 											<li class="nav-item"><a class="iniciar-sesion"
@@ -164,6 +164,7 @@ Cosas por hacer:
 												data-bs-target="#exampleModal">Iniciar Sesión</a></li>
 										</c:otherwise>
 									</c:choose>
+
 									<li class="nav-item"><a class="nav-link nav-a"
 										href="nosotros.jsp">Nosotros</a></li>
 									<li class="nav-item dropdown"><a
@@ -173,22 +174,35 @@ Cosas por hacer:
 										<ul class="dropdown-menu dropdown-menu-end"
 											aria-labelledby="navbarScrollingDropdown">
 											<c:choose>
-											<c:when test="${user.nombre != null}"><li><a class="dropdown-item" href="personalItinerary.do">Itinerario</a>
-											</li></c:when>
-											<c:otherwise>
-											<li><a class="dropdown-item" aria-current="page" href="#" data-bs-toggle="modal"
-												data-bs-target="#exampleModal">Itinerario</a>
-											</li>
-											</c:otherwise></c:choose>
-											
-											
-											<c:if test="${user.admin}">
-											<li>
-												<hr class="dropdown-divider" />
-											</li>
-												<li><a class="dropdown-item" href="panelDeControl.do">Alta
-														y baja</a></li>
-											</c:if>
+												<c:when test="${user.nombre != null}">
+													<li><a class="dropdown-item"
+														href="personalItinerary.do">Itinerario</a></li>
+													<c:if test="${user.admin}">
+														<li>
+															<hr class="dropdown-divider" />
+														</li>
+														<li><a class="dropdown-item" href="panelDeControl.do">Alta
+																y baja</a></li>
+													</c:if>
+													<li>
+														<hr class="dropdown-divider" />
+													</li>
+													<li><a type="button" href="logout"
+														class="dropdown-item">Cerrar Sesión</a></li>
+												</c:when>
+												<c:otherwise>
+													<li><a class="dropdown-item" aria-current="page"
+														href="#" data-bs-toggle="modal"
+														data-bs-target="#exampleModal">Itinerario</a></li>
+												</c:otherwise>
+											</c:choose>
+
+
+
+
+
+
+
 										</ul></li>
 								</ul>
 							</div>
@@ -212,9 +226,9 @@ Cosas por hacer:
 								<a data-aos="fade-down" data-aos-duration="1000"
 									class="btn boton-destinos" href="#Destinos">destinos</a>
 							</div>
-							
-								<img class="img" src="img\shrek-bg.png">
-							
+
+							<img class="img" src="img\shrek-bg.png">
+
 						</div>
 					</div>
 				</div>
@@ -234,56 +248,60 @@ Cosas por hacer:
 							<div class="glider">
 								<c:forEach items="${attraction}" var="attraction">
 									<c:if test="${!attraction.deleted}">
-									<div>
-										<div class="card-contenedor">
-											<div class="img-contenedor">
-												<img class="img-card" src="img\1-card.png" />
-											</div>
-											<div class="titulo-contenedor">
-												<p class="titulo-carta">${attraction.nombre}</p>
-											</div>
-											<div class="valores-contenedor">
-												<div class="valor-i">
-													<img class="coin" src="img\coin.svg" />
+										<div>
+											<div class="card-contenedor">
+												<div class="img-contenedor">
+													<img class="img-card" src="img\1-card.png" />
 												</div>
-												<span class="valor">${attraction.costo}u</span>
-											</div>
-											<div class="valores-contenedor tiempo">
-												<div class="valor-i">
-													<img class="clock" src="img\clock.svg" />
+												<div class="titulo-contenedor">
+													<p class="titulo-carta">${attraction.nombre}</p>
 												</div>
-												<span class="valor">${attraction.duracion}hs</span>
+												<div class="valores-contenedor">
+													<div class="valor-i">
+														<img class="coin" src="img\coin.svg" />
+													</div>
+													<span class="valor">${attraction.costo}u</span>
+												</div>
+												<div class="valores-contenedor tiempo">
+													<div class="valor-i">
+														<img class="clock" src="img\clock.svg" />
+													</div>
+													<span class="valor">${attraction.duracion}hs</span>
+												</div>
+												<c:if test="${attraction.tipo == 'LOCURA'}">
+													<div class="categoria-i">
+														<img src="img\cat-locura.png" />
+													</div>
+												</c:if>
+												<c:if test="${attraction.tipo == 'ACCION'}">
+													<div class="categoria-i">
+														<img src="img\cat-aventura.png" />
+													</div>
+												</c:if>
+												<c:if test="${attraction.tipo == 'BANQUETES'}">
+													<div class="categoria-i">
+														<img src="img\cat-degustacion.png" />
+													</div>
+												</c:if>
+												<c:if test="${attraction.tipo == 'TERROR'}">
+													<div class="categoria-i">
+														<img src="img\cat-locura.png" />
+													</div>
+												</c:if>
+
 											</div>
-										<c:if test="${attraction.tipo == 'LOCURA'}">
-										<div class="categoria-i">
-												<img src="img\cat-locura.png" />
-											</div></c:if>
-										<c:if test="${attraction.tipo == 'ACCION'}">
-										<div class="categoria-i">
-												<img src="img\cat-aventura.png" />
-											</div></c:if>
-											<c:if test="${attraction.tipo == 'BANQUETES'}">
-										<div class="categoria-i">
-												<img src="img\cat-degustacion.png" />
-											</div></c:if>
-											<c:if test="${attraction.tipo == 'TERROR'}">
-										<div class="categoria-i">
-												<img src="img\cat-locura.png" />
-											</div></c:if>
-											
 										</div>
-									</div>
 									</c:if>
 								</c:forEach>
 
 
 
 
-								
+
 							</div>
 							<button aria-label="Previous" class="glider-prev"><</button>
-								<button aria-label="Next" class="glider-next">></button>
-								<div role="tablist" class="dots"></div>
+							<button aria-label="Next" class="glider-next">></button>
+							<div role="tablist" class="dots"></div>
 						</div>
 
 					</div>
@@ -294,31 +312,31 @@ Cosas por hacer:
 							</h3>
 							<h4 class="subtitulo">Tenemos destinos personalizados para
 								tí</h4>
-								<c:choose>
+							<c:choose>
 								<c:when test="${user.nombre != null}">
-								<a class="btn boton-quiero" href="recomendaciones.do">Quiero!</a>
+									<a class="btn boton-quiero" href="recomendaciones.do">Quiero!</a>
 								</c:when>
 								<c:otherwise>
-								<a class="btn boton-quiero" aria-current="page" href="#" data-bs-toggle="modal"
-												data-bs-target="#exampleModal">Quiero!</a>
+									<a class="btn boton-quiero" aria-current="page" href="#"
+										data-bs-toggle="modal" data-bs-target="#exampleModal">Quiero!</a>
 								</c:otherwise>
-								</c:choose>
-							
+							</c:choose>
+
 						</div>
 					</div>
-					</div>
-						
-			</section>
-			
-		
+				</div>
 
-<footer>
-		
-		<div class="footer"></div>
-		
-		</footer>
+			</section>
+
+
+
+			<footer>
+
+				<div class="footer"></div>
+
+			</footer>
 		</div>
-		
+
 	</div>
 </body>
 </html>
