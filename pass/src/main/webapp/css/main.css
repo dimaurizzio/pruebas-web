@@ -376,6 +376,14 @@ p {
   transform: translateY(2px);
 }
 
+.boton-descargar:hover {
+  color: var(--amarilloBase);
+  background-color: var(--verdeBase);
+  box-shadow: 3px 5px 0px 1.5px var(--amarilloBase);
+  height: 2.7rem;
+  transform: translateY(2px);
+}
+
 .img {
   position: absolute;
   bottom: 0;
@@ -729,8 +737,8 @@ section {
 #btnCrearPdf{
 	padding: 0;
 	margin-left: 10%;
-	width: 120px;
-	height:70px;
+	width: 7em;
+	height:2em;
 }
 
 .billetera {

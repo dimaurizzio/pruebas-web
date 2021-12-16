@@ -200,7 +200,7 @@
                                             </c:otherwise>
                                         </c:choose>
                                         <a data-bs-target="#modalEditUser_${users.id}" data-bs-toggle="modal"
-                                           class="btn boton-accion-tabla" role="button"><i class="bi bi-gear font-size"></i</a>
+                                           class="btn boton-accion-tabla" role="button"><i class="bi bi-gear font-size"></i></a>
                                     </td>
                                 </tr>
                                 <div class="modal fade" id="modalEditUser_${users.id}" tabindex="-1"

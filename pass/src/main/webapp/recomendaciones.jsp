@@ -225,8 +225,7 @@
 										<td><c:out value="${promotions.duracion} hs"></c:out></td>
 										<td><c:out value="${promotions.lugaresDisponibles}"></c:out></td>
 										<td><a href="buy?nombre=${promotions.nombre}"
-											class="btn boton-quiero-tabla" role="button"><i
-												class="bi bi-x-circle-fill">Comprar</i></a></td>
+											class="btn boton-quiero-tabla" role="button">Comprar</a></td>
 									</tr>
 								</c:if>
 							</c:forEach>
@@ -242,11 +241,11 @@
 										<td><c:out value="${attraction.duracion} hs"></c:out></td>
 										<td><c:out value="${attraction.cupoMaximo}"></c:out></td>
 										<td><a href="buy?nombre=${attraction.nombre}"
-											class="btn boton-quiero-tabla" role="button"><i
-												class="bi bi-x-circle-fill">Comprar</i></a></td>
+											class="btn boton-quiero-tabla" role="button">Comprar</a></td>
 									</tr>
 								</c:if>
 							</c:forEach>
+							
 						</tbody>
 					</table>
 				</div>

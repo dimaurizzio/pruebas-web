@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+		 pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -44,7 +44,6 @@
 <script defer src="https://code.jquery.com/jquery-3.6.0.min.js"
 	integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
 	crossorigin="anonymous"></script>
-	
 <script defer src="js\indexJs\script.js"></script>
 
 <script type="text/javascript" defer
@@ -55,6 +54,7 @@
 <script type="text/javascript" defer src="js\itinerarioJs\climaJs\clima.js"></script>
 <script type="text/javascript" defer src="js\itinerarioJs\climaJs\hora.js"></script>
 
+
 </head>
 
 <body>
@@ -63,10 +63,8 @@
 	</div>
 
 	<div class="container-fluid">
-
-		<div class="contenedor">
-			<div class="container"> 
-				<nav class="navbar navbar-expand-lg navbar-light ">
+				<div class="container viewport">
+					<nav class="navbar navbar-expand-lg navbar-light ">
 						<div class="container-fluid">
 							<a class="logo" href="index.do">muy lejano <span
 								class="logo-span">PASS</span>
@@ -138,12 +136,67 @@
 							</div>
 						</div>
 					</nav>
+					
+					<div id="containergeneral-estilosclima container"
+							class="container">
+							<div id="contenedor-clima" class="row">
+								<div id="caja1" class="col-3">
+									<p id="ubicacion"></p>
+									<img id="icono-animado" src='' alt="" height="128" width="128">
+								</div>
+								<div id="caja2" class="col-3">
+									<p id="temperatura-valor"></p>
+									<p id="temperatura-descripcion"></p>
+								</div>
+								<div id="caja3" class="col-3">
+									<p>Velocidad del viento</p>
+									<p id="viento-velocidad"></p>
+								</div>
+								<div id="caja4" class="col-3">
+									<p>Hora</p>
+									<p id="hora"></p>
+								</div>
+							</div>
+						</div>
+					
+					<div class="itinerario">
+						<p class="titulo-itinerario">Su itinerario</p>
+					</div>
 
-		<!--  MAIN CONTENT  -->
-			
-			<p class="titulo mb-5">su <span class="pass-span"> itinerario</span></p>
-			
-			<div class="accordion accordion-flush" id="accordionFlushExample">
+					<div class="accordion accordion-flush" id="accordionFlushExample">
+						<div class="accordion-item">
+							<h2 class="accordion-header" id="flush-headingOne">
+								<button class="accordion-button collapsed" type="button"
+									data-bs-toggle="collapse" data-bs-target="#flush-collapseOne"
+									aria-expanded="false" aria-controls="flush-collapseOne">
+									<div class="accordion-data row">
+										<div class="col-6 nombre-atraccion">
+											<p>Nombre de la actividad que compró el usuario (Por ej:
+												El Calabozo)</p>
+										</div>
+										<div class="col-3 clock-in-accordion">
+											<img class="clock" src="img\clock.svg" /> Duración
+										</div>
+										<div class="col-3 coin-in-accordion">
+											<img class="coin" src="img\coin.svg" /> Costo
+										</div>
+									</div>
+								</button>
+							</h2>
+							<div id="flush-collapseOne" class="accordion-collapse collapse"
+								aria-labelledby="flush-headingOne"
+								data-bs-parent="#accordionFlushExample">
+								<div class="container">
+									<div class="row">
+										<div class="col-12">
+											<div class="accordion-body descripcion-accordion">Descripción
+												de la atracción</div>
+										</div>
+
+									</div>
+								</div>
+							</div>
+						</div>
 						<c:forEach items="${itinerary}" var="itinerary">
 						<div class="accordion-item">
 							<h2 class="accordion-header" id="flush-headingThree">
@@ -176,49 +229,21 @@
 							</div>
 						</div>
 						</c:forEach>
-						<!-- <button class="btn boton-destinos" id="btnCrearPdf">Descargar</button>  -->
-					</div>
-			
-			
-			
-			<div id="containergeneral-estilosclima" class="container justify-content-center mt-5">
-					<div id="contenedor-clima" class="row clima-container align-items-center">
-
-						<div id="caja2" class="col item-clima">
-							<p id="ubicacion"></p>
-							<img id="icono-animado" src='' alt="" height="100" width="100">
-						</div>
-
-
-						<div id="caja1" class="col">
-							<p id="temperatura-valor"></p>
-							<p id="temperatura-descripcion"></p>
-						</div>
-
-
-						<div id="caja3" class="col">
-							<p>Velocidad del viento</p>
-							<p id="viento-velocidad"></p>
-						</div>
-
-
-						<div id="caja4" class="col-1 last-col">
-							<p>Hora</p>
-							<p id="hora"></p>
-
-						</div>
+						<button class="btn boton-destinos" id="btnCrearPdf">Descargar</button>
 					</div>
 				</div>
-		</div>
-
 			</div>
-			
-			
+		<footer>
+		
+		<div class="footer"></div>
+		
+		</footer>
+	
+
+	
 
 
+	
 
-
-		<footer></footer>
-		</div>
 </body>
 </html>
