@@ -332,7 +332,46 @@ Cosas por hacer:
 
 			<footer>
 
-				<div class="footer"></div>
+				<div class="footer">
+				<div class="row">
+				<div class="col">
+					<p>Andrada, Tomás</p>
+   					<a href="www.linkedin.com/in/tomas-agustin-andrada-74a1a61a3" target="_blank" class="btn btn-primary">
+    				<i class="bi bi-linkedin"></i>
+    				</a>
+    				<a href="https://github.com/TomasAndrada" target="_blank" class="btn btn-primary">
+    				<i class="bi bi-github"></i>
+    				</a>
+    				<a href="mailto:tomasandrada1012@gmail.com" target="_blank" class="btn btn-primary">
+    				<i class="bi bi-envelope"></i>
+    				</a>
+   				</div>
+   				<div class="col">
+   					<p>De Maurizio, Cesar</p>
+   					<a href="https://www.linkedin.com/in/" target="_blank" class="btn btn-primary">
+    				<i class="bi bi-linkedin"></i>
+    				</a>
+    				<a href="https://github.com/dimaurizzio" target="_blank" class="btn btn-primary">
+    				<i class="bi bi-github"></i>
+    				</a>
+    				<a href="mailto:" target="_blank" class="btn btn-primary">
+    				<i class="bi bi-envelope"></i>
+    				</a>
+   				</div>
+   				<div class="col">
+   					<p>González, Gustavo Antonio</p>
+   					<a href="https://www.linkedin.com/in/gustavo-antonio-gonz%C3%A1lez/" target="_blank" class="btn btn-primary">
+    				<i class="bi bi-linkedin"></i>
+    				</a>
+    				<a href="https://github.com/Gustavo27Gonzalez" target="_blank" class="btn btn-primary">
+    				<i class="bi bi-github"></i>
+    				</a>
+    				<a href="mailto:gustavo27gonzalez27@gmail.com" target="_blank" class="btn btn-primary">
+    				<i class="bi bi-envelope"></i>
+    				</a>
+   				</div>
+   				</div>
+				</div>
 
 			</footer>
 		</div>
